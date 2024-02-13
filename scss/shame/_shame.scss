@@ -1,0 +1,14 @@
+
+// Overrides and hacks
+
+.img-fluid,
+.post-thumbnail img {
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	pointer-events: none;
+}
+
+.test-class {
+	background-origin: padding-box;
+	border: 1px solid #000;
+}

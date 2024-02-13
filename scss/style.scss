@@ -1,0 +1,42 @@
+/*!
+Theme Name: liga-de-debate
+Theme URI: https://www.funiber.org/
+Author: Erika Ávila
+Author URI: https://www.funiber.org/
+Description: A customized theme for ligaDebate project
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: ligaDebate
+*/
+
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/placeholders';
+
+@import 'base/base';
+
+@import 'components/system';
+@import 'components/components';
+
+@import 'utilities/utilities';
+
+@import 'layout/accessibility';
+@import 'layout/alignments';
+@import 'layout/footer';
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/navigation';
+@import 'layout/overrides';
+@import 'layout/sidebar';
+
+@import 'pages/home';
+@import 'pages/blog';
+@import 'pages/search';
+@import 'pages/ejercicios';
+@import 'pages/faqs';
+
+@import 'vendors/vendors';
+
+@import 'shame/shame';

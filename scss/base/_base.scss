@@ -1,0 +1,80 @@
+body {
+  font-family: $font-family;
+  font-size: 13px;
+  color: $font-color;
+  line-height: 1.75;
+  letter-spacing: .2px;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family;
+  font-weight: 400;
+}
+
+.h3 {
+  text-align: left !important;
+}
+
+h1, .h1 {
+  font-size: 25px;
+  color: $theme-primary;
+}
+
+h2, .h2 {
+  font-size: 18px;
+  color: $gray;
+}
+
+h3, .h3 {
+  font-size: 16px;
+  color: $cyan;
+}
+
+h4, .h4 {
+  font-size: 14px;
+}
+
+h5, .h5 {
+  font-size: 13px;
+}
+
+h6, .h6 {
+  font-size: 13px;
+}
+
+a {
+  color: $font-color;
+}
+
+a:hover{
+  color: $font-color;
+  text-decoration: none;
+}
+
+p {
+  margin-bottom: .5rem;
+}
+
+ul {
+  padding-left: 15px;
+}
+
+dd, dt {
+  line-height: 2;
+}
+
+img {
+  transition: all .3s ease-in-out;
+}
+footer p {
+  margin-bottom: .25rem;
+}
+
+footer {
+  font-size: 11px;
+}
+
+blockquote {
+  font-size: inherit;
+  border-color: lighten($theme-primary, 85%);
+}

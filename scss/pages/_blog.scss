@@ -1,0 +1,52 @@
+// Blog Styles
+
+.blog {
+  .entry-content {
+    margin-bottom: 15px;
+    p {
+      margin-bottom: 0.2rem !important;
+      font-size: 12px;
+      line-height: 1.1rem;
+      color: $gray;
+    }
+  }
+}
+/*.post-template-default .site-content{
+  display: flex;
+  justify-content: space-between;
+}
+.post-template-default .content-area{
+  margin-left: 18.5rem;
+  margin-right: 2rem;
+}
+.post-template-default .widget-area{
+  margin-right: 11.1rem;
+  li{
+    margin-bottom: 0.5rem;
+  }
+  .widget-title{
+    text-align: center;
+  }
+}
+.post-template-default .entry-meta{
+  position: relative;
+  bottom: 100px;
+}
+.post-template-default .entry-title{
+  margin-top: 3.5rem;
+}
+.post-template-default .site-content{
+  margin-top: 1rem;
+}
+.post-template-default .post-thumbnail img{
+  width: -webkit-fill-available;
+}
+.post-template-default .entry-content{
+  margin-top: 4rem;
+}
+*/
+.post-template-default .site-footer{
+  width: -moz-available;
+  width: -webkit-fill-available;
+}
+

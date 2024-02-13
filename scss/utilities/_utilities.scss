@@ -1,0 +1,287 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// Colors
+.color-primary {
+  color: $theme-primary !important;
+}
+.color-primary-light {
+  color: $light-primary !important;
+}
+.color-white {
+  color: white !important;
+}
+.color-secondary {
+  color: $theme-secondary !important;
+}
+.color-secondary-light {
+  color: $light-secondary !important;
+}
+.color-gray {
+  color: $gray !important;
+}
+.color-gray-light {
+  color: $gray-light !important;
+}
+.color-gray-lighten {
+  color: $gray-lighten !important;
+}
+.color-gray-dark {
+  color: $gray-dark !important;
+}
+.color-gray-darken {
+  color: $gray-darken !important;
+}
+.color-dimgray {
+  color: $gray-text !important;
+}
+.color-silver-light {
+  color: $silver-light !important;
+}
+.color-text {
+  color: $font-color;
+}
+
+.color-green {
+  color: $green !important;
+}
+.color-yellow {
+  color: $yellow !important;
+}
+.color-cyan {
+  color: $cyan !important;
+}
+.color-light-red {
+  color: $light-red !important;
+}
+.color-orange {
+  color: $orange !important;
+}
+.color-pastel-green {
+  color: $pastel-green !important;
+}
+.color-pastel-red {
+  color: $pastel-red !important;
+}
+.color-pastel-purple {
+  color: $pastel-purple !important;
+}
+
+
+// Backgrounds
+.bg-primary {
+  background-color: $theme-primary !important;
+}
+.bg-primary-light {
+  background-color: $light-primary !important;
+}
+.bg-secondary {
+  background-color: $theme-secondary !important;
+}
+.bg-secondary-light {
+  background-color: $light-secondary !important;
+}
+.bg-gray {
+  background-color: $gray !important;
+}
+.bg-gray-light {
+  background-color: $gray-light !important;
+}
+.bg-gray-lighten {
+  background-color: $gray-lighten !important;
+}
+.bg-gray-dark {
+  background-color: $gray-dark !important;
+}
+.bg-gray-darken {
+  background-color: $gray-darken !important;
+}
+.bg-dimgray {
+  background-color: $gray-text !important;
+}
+.bg-silver-light {
+  background-color: $silver-light !important;
+}
+
+.bg-white-op-50 {
+  background-color: rgba(white, .5);
+}
+.bg-success {
+  background-color: #dff0d8 !important;
+}
+.bg-danger {
+  background-color: #f2dede !important;
+}
+.bg-info {
+  background-color: #d9edf7 !important;
+}
+.bg-warning {
+  background-color: #fcf8e3 !important;
+}
+
+.bg-green {
+  background-color: $green !important;
+}
+.bg-yellow {
+  background-color: $yellow !important;
+}
+.bg-light-red {
+  background-color: $light-red !important;
+}
+.bg-orange {
+  background-color: $orange !important;
+}
+.bg-light-blue {
+  background-color: $light-blue !important;
+}
+.bg-light-green {
+  background-color: $light-green !important;
+}
+
+
+.bg-facebook {
+  background-color: $facebook !important;
+}
+.bg-pastel-green {
+  background-color: $pastel-green !important;
+}
+.bg-pastel-red {
+  background-color: $pastel-red !important;
+}
+.bg-pastel-purple {
+  background-color: $pastel-purple !important;
+}
+
+// Borders
+.border-color {
+  &-primary {
+    border-color: $theme-primary;
+  }
+  &-secondary {
+    border-color: $theme-secondary;
+  }
+  &-gray {
+    border-color: $gray;
+  }
+  &--light-red {
+    border-color: $light-red;
+  }
+  &--orange {
+    border-color: $orange;
+  }
+  &--yellow {
+    border-color: $yellow;
+  }
+  &--pastel-green {
+    border-color: $pastel-green;
+  }
+  &--pastel-cyan {
+    border-color: $pastel-cyan;
+  }
+}
+.border-dashed {
+  border-style: dashed !important;
+}
+.border-dashed-bottom {
+  border-bottom: 1px dashed #dee2e6!important;
+}
+.border-2px {
+  border-width: 2px;
+  border-style: solid;
+}
+.border-3px {
+  border-width: 3px;
+  border-style: solid;
+}
+.border-5px {
+  border-width: 5px;
+  border-style: solid;
+}
+
+.border-bottom-5px {
+  border-width: 0 0 5px 0;
+  border-style: solid;
+}
+.border-left-thick-solid {
+  border-left: 2px solid $gray-text !important;
+}
+
+// Font size
+.fz-10 {
+  font-size: 10px !important;
+}
+.fz-11 {
+  font-size: 11px !important;
+}
+.fz-12 {
+  font-size: 12px !important;
+}
+.fz-13 {
+  font-size: 13px !important;
+}
+.fz-14 {
+  font-size: 14px !important;
+}
+.fz-15 {
+  font-size: 15px !important;
+}
+.fz-16 {
+  font-size: 16px !important;
+}
+.fz-17 {
+  font-size: 17px !important;
+}
+.fz-18 {
+  font-size: 18px !important;
+}
+.fz-19 {
+  font-size: 19px !important;
+}
+.fz-20 {
+  font-size: 20px !important;
+}
+.fz-30 {
+  font-size: 30px !important;
+}
+.fz-40 {
+  font-size: 40px !important;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+.lh-none {
+  line-height: 0 !important;
+}
+.lh-1 {
+  line-height: 1.5 !important;
+}
+
+// Effects
+.fx-rotate {
+  transform: rotate(0);
+  transition: all .4s ease-in-out;
+}
+.fx-rotate-180 {
+  transform: rotate(180deg);
+}
+
+
+
+// Indents
+.icon-indent {
+  text-indent: -9px;
+  margin-left: 18px;
+}
+.icon-indent-sm {
+  text-indent: -7px;
+  margin-left: 15px;
+}

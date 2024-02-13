@@ -1,0 +1,36 @@
+// Bootstrap Override
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// Navs
+
+// Cards
+
+// Pagination
+.page-link {
+	color: $theme-primary;
+}
+.page-item.active .page-link {
+    background-color: $theme-primary;
+    border-color: $theme-primary;
+}
+
+// Buttons
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+	background-color: mix(black, $theme-primary, 15%);
+	border-color: mix(black, $theme-primary, 15%);
+}
+.navbar-nav {
+	.nav-link{
+		.active {
+			font-weight: 800;
+		}
+	}
+
+
+	
+}
+
+

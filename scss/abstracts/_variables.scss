@@ -1,0 +1,38 @@
+// Fonts
+$font-color: #333333;
+$font-family: 'Muli', sans-serif;
+
+// Theme Colors
+$theme-primary: #337ab7;
+$theme-secondary: #58595b;
+
+$gray: #757575;
+$gray-light: #cccccc;
+$gray-lighten: #eff4f7;
+$gray-dark: #333333;
+$gray-darken:#575757;
+$gray-text: #58595b;
+$silver-light: #f8f8f8;
+
+$green: #b5d56a;
+$yellow: #fcbd01;
+$orange: #f8643b;
+$cyan: #289fd2;
+$light-cyan: #9BCADE;
+$light-red: #ea7066;
+$light-blue: #f5f8fd;
+$light-green: #eaf5f5;
+
+$pastel-green: #98cecd;
+$pastel-cyan: #84bed6;
+$pastel-red: #f1a1a8;
+$pastel-purple: #c2a7cd;
+
+$facebook: #3B5998;
+$cta-orange: #f47b18;
+
+$light-primary: mix(white, $theme-primary,  94%);
+$light-secondary: mix(white, $theme-secondary,  94%);
+
+// Borders
+$border-radius: calc(.25rem - 1px);

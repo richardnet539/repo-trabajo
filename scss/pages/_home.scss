@@ -1,0 +1,15 @@
+// Home Styles
+
+.widget-home-banner {
+	img {
+		position: relative;
+		height: 350px !important;
+		max-width: 1920px !important;
+		width: auto;
+		@include breakpoint_md {
+			height: 250px !important;
+			right: calc(125% - 25px);
+		}
+	}
+}
+

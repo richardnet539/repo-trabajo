@@ -1,0 +1,213 @@
+
+// Breakpoints
+@mixin breakpoint_xl() {
+    @media (max-width: 1199.98px) {
+        @content;
+    }
+}
+@mixin breakpoint_lg() {
+    @media (max-width: 991.98px) {
+        @content;
+    }
+}
+
+@mixin breakpoint_min_lg() {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin breakpoint_md() {
+    @media (max-width: 767.98px) {
+        @content;
+    }
+}
+
+@mixin breakpoint_min_md() {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin breakpoint_sm() {
+    @media (max-width: 575.98px) {
+        @content;
+    }
+}
+
+@mixin breakpoint_min_sm() {
+    @media (min-width: 576px) {
+        @content;
+    }
+}
+
+
+// Border
+@mixin box_color($color) {
+  background-color: $color;
+  border-color: mix(white, $color, 40%);
+}
+
+// Buttons
+@mixin btn_default($color) {
+    background-color: $color;
+    border-color: $color;
+    color: white !important;
+    &:hover, &:active {
+    background-color: mix(black, $color, 15%);
+    border-color: mix(black, $color, 15%);
+    }
+}
+
+// Links
+@mixin link_default($color) {
+    color: $color;
+    &:hover {
+    color: mix(black, $color, 15%);
+    }
+}
+@mixin link_light($color, $percentage) {
+    color: $color;
+    &:hover {
+    color: mix(white, $color, $percentage);
+    }
+}
+
+
+// Tables
+@mixin table__format($color) {
+  width: 99.9%;
+  sup {
+    text-transform: lowercase;
+  }
+
+  > tbody, > thead, > tfoot {
+    > tr {
+      > td, > th {
+        border: 1px solid #6198c7;
+        white-space: normal !important;
+      }
+    }
+  }
+
+  > thead, > tfoot {
+    background: $color;
+    color: mix(white, $color, 97%);
+  }
+  > thead {
+    > tr {
+      text-transform: uppercase;
+      &:nth-child(2) {
+        background: mix(white, $color, 18%);
+      }
+      &:nth-child(3) {
+        background: mix(white, $color, 24%);
+        th {
+          font-weight: 600;
+        }
+      }
+      > th {
+        padding: 4px;
+        text-align: center;
+        border-bottom: 0 none;
+        vertical-align: middle;
+      }
+    }
+  }
+  > tbody {
+    background: $light-blue !important;
+
+    > tr {
+      &:nth-child(odd) {
+        border: none;
+        background: mix(white, $color, 97%) !important;
+      }
+      > td {
+        // background: mix(white, $color, 97%);
+        border: 1px solid mix(white, $color, 85%);
+        padding: 4px 3px;
+      }
+    }
+
+    + thead {
+      > tr {
+        > td {
+          font-weight: 600;
+          padding: 4px;
+          text-align: center;
+          border-bottom: 0 none;
+        }
+      }
+    }
+  }
+
+  > tfoot {
+    > tr {
+      text-transform: uppercase;
+      > td {
+        font-weight: 600;
+        padding: 4px 3px;
+        border: 1px solid mix(white, $color, 85%);
+      }
+      > th {
+        padding: 4px;
+        border-color: transparent;
+      }
+    }
+  }
+  .table-format__bg-2 {
+    background: mix(white, $color, 18%);
+  }
+  .heading--2 {
+    background: mix(white, $color, 18%);
+  }
+  + p {
+    font-size: 11px;
+    margin-top: -20px;
+  }
+}
+
+
+
+// Hover effect img
+@mixin wrapped_img($border_color, $bg_color, $class) {
+  .wrapped-img--#{""+$class} {
+    .wrapped-img__image {
+      border-color: $border_color;
+    }
+    .wrapped-img__box {
+      background: rgba($bg_color, 0.7);
+      p {
+        color: mix($border_color, white, 30%);
+      }
+    }
+  }
+}
+
+@mixin wrapped_img-2($border_color, $bg_color, $class) {
+  .wrapped-img-2--#{""+$class} {
+    .wrapped-img-2__image {
+      border-color: $border_color;
+    }
+    .wrapped-img-2__box {
+      background: rgba($bg_color, 0.7);
+      p {
+        color: mix($border_color, white, 30%);
+      }
+    }
+  }
+}
+
+@mixin wrapped_img-3($border_color, $bg_color, $class) {
+  .wrapped-img-3--#{""+$class} {
+    .wrapped-img-3__image {
+      border-color: $border_color;
+    }
+    .wrapped-img-3__box {
+      background: rgba($bg_color, 0.6);
+      p {
+        color: mix($border_color, white, 30%);
+      }
+    }
+  }
+}

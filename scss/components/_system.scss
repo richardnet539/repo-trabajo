@@ -1,0 +1,9 @@
+
+.logged-in {
+	.entry-footer {
+		margin-bottom: 1rem;
+	}
+}
+.post-edit-link {
+	@include btn_default($theme-secondary);
+}

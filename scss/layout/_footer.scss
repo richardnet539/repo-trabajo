@@ -1,0 +1,75 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+.region-copyright {
+	color: white;
+	a {
+		color: white;
+	}
+}
+
+.card-noticia {
+  background-color: transparent;
+  border: none;
+  @include breakpoint_md {
+    min-width: 50%;
+  }
+  &--img {
+    width: 100%;
+    @extend .img-style-1;
+  }
+  &--title {
+    font-size: 13px;
+    font-weight: 600;
+    color: $theme-primary;
+    margin-bottom: 0.45rem !important;
+  }
+  &--body {
+    padding: 10px 0 0 0;
+  }
+  &--text {
+    font-size: 12px;
+    color: initial;
+    line-height: 1.35;
+    font-weight: 600;
+    &:last-child {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.arrows i {
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 50%;
+  color: #00609c;
+  padding: 0 4px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.visible-xs {
+  @include breakpoint_md {
+    display: block!important;
+  }
+}
+
+.img-sponsor {
+  padding-bottom: .5rem;
+  height: 60px;
+  @include breakpoint_md {
+    max-width: 180px;
+    height: 70px;
+  }
+}
+
+.pre-footer {
+  padding: 2rem 0;
+  .mb-sponsor {
+    @include breakpoint_md {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+

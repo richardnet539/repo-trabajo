@@ -1,0 +1,461 @@
+
+
+// WebForms Plugin
+
+.busy-loader:before, .has-validating .control-label:before {
+	// background-image: url(img/loading-icon-blue.png);
+	// width: 25px;
+	// height: 25px;
+	// background-size: 25px;
+	font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+}
+
+.has-validating .control-label:before {
+		position: absolute;
+		right: calc(5% - 1px);
+		bottom: 13px;
+}
+
+.hidden {
+	display: none;
+}
+
+.fix--fa5 {
+	 width: 100%;
+}
+
+.form-photo-inscripcion {
+	input[type="file" i] {
+		padding: 2px .25rem;
+	}
+	.has-validating .control-label.fix--fa5:before {
+		top: 35px;
+		content: '';
+		background-image: url(img/loading-icon-blue.png);
+		width: 14px;
+		height: 14px;
+		background-size: 14px;
+		margin-right: 23px;
+	}
+}
+
+.form-control[readonly] {
+	background-color: white;
+}
+
+
+.bootstrap-datetimepicker-widget table th.next::after {
+	position: relative !important;
+		content: '\f054'!important;
+		font-weight: 900 !important;
+		font-family: "Font Awesome 5 Free";
+	color: $theme-primary;
+
+}
+
+.bootstrap-datetimepicker-widget table th.prev::after {
+	position: relative !important;
+		content: '\f053'!important;
+		font-weight: 900 !important;
+		font-family: "Font Awesome 5 Free";
+		height: auto;
+		color: $theme-primary;
+}
+
+.bootstrap-datetimepicker-widget {
+	font-size: 12px;
+}
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover
+{
+	background-color: $theme-primary;
+	color: white;
+}
+
+.bootstrap-datetimepicker-widget table td span.active {
+	background-color: $theme-primary;
+	color: white;
+}
+
+.panel-title {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 16px;
+	color: inherit;
+}
+
+.panel-success {
+	border-color: #d6e9c6;
+}
+.panel {
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.panel-success>.panel-heading {
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+
+
+// Facebook SDK
+// .fb-like {
+// 	#facebook button[type="submit"] {
+// 	}
+// }
+
+
+// Likes Vieweer Plugin
+.shortcode-value-area, .shortcode-value-area-post {
+	.btn.bg-facebook {
+		cursor: auto;
+	}
+}
+
+// MAP
+
+.embed-responsive {
+	position: relative;
+	.map-caption {
+		position: absolute;
+		bottom: 13px;
+		left: 0;
+		padding: 0.25rem 0.5rem;
+		background: rgba(0, 0, 0, 0.65);
+		border-radius: 0 3px 3px 0;
+		z-index: 1;
+		&--text {
+			font-weight: 600;
+			color: white;
+			margin: 0;
+			font-size: inherit;
+			@include breakpoint_md {
+				font-size: 12px;
+			}
+			@include breakpoint_sm {
+				font-size: 10px;
+			}
+		}
+	}
+}
+
+//webforms
+ul.parsley-errors-list {
+	> li {
+		&:before {
+			content: '' !important;
+		}
+	}
+
+}
+
+// plugin master slider
+
+.ms-slide .ms-slide-bgcont img {
+	margin: 0 !important;
+}
+
+
+// menu footer
+.menu-menu-footer-container {
+	.menu {
+		margin-bottom: 0;
+	}
+
+	.menu-item {
+		display: inline-block;
+		list-style: none;
+		padding: right;
+		&:after {
+			content: ' | ';
+		}
+		&:last-child():after {
+			content: '';
+		}
+		a {
+			color:white;
+			&:hover {
+				color: mix(white, $gray-light, 55%);
+			}
+		}
+	}
+}
+
+// table responsive
+// .table-responsive {
+// 	overflow-x: auto;
+// 	@include breakpoint_md {
+// 		&::-webkit-scrollbar {
+// 			-webkit-appearance: none;
+// 		}
+// 		&::-webkit-scrollbar:horizontal {
+// 		    height: 11px;
+// 		}
+// 		&::-webkit-scrollbar-thumb {
+// 		    border-radius: 8px;
+// 		    border: 2px solid white;
+// 		    background-color: rgba($theme-primary, .75);
+// 		}
+// 	}
+// }
+.blog .entry-content{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+}
+.blog hr{
+	display: none;
+};
+
+.blog article{
+	height: 170px;
+
+
+}
+#menu-menu-footer{
+	display:none;
+}
+.heading-home{
+	margin-bottom:30px;
+}
+.blog .post .entry-header{
+	margin-top: 0px;
+}
+.post .entry-header{
+	margin-top: 20px;
+}
+.blog .border{
+	width: 100%;
+	height: 1px;
+	color: #d7d7d7;
+}
+.blog .wp-post-image{
+	height: 230px;
+  width: 370px;
+  object-fit: cover;
+  margin-right: 35px;
+}
+.blog h2 a{
+	font-size: 20px;
+	color: #0082ca;
+}
+.blog .entry-content p{
+	font-size: 15px;
+	color: #333333;
+	line-height : 23px;
+}
+.blog .widget-area{display:none;}
+.blog .col-md-9{
+	flex: 1;
+	max-width: 100% !important;
+}
+.blog .post{
+	display: flex;
+	flex-direction: row;
+	margin: 25px 0 25px 0 !important;
+}
+.blog .post .entry-header{
+	top: 100px !important;
+}
+.blog .post .entry-content{
+	top: 100px !important;
+	margin-bottom: 0px !important;
+}
+.post .entry-title{
+	font-size:25px;
+	color: #0082ca;
+}
+
+.post .entry-date{
+	font-size:17px;
+	color:#757575;
+}
+.post .entry-header{
+
+}
+.post .post-thumbnail{
+	text-align: center;
+}
+.post .entry-content{
+	margin-bottom: 100px !important;
+	font-size:15px;
+	color: #6d6e70;
+	text-align:justify;
+}
+.post .entry-content a{
+	 font-weight: bold;
+	 color: #0082ca;
+}
+
+.blog .post .entry-content p{
+	 font-weight: lighter;
+}
+.blog .post .entry-content strong{
+	 font-weight: lighter;
+	color:#6d6e70;
+
+}
+#respond{
+	display:none;
+}
+footer .site-info{
+	display:flex;
+	flex-direction:row;
+	justify-content: space-between;
+}
+footer ul{
+	margin: 0;
+}
+.blog footer{
+   bottom:0;
+	 width: 100%;
+}
+.post footer{
+	position: relative !important;
+   bottom:-30px;
+	 width: 100%;
+}
+.single .heading-home{display:none;}
+.post hr{
+	display:none;
+}
+.post .border{
+	display: none;
+}
+
+.widget-sidebar-1 {
+	h2{
+		font-size:16px;
+		color:#58595b;
+	}
+	ul li{
+		margin-left: 25px;
+		font-size: 14px;
+		color: #333;
+		list-style:	disc !important;
+		color: #80bad2;
+	}
+	h2.widget-title {
+		display: none;
+	}
+}
+
+.post .entry-title{
+	display:block;
+}
+.post .post-thumbnail{
+	display:block !important;
+	margin-bottom: 20px;
+}
+.blog .post-thumbnail{
+	margin-bottom: 0px !important;
+}
+
+.header-div{
+	position:relative;
+}
+.page-template-page-last-news button{
+	width: 150px;
+	height: 35px;
+	border: none;
+	background-color: #8ed1fc;
+	color: white;
+	font-weight: bold;
+	border-radius:5px;
+	cursor: pointer;
+}
+.blog .buttonName{
+	position: absolute;
+  bottom: 0;
+}
+.blog button a{
+	color: white;
+}
+.nav-previous{
+	display: none;
+}
+.img-principal{
+	width: 100%;
+}
+.navigation .nav-next{
+	display:none;
+}
+#secondary{
+	max-width: 100% !important;
+}
+.post-thumbnail img{
+	max-width: 100%;
+}
+.post-item {
+	@include breakpoint_md {
+		gap: 20px;
+	}
+
+	&__image {
+		max-height: 230px;
+		& img{
+			width:100%;
+			object-fit: cover;
+			height: 100%;
+		}
+	}
+}
+
+.post-item__body__information__extract{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+}
+.post-item__body__more{
+	bottom: 0;
+}
+.post-item__body__information__title a{
+	color: #0082ca;
+	font-weight: 600;
+}
+.post-item__body__information__date{
+	font-size:17px;
+	color: #757575;
+}
+.page-numbers{
+	  display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+}
+.page-numbers li span{
+	padding: 5px 8px 5px 8px;
+	border: 1.5px black solid;
+	border-radius: 5px;
+	background-color: #757575;
+	color: white
+}
+.page-numbers li a{
+	padding: 5px 8px 5px 8px;
+	border: 1px black solid;
+	border-radius: 5px;
+}
+
+.single #secondary{
+	padding: 0px
+}
+#content{
+	  min-height: 84.3vh;
+}
+.last-news{
+	margin: 50px;
+}

@@ -1,0 +1,84 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+.nav-sidebar {
+	list-style-type: decimal;
+	margin-left: 15px;
+	.nav-item {
+	}
+	.nav-link {
+		padding: .25rem 1rem;
+		&.active {
+			color: $theme-primary;
+		}
+	}
+	h3 {
+		font-size: 14px;
+	}
+}
+
+
+ul.sub-menu-level-2 {
+	padding-bottom: 15px;
+	padding-left: 0;
+}
+
+.sidebar {
+	.sub-menu {
+		// > .parent
+		> .child {
+			padding-left: 10px;
+		}
+	}
+}
+
+.region-sidebar-left {
+	.heading-collapse__icon {
+		@include breakpoint_min_md {
+			display: none;
+		}
+	}
+}
+
+.region-sidebar-right {
+	.widget_search {
+		margin-bottom: 1rem;
+	}
+}
+
+
+// Bloque search
+.block-search {
+	min-width: 250px;
+	float: right;
+	overflow: hidden;
+	padding: 55px 0 0 0;
+	@include breakpoint_lg {
+		float: initial;
+		padding: 20px 0 10px 0;
+		margin: 4px auto;
+		clear: both;
+	}	
+	&__position {
+		align-items: flex-end;
+		@include breakpoint_lg {
+			align-items: flex-start;
+		}
+	}
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.15rem;
+    text-align: center;
+    pointer-events: none;
+    color: #6f6f6e;
+}

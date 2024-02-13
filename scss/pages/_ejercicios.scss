@@ -1,0 +1,48 @@
+
+.type-ejercicio {
+	.excerpt {
+		line-height: 1.4;
+	}
+	.ejercicio-item {
+		font-size: 11px;
+		margin-bottom: 8px !important;
+		line-height: 1.5;
+	}
+}
+
+.video-play {
+	position: relative;
+    background-color: $theme-secondary;
+    max-width: 255px;
+    height: auto;
+    margin: auto;
+}
+
+.video-play:hover img {
+  opacity: 0.7;
+  filter: grayscale(100%);
+}
+
+.video-play i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  font-size: 28px;
+  color: $theme-secondary;
+  width: 60px;
+  height: 60px;
+  line-height: 55px;
+  padding-left: 17px;
+  border: 3px solid $theme-secondary;
+}
+
+.video-play i {
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 500ms 100ms cubic-bezier(0.6, -0.28, 0.25, 0.045);
+}
+
+.video-play:hover i {
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 300ms 100ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
