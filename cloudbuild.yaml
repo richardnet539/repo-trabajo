@@ -48,7 +48,7 @@ steps:
       - --zone=$_ZONE
       - --project=$_PROJECT_ID
 
-  # Step 3: Ensure /var/www/html/ exists (wait for startup script to finish)
+  # Step 4: Ensure /var/www/html/ exists (wait for startup script to finish)
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Wait for Startup Script'
     entrypoint: 'bash'
@@ -98,8 +98,8 @@ steps:
       - '-c'
       - |
         gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
-          sudo mkdir -p /var/www/html/wordpress/wp-content/themes/$_THEME_NAME;
-          sudo tar -xzf theme-archive.tar.gz -C /var/www/html/wordpress/wp-content/themes/$_THEME_NAME;
+          sudo mkdir -p /var/www/html/wp-content/themes/$_THEME_NAME;
+          sudo tar -xzf theme-archive.tar.gz -C /var/www/html/wp-content/themes/$_THEME_NAME;
           rm theme-archive.tar.gz;
         '
 
@@ -110,5 +110,3 @@ options:
 
 tags: 
  - master
-
-

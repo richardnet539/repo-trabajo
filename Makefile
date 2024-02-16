@@ -5,6 +5,7 @@ WP_VERSION=6.4.3
 WP_FILE=wordpress-$(WP_VERSION).tar.gz
 WP_URL=https://wordpress.org/$(WP_FILE)
 WP_DIR=/var/www/html/
+DB_ROOT_USER=root
 VERSION_FILE=wp-includes/version.php
 
 all: check_wp_exists download extract move_wp clean
@@ -37,8 +38,9 @@ move_wp:
 	@mv -f $(WP_DIR)wordpress/.* $(WP_DIR) 2>/dev/null || true
 	@rmdir $(WP_DIR)wordpress
 
+
 clean: 
 	@echo "Cleaning up..."
-	@rm -rf $(WP_FILE)
+	@sudo rm $(WP_FILE)
 
 .PHONY: all check_wp_exists download extract move_wp clean
