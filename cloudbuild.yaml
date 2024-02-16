@@ -1,80 +1,67 @@
 steps:
-  # Step 0: Pull the previous image to use as cache
-  - id: "Pull Previous Image"
-    name: "gcr.io/cloud-builders/docker"
-    entrypoint: "bash"
+  # Step 1: Ensure the Compute Engine instance exists, create if it doesn't
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Ensure Compute Instance'
+    entrypoint: 'bash'
     args:
-      - "-c"
-      - "docker pull gcr.io/$_PROJECT_ID/$_IMAGE_NAME:latest || true"
-
-  # Step 1: Build the Docker image
-  - id: "Building"
-    name: "gcr.io/cloud-builders/docker"
-    entrypoint: "bash"
-    args:
-      - "-c"
+      - '-c'
       - |
-        docker build \
-        -f Dockerfile.prod \
-        --cache-from gcr.io/$_PROJECT_ID/$_IMAGE_NAME:latest \
-        --build-arg LIGA_DEBATE_DB_HOST=$$LIGA_DEBATE_DB_HOST \
-        --build-arg LIGA_DEBATE_DB_USER=$$LIGA_DEBATE_DB_USER \
-        --build-arg LIGA_DEBATE_DB_PASSWORD=$$LIGA_DEBATE_DB_PASSWORD \
-        --build-arg LIGA_DEBATE_DB_NAME=$$LIGA_DEBATE_DB_NAME \
-        --build-arg PROJECT_NAME=$_IMAGE_NAME \
-        -t gcr.io/$_PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA \
-        -t gcr.io/$_PROJECT_ID/$_IMAGE_NAME:latest \
-        .
-    secretEnv:
-      - "LIGA_DEBATE_DB_HOST"
-      - "LIGA_DEBATE_DB_USER"
-      - "LIGA_DEBATE_DB_PASSWORD"
-      - "LIGA_DEBATE_DB_NAME"
+        if ! gcloud compute instances describe $_INSTANCE_NAME --zone $_ZONE 2>/dev/null; then
+          gcloud compute instances create $_INSTANCE_NAME \
+            --zone=$_ZONE \
+            --machine-type=e2-small \
+            --image-family=debian-10 \
+            --image-project=debian-cloud \
+            --tags=http-server,https-server \
+            --metadata=startup-script='#! /bin/bash
+            sudo apt update && sudo apt -y upgrade
+            sudo apt -y install apache2 php mariadb-server libapache2-mod-php php-mysql
+            sudo systemctl enable apache2
+            sudo systemctl enable mariadb
+            ';
+        fi
 
-  # Step 2: Push the built image and the latest tag for caching purposes
-  - id: "Pushing Image"
-    name: "gcr.io/cloud-builders/docker"
+  # Step 2: Copy only the Makefile to the VM
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Copy Makefile'
     args:
-      - "push"
-      - "gcr.io/$PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA"
+      - compute
+      - scp
+      - Makefile
+      - $_GCE_USERNAME@$_INSTANCE_NAME:/var/www/html/
+      - --zone=$_ZONE
+      - --project=$_PROJECT_ID
 
-  - id: "Pushing Latest Image"
-    name: "gcr.io/cloud-builders/docker"
+  # Step 3: Execute Makefile commands on the instance to set up the environment and WordPress
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Run Makefile Commands'
+    entrypoint: 'bash'
     args:
-      - "push"
-      - "gcr.io/$PROJECT_ID/$_IMAGE_NAME:latest"
+      - '-c'
+      - |
+        gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
+          sudo apt-get install -y make
+          sudo make -C /var/www/html/ -f Makefile all
+        '
 
-  # Step 3: Deploy to Compute Engine
-  - id: "Deploy or Update Compute Engine Instance"
-    name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
-    entrypoint: "bash"
+  # Step 4: Copy the rest of the theme files to the instance
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Copy Theme Files'
     args:
-      - "-c"
-      - "bash deploy-or-update-instance.sh $_INSTANCE_NAME gcr.io/$_PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA $_ZONE $_PROJECT_ID e2-small"
-    waitFor:
-      - "Pushing Latest Image"
+      - compute
+      - scp
+      - --recurse
+      - .
+      - $_GCE_USERNAME@$_INSTANCE_NAME:/var/www/html/wordpress/wp-content/themes/$_THEME_NAME
+      - --zone=$_ZONE
+      - --project=$_PROJECT_ID
+    dir: '!' # Exclude Makefile from this copy operation
 
+timeout: '1600s' # Adjust the timeout based on your needs
 
-timeout: "1600s"
-
-options:
-  logging: CLOUD_LOGGING_ONLY
-
-images:
-  - "gcr.io/$_PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA"
-  - "gcr.io/$_PROJECT_ID/$_IMAGE_NAME:latest"
-
-availableSecrets:
-  secretManager:
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_HOST/versions/latest
-      env: "LIGA_DEBATE_DB_HOST"
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_USER/versions/latest
-      env: "LIGA_DEBATE_DB_USER"
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_PASSWORD/versions/latest
-      env: "LIGA_DEBATE_DB_PASSWORD"
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_NAME/versions/latest
-      env: "LIGA_DEBATE_DB_NAME"
-
-tags:
-  - master
-  - develop
+substitutions:
+  _INSTANCE_NAME: 'your-instance-name'
+  _ZONE: 'your-zone'
+  _GCE_USERNAME: 'your-gce-username'
+  _THEME_NAME: 'your-theme-name'
+  _PROJECT_ID: 'your-project-id'
