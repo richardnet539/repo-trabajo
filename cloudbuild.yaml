@@ -71,6 +71,12 @@ steps:
           sudo apt-get install -y make
           sudo make -C ~ -f Makefile all
         '
+    secretEnv:
+      - "LIGA_DEBATE_DB_HOST"
+      - "LIGA_DEBATE_DB_USER"
+      - "LIGA_DEBATE_DB_PASSWORD"
+      - "LIGA_DEBATE_DB_NAME"
+
 
   # Step 6: Copy the rest of the theme files to the instance
   - name: 'gcr.io/cloud-builders/gcloud'
