@@ -37,24 +37,6 @@ steps:
           sudo systemctl start mariadb
         '
 
-  # New Step for Setting Up the Database
-  - name: 'gcr.io/cloud-builders/gcloud'
-    id: 'Setup Database'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
-          sudo mysql -e "CREATE DATABASE IF NOT EXISTS \`$$LIGA_DEBATE_DB_NAME\`;"
-          sudo mysql -e "CREATE USER IF NOT EXISTS '\''$$LIGA_DEBATE_DB_USER'\''@'\''%'\'' IDENTIFIED BY '\''$$LIGA_DEBATE_DB_PASSWORD'\'';"
-          sudo mysql -e "GRANT ALL PRIVILEGES ON \`$$LIGA_DEBATE_DB_NAME\`.* TO '\''$$LIGA_DEBATE_DB_USER'\''@'\''%'\'';"
-          sudo mysql -e "FLUSH PRIVILEGES;"
-        '
-    secretEnv:
-      - "LIGA_DEBATE_DB_NAME"
-      - "LIGA_DEBATE_DB_USER"
-      - "LIGA_DEBATE_DB_PASSWORD"
-
    # Step 3: Copy only the Makefile to the VM's home directory
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Copy Makefile'
@@ -66,7 +48,7 @@ steps:
       - --zone=$_ZONE
       - --project=$_PROJECT_ID
 
-  # Step 3: Ensure /var/www/html/ exists (wait for startup script to finish)
+  # Step 4: Ensure /var/www/html/ exists (wait for startup script to finish)
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Wait for Startup Script'
     entrypoint: 'bash'
@@ -89,34 +71,6 @@ steps:
           sudo apt-get install -y make
           sudo make -C ~ -f Makefile all
         '
-
-
-  - name: 'gcr.io/cloud-builders/gcloud'
-    id: 'Configure WordPress'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
-          if [ ! -f "$_WP_DIR/wp-config.php" ]; then
-            cp "$_WP_DIR/wp-config-sample.php" "$_WP_DIR/wp-config.php";
-            sed -i "s/database_name_here/'\''$$LIGA_DEBATE_DB_NAME'\''/g" "$_WP_DIR/wp-config.php";
-            sed -i "s/username_here/'\''$$LIGA_DEBATE_DB_USER'\''/g" "$_WP_DIR/wp-config.php";
-            sed -i "s/password_here/'\''$$LIGA_DEBATE_DB_PASSWORD'\''/g" "$_WP_DIR/wp-config.php";
-            sed -i "s/localhost/'\''$$LIGA_DEBATE_DB_HOST'\''/g" "$_WP_DIR/wp-config.php";
-            # Optionally, secure the installation by configuring salts
-            SALT=$(curl -s https://api.wordpress.org/secret-key/1.1/salt/)
-            printf "%s\n" "g/\(AUTH_KEY\|SECURE_AUTH_KEY\|LOGGED_IN_KEY\|NONCE_KEY\|AUTH_SALT\|SECURE_AUTH_SALT\|LOGGED_IN_SALT\|NONCE_SALT\)/d" a "$SALT" . w | ed -s "$_WP_DIR/wp-config.php"
-          else
-            echo "wp-config.php already exists.";
-          fi
-        '
-    secretEnv:
-      - "LIGA_DEBATE_DB_HOST"
-      - "LIGA_DEBATE_DB_USER"
-      - "LIGA_DEBATE_DB_PASSWORD"
-      - "LIGA_DEBATE_DB_NAME"
-
 
   # Step 6: Copy the rest of the theme files to the instance
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -156,17 +110,3 @@ options:
 
 tags: 
  - master
-
-availableSecrets:
-  secretManager:
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_HOST/versions/latest
-      env: "LIGA_DEBATE_DB_HOST"
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_USER/versions/latest
-      env: "LIGA_DEBATE_DB_USER"
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_PASSWORD/versions/latest
-      env: "LIGA_DEBATE_DB_PASSWORD"
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_NAME/versions/latest
-      env: "LIGA_DEBATE_DB_NAME"
-
-substitutions:
-  _WP_DIR: /var/www/html
