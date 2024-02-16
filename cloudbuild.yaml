@@ -21,7 +21,23 @@ steps:
             ';
         fi
 
-   # Step 2: Copy only the Makefile to the VM's home directory
+    # Step 2: Ensure Apache, PHP, and MariaDB are installed on the VM
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Ensure Dependencies'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
+          sudo apt-get update && \
+          sudo apt-get install -y apache2 php mariadb-server libapache2-mod-php php-mysql && \
+          sudo systemctl enable apache2 && \
+          sudo systemctl enable mariadb && \
+          sudo systemctl start apache2 && \
+          sudo systemctl start mariadb
+        '
+
+   # Step 3: Copy only the Makefile to the VM's home directory
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Copy Makefile'
     args:
@@ -41,10 +57,10 @@ steps:
       - |
         until gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='test -d /var/www/html/'; do
           echo "Waiting for /var/www/html/ to be available..."
-          sleep 20
+          sleep 10
         done
 
-  # Step 4: Execute Makefile commands now assumes Makefile is in the home directory
+  # Step 5: Execute Makefile commands now assumes Makefile is in the home directory
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Run Makefile Commands'
     entrypoint: 'bash'
@@ -56,7 +72,7 @@ steps:
           sudo make -C ~ -f Makefile all
         '
 
-  # Step 4: Copy the rest of the theme files to the instance
+  # Step 6: Copy the rest of the theme files to the instance
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Copy Theme Files'
     args:
