@@ -11,7 +11,7 @@ VERSION_FILE=wp-includes/version.php
 all: check_wp_exists download extract move_wp clean
 
 check_wp_exists:
-	@if [ -d "$(WP_DIR)/wp-content" ] && [ -f "$(WP_DIR)/$(VERSION_FILE)" ]; then \
+	@if [ -d "$(WP_DIR)wp-content" ] && [ -f "$(WP_DIR)/$(VERSION_FILE)" ]; then \
 		echo "WordPress already exists in $(WP_DIR)."; \
 		grep -q '$(WP_VERSION)' "$(WP_DIR)wordpress/$(VERSION_FILE)" && { \
 			echo "Version $(WP_VERSION) is already installed."; \
