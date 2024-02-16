@@ -6,10 +6,6 @@ WP_FILE=wordpress-$(WP_VERSION).tar.gz
 WP_URL=https://wordpress.org/$(WP_FILE)
 WP_DIR=/var/www/html/
 DB_ROOT_USER=root
-DB_NAME ?= $(LIGA_DEBATE_DB_NAME)
-DB_USER ?= $(LIGA_DEBATE_DB_USER)
-DB_PASS ?= $(LIGA_DEBATE_DB_PASSWORD)
-DB_HOST ?= $(LIGA_DEBATE_DB_HOST)
 VERSION_FILE=wp-includes/version.php
 
 all: setup_db check_wp_exists download extract move_wp configure_wp clean
