@@ -1,0 +1,87 @@
+steps:
+  # Step 0: Pull the previous image to use as cache
+  - id: "Pull Previous Image"
+    name: "gcr.io/cloud-builders/docker"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - "docker pull gcr.io/$_PROJECT_ID/$_IMAGE_NAME:latest || true"
+
+  # Step 1: Build the Docker image
+  - id: "Building"
+    name: "gcr.io/cloud-builders/docker"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        docker build \
+        -f Dockerfile.prod \
+        --cache-from gcr.io/$_PROJECT_ID/$_IMAGE_NAME:latest \
+        --build-arg LIGA_DEBATE_DB_HOST=$$LIGA_DEBATE_DB_HOST \
+        --build-arg LIGA_DEBATE_DB_USER=$$LIGA_DEBATE_DB_USER \
+        --build-arg LIGA_DEBATE_DB_PASSWORD=$$LIGA_DEBATE_DB_PASSWORD \
+        --build-arg LIGA_DEBATE_DB_NAME=$$LIGA_DEBATE_DB_NAME \
+        --build-arg PROJECT_NAME=$_IMAGE_NAME \
+        -t gcr.io/$_PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA \
+        -t gcr.io/$_PROJECT_ID/$_IMAGE_NAME:latest \
+        .
+    secretEnv:
+      - "LIGA_DEBATE_DB_HOST"
+      - "LIGA_DEBATE_DB_USER"
+      - "LIGA_DEBATE_DB_PASSWORD"
+      - "LIGA_DEBATE_DB_NAME"
+
+  # Step 2: Push the built image and the latest tag for caching purposes
+  - id: "Pushing Image"
+    name: "gcr.io/cloud-builders/docker"
+    args:
+      - "push"
+      - "gcr.io/$PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA"
+
+  - id: "Pushing Latest Image"
+    name: "gcr.io/cloud-builders/docker"
+    args:
+      - "push"
+      - "gcr.io/$PROJECT_ID/$_IMAGE_NAME:latest"
+
+  # Step 3: Deploy to Compute Engine
+  - id: "Deploying to Compute Engine"
+    name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "gcloud"
+    args:
+      - "compute"
+      - "instances"
+      - "create-with-container"
+      - "$_INSTANCE_NAME" 
+      - "--container-image"
+      - "gcr.io/$_PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA"
+      - "--zone"
+      - "$_ZONE"
+      - "--machine-type"
+      - "e2-small" 
+    waitFor:
+      - "Pushing Latest Image"
+
+timeout: "1600s"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+images:
+  - "gcr.io/$_PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA"
+  - "gcr.io/$_PROJECT_ID/$_IMAGE_NAME:latest"
+
+availableSecrets:
+  secretManager:
+    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_HOST/versions/latest
+      env: "LIGA_DEBATE_DB_HOST"
+    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_USER/versions/latest
+      env: "LIGA_DEBATE_DB_USER"
+    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_PASSWORD/versions/latest
+      env: "LIGA_DEBATE_DB_PASSWORD"
+    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_NAME/versions/latest
+      env: "LIGA_DEBATE_DB_NAME"
+
+tags:
+  - master
+  - develop
