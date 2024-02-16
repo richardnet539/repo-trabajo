@@ -50,9 +50,10 @@ steps:
     entrypoint: "bash"
     args:
       - "-c"
-      - "./deploy-or-update-instance.sh $_INSTANCE_NAME gcr.io/$_PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA $_ZONE $_PROJECT_ID e2-small"
+      - "bash deploy-or-update-instance.sh $_INSTANCE_NAME gcr.io/$_PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA $_ZONE $_PROJECT_ID e2-small"
     waitFor:
       - "Pushing Latest Image"
+
 
 timeout: "1600s"
 
