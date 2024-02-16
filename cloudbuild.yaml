@@ -68,8 +68,11 @@ steps:
       - '-c'
       - |
         gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
-          sudo apt-get install -y make
-          sudo make -C ~ -f Makefile all
+          sudo make -C ~ -f Makefile all \
+          DB_NAME=$$LIGA_DEBATE_DB_NAME \
+          DB_USER=$$LIGA_DEBATE_DB_USER \
+          DB_PASS=$$LIGA_DEBATE_DB_PASSWORD \
+          DB_HOST=$$LIGA_DEBATE_DB_HOST
         '
     secretEnv:
       - "LIGA_DEBATE_DB_HOST"
