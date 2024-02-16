@@ -16,10 +16,13 @@ all: setup_db check_wp_exists download extract move_wp configure_wp clean
 
 setup_db:
 	@echo "Setting up MariaDB Database and User..."
-	@mysql -u$(DB_ROOT_USER) -e "CREATE DATABASE IF NOT EXISTS $(DB_NAME);"
-	@mysql -u$(DB_ROOT_USER) -e "CREATE USER IF NOT EXISTS '$(DB_USER)'@'$(DB_HOST)' IDENTIFIED BY '$(DB_PASS)';"
-	@mysql -u$(DB_ROOT_USER) -e "GRANT ALL PRIVILEGES ON $(DB_NAME).* TO '$(DB_USER)'@'$(DB_HOST)';"
-	@mysql -u$(DB_ROOT_USER) -e "FLUSH PRIVILEGES;"
+	@echo ${DB_NAME}
+	@echo ${DB_USER}
+	@echo ${DB_HOST}
+	@mysql -u"$(DB_ROOT_USER)" -e "CREATE DATABASE IF NOT EXISTS \`$(DB_NAME)\`;"
+	@mysql -u"$(DB_ROOT_USER)" -e "CREATE USER IF NOT EXISTS '$(DB_USER)'@'%' IDENTIFIED BY '$(DB_PASS)';"
+	@mysql -u"$(DB_ROOT_USER)" -e "GRANT ALL PRIVILEGES ON \`$(DB_NAME)\`.* TO '$(DB_USER)'@'%';"
+	@mysql -u"$(DB_ROOT_USER)" -e "FLUSH PRIVILEGES;"
 
 check_wp_exists:
 	@if [ -d "$(WP_DIR)/wp-content" ] && [ -f "$(WP_DIR)/$(VERSION_FILE)" ]; then \
