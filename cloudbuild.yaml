@@ -74,16 +74,32 @@ steps:
 
   # Step 6: Copy the rest of the theme files to the instance
   - name: 'gcr.io/cloud-builders/gcloud'
-    id: 'Copy Theme Files'
+    id: 'Prepare Theme Archive'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        tar --exclude=Makefile --exclude=.tar.gz -czf theme-archive.tar.gz .
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Copy Theme Archive'
     args:
       - compute
       - scp
-      - --recurse
-      - .
-      - $_GCE_USERNAME@$_INSTANCE_NAME:/var/www/html/wordpress/wp-content/themes/$_THEME_NAME
+      - theme-archive.tar.gz
+      - $_GCE_USERNAME@$_INSTANCE_NAME:~/
       - --zone=$_ZONE
       - --project=$_PROJECT_ID
-    dir: '!' # Exclude Makefile from this copy operation
+      
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Extract Theme Archive'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
+          sudo tar -xzf theme-archive.tar.gz -C /var/www/html/wordpress/wp-content/themes/$_THEME_NAME && rm theme-archive.tar.gz
+        '
 
 timeout: '1600s'  
 
