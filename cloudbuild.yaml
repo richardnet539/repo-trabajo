@@ -21,18 +21,30 @@ steps:
             ';
         fi
 
-  # Step 2: Copy only the Makefile to the VM
+   # Step 2: Copy only the Makefile to the VM's home directory
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Copy Makefile'
     args:
       - compute
       - scp
       - Makefile
-      - $_GCE_USERNAME@$_INSTANCE_NAME:/var/www/html/
+      - $_GCE_USERNAME@$_INSTANCE_NAME:~/
       - --zone=$_ZONE
       - --project=$_PROJECT_ID
 
-  # Step 3: Execute Makefile commands on the instance to set up the environment and WordPress
+  # Step 3: Ensure /var/www/html/ exists (wait for startup script to finish)
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Wait for Startup Script'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        until gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='test -d /var/www/html/'; do
+          echo "Waiting for /var/www/html/ to be available..."
+          sleep 20
+        done
+
+  # Step 4: Execute Makefile commands now assumes Makefile is in the home directory
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Run Makefile Commands'
     entrypoint: 'bash'
@@ -41,7 +53,7 @@ steps:
       - |
         gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
           sudo apt-get install -y make
-          sudo make -C /var/www/html/ -f Makefile all
+          sudo make -C ~ -f Makefile all
         '
 
   # Step 4: Copy the rest of the theme files to the instance
