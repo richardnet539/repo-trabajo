@@ -45,9 +45,9 @@ steps:
       - '-c'
       - |
         gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
-          sudo mysql -e "CREATE DATABASE IF NOT EXISTS \`${LIGA_DEBATE_DB_NAME}\`;"
-          sudo mysql -e "CREATE USER IF NOT EXISTS '\''${LIGA_DEBATE_DB_USER}'\''@'\''%'\'' IDENTIFIED BY '\''${LIGA_DEBATE_DB_PASSWORD}'\'';"
-          sudo mysql -e "GRANT ALL PRIVILEGES ON \`${LIGA_DEBATE_DB_NAME}\`.* TO '\''${LIGA_DEBATE_DB_USER}'\''@'\''%'\'';"
+          sudo mysql -e "CREATE DATABASE IF NOT EXISTS \`$$LIGA_DEBATE_DB_NAME\`;"
+          sudo mysql -e "CREATE USER IF NOT EXISTS '\''$$LIGA_DEBATE_DB_USER'\''@'\''%'\'' IDENTIFIED BY '\''$$LIGA_DEBATE_DB_PASSWORD'\'';"
+          sudo mysql -e "GRANT ALL PRIVILEGES ON \`$$LIGA_DEBATE_DB_NAME\`.* TO '\''$$LIGA_DEBATE_DB_USER'\''@'\''%'\'';"
           sudo mysql -e "FLUSH PRIVILEGES;"
         '
     secretEnv:
@@ -100,10 +100,10 @@ steps:
         gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
           if [ ! -f "$_WP_DIR/wp-config.php" ]; then
             cp "$_WP_DIR/wp-config-sample.php" "$_WP_DIR/wp-config.php";
-            sed -i "s/database_name_here/'\''${LIGA_DEBATE_DB_NAME}'\''/g" "$_WP_DIR/wp-config.php";
-            sed -i "s/username_here/'\''${LIGA_DEBATE_DB_USER}'\''/g" "$_WP_DIR/wp-config.php";
-            sed -i "s/password_here/'\''${LIGA_DEBATE_DB_PASSWORD}'\''/g" "$_WP_DIR/wp-config.php";
-            sed -i "s/localhost/'\''${LIGA_DEBATE_DB_HOST}'\''/g" "$_WP_DIR/wp-config.php";
+            sed -i "s/database_name_here/'\''$$LIGA_DEBATE_DB_NAME'\''/g" "$_WP_DIR/wp-config.php";
+            sed -i "s/username_here/'\''$$LIGA_DEBATE_DB_USER'\''/g" "$_WP_DIR/wp-config.php";
+            sed -i "s/password_here/'\''$$LIGA_DEBATE_DB_PASSWORD'\''/g" "$_WP_DIR/wp-config.php";
+            sed -i "s/localhost/'\''$$LIGA_DEBATE_DB_HOST'\''/g" "$_WP_DIR/wp-config.php";
             # Optionally, secure the installation by configuring salts
             SALT=$(curl -s https://api.wordpress.org/secret-key/1.1/salt/)
             printf "%s\n" "g/\(AUTH_KEY\|SECURE_AUTH_KEY\|LOGGED_IN_KEY\|NONCE_KEY\|AUTH_SALT\|SECURE_AUTH_SALT\|LOGGED_IN_SALT\|NONCE_SALT\)/d" a "$SALT" . w | ed -s "$_WP_DIR/wp-config.php"
