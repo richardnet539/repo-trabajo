@@ -8,17 +8,7 @@ WP_DIR=/var/www/html/
 DB_ROOT_USER=root
 VERSION_FILE=wp-includes/version.php
 
-all: setup_db check_wp_exists download extract move_wp configure_wp clean
-
-setup_db:
-	@echo "Setting up MariaDB Database and User..."
-	@echo ${DB_NAME}
-	@echo ${DB_USER}
-	@echo ${DB_HOST}
-	@mysql -u"$(DB_ROOT_USER)" -e "CREATE DATABASE IF NOT EXISTS \`$(DB_NAME)\`;"
-	@mysql -u"$(DB_ROOT_USER)" -e "CREATE USER IF NOT EXISTS '$(DB_USER)'@'%' IDENTIFIED BY '$(DB_PASS)';"
-	@mysql -u"$(DB_ROOT_USER)" -e "GRANT ALL PRIVILEGES ON \`$(DB_NAME)\`.* TO '$(DB_USER)'@'%';"
-	@mysql -u"$(DB_ROOT_USER)" -e "FLUSH PRIVILEGES;"
+all: check_wp_exists download extract move_wp clean
 
 check_wp_exists:
 	@if [ -d "$(WP_DIR)/wp-content" ] && [ -f "$(WP_DIR)/$(VERSION_FILE)" ]; then \
@@ -48,30 +38,6 @@ move_wp:
 	@mv -f $(WP_DIR)wordpress/.* $(WP_DIR) 2>/dev/null || true
 	@rmdir $(WP_DIR)wordpress
 
-
-configure_wp:
-	@echo "Configuring WordPress..."
-	@if [ ! -f "$(WP_DIR)wp-config.php" ]; then \
-		cp "$(WP_DIR)wp-config-sample.php" "$(WP_DIR)wp-config.php"; \
-		sed -i "s/database_name_here/$(DB_NAME)/g" "$(WP_DIR)wp-config.php"; \
-		sed -i "s/username_here/$(DB_USER)/g" "$(WP_DIR)wp-config.php"; \
-		sed -i "s/password_here/$(DB_PASS)/g" "$(WP_DIR)wp-config.php"; \
-		sed -i "s/localhost/$(DB_HOST)/g" "$(WP_DIR)wp-config.php"; \
-	else \
-		echo "wp-config.php already exists."; \
-	fi
-	# Optionally, secure the installation by configuring salts
-	@curl -s https://api.wordpress.org/secret-key/1.1/salt/ > wp-salts.txt
-	@sed -i '/AUTH_KEY/d' "$(WP_DIR)wp-config.php"
-	@sed -i '/SECURE_AUTH_KEY/d' "$(WP_DIR)wp-config.php"
-	@sed -i '/LOGGED_IN_KEY/d' "$(WP_DIR)wp-config.php"
-	@sed -i '/NONCE_KEY/d' "$(WP_DIR)wp-config.php"
-	@sed -i '/AUTH_SALT/d' "$(WP_DIR)wp-config.php"
-	@sed -i '/SECURE_AUTH_SALT/d' "$(WP_DIR)wp-config.php"
-	@sed -i '/LOGGED_IN_SALT/d' "$(WP_DIR)wp-config.php"
-	@sed -i '/NONCE_SALT/d' "$(WP_DIR)wp-config.php"
-	@sed -i '/put your unique phrase here/r wp-salts.txt' "$(WP_DIR)wp-config.php"
-	@rm wp-salts.txt
 
 clean: 
 	@echo "Cleaning up..."
