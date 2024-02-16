@@ -45,20 +45,12 @@ steps:
       - "gcr.io/$PROJECT_ID/$_IMAGE_NAME:latest"
 
   # Step 3: Deploy to Compute Engine
-  - id: "Deploying to Compute Engine"
+  - id: "Deploy or Update Compute Engine Instance"
     name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
-    entrypoint: "gcloud"
+    entrypoint: "bash"
     args:
-      - "compute"
-      - "instances"
-      - "create-with-container"
-      - "$_INSTANCE_NAME" 
-      - "--container-image"
-      - "gcr.io/$_PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA"
-      - "--zone"
-      - "$_ZONE"
-      - "--machine-type"
-      - "e2-small" 
+      - "-c"
+      - "./deploy-or-update-instance.sh $_INSTANCE_NAME gcr.io/$_PROJECT_ID/$_IMAGE_NAME:$SHORT_SHA $_ZONE $_PROJECT_ID e2-small"
     waitFor:
       - "Pushing Latest Image"
 
