@@ -57,11 +57,12 @@ steps:
       - --project=$_PROJECT_ID
     dir: '!' # Exclude Makefile from this copy operation
 
-timeout: '1600s' # Adjust the timeout based on your needs
+timeout: '1600s'  
 
-substitutions:
-  _INSTANCE_NAME: 'your-instance-name'
-  _ZONE: 'your-zone'
-  _GCE_USERNAME: 'your-gce-username'
-  _THEME_NAME: 'your-theme-name'
-  _PROJECT_ID: 'your-project-id'
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+tags: 
+ - master
+
+
