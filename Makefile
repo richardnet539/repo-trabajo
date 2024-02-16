@@ -12,7 +12,7 @@ DB_PASS ?= $(LIGA_DEBATE_DB_PASSWORD)
 DB_HOST ?= $(LIGA_DEBATE_DB_HOST)
 VERSION_FILE=wp-includes/version.php
 
-all: check_wp_exists download extract move_wp clean
+all: setup_db check_wp_exists download extract move_wp configure_wp clean
 
 setup_db:
 	@echo "Setting up MariaDB Database and User..."
@@ -22,7 +22,7 @@ setup_db:
 	@mysql -u$(DB_ROOT_USER) -p$(DB_ROOT_PASS) -e "FLUSH PRIVILEGES;"
 
 check_wp_exists:
-	@if [ -d "$(WP_DIR)wordpress" ] && [ -f "$(WP_DIR)wordpress/$(VERSION_FILE)" ]; then \
+	@if [ -d "$(WP_DIR)/wp-content" ] && [ -f "$(WP_DIR)/$(VERSION_FILE)" ]; then \
 		echo "WordPress already exists in $(WP_DIR)."; \
 		grep -q '$(WP_VERSION)' "$(WP_DIR)wordpress/$(VERSION_FILE)" && { \
 			echo "Version $(WP_VERSION) is already installed."; \
