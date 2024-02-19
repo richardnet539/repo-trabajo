@@ -1,5 +1,19 @@
 steps:
-  # Step 1: Ensure the Compute Engine instance exists, create if it doesn't
+  # Step 1: Prepare the Theme
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Prepare Theme Archive'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        TMP_DIR=$(mktemp -d)
+        cp -r . "$TMP_DIR"
+        cd "$TMP_DIR"
+        tar -czf ../theme-archive.tar.gz .
+        cd -
+        rm -rf "$TMP_DIR"
+
+  # Step 2: Ensure the Compute Engine instance exists, create if it doesn't
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Ensure Compute Instance'
     entrypoint: 'bash'
@@ -21,7 +35,7 @@ steps:
             ';
         fi
 
-    # Step 2: Ensure Apache, PHP, and MariaDB are installed on the VM
+    # Step 3: Ensure Apache, PHP, and MariaDB are installed on the VM
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Ensure Dependencies'
     entrypoint: 'bash'
@@ -37,7 +51,7 @@ steps:
           sudo systemctl start mariadb
         '
 
-   # Step 3: Copy only the Makefile to the VM's home directory, if no PHP files exist
+   # Step 4: Copy only the Makefile to the VM's home directory, if no PHP files exist
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Copy Makefile Conditionally'
     entrypoint: 'bash'
@@ -50,7 +64,7 @@ steps:
           echo "PHP files detected in /var/www/html/, skipping Makefile copy."
         fi
 
-  # Step 4: Execute Makefile commands conditionally
+  # Step 5: Execute Makefile commands conditionally
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Run Makefile Commands Conditionally'
     entrypoint: 'bash'
@@ -63,15 +77,7 @@ steps:
           echo "PHP files detected in /var/www/html/, skipping Makefile execution."
         fi
 
-  # Step 5: Copy the rest of the theme files to the instance
-  - name: 'gcr.io/cloud-builders/gcloud'
-    id: 'Prepare Theme Archive'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        tar --exclude=Makefile --exclude=.tar.gz -czf theme-archive.tar.gz .
-
+  # Step 6: Copy the rest of the theme files to the instance
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Copy Theme Archive'
     args:
