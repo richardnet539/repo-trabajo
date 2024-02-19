@@ -92,14 +92,14 @@ steps:
       - '-c'
       - |
         gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
-          if [ -d "$_WP_DIR/html/wp-content/themes/$_THEME_NAME" ]; then
+          if [ -d "/var/www/html/wp-content/themes/$_THEME_NAME" ]; then
             echo "Theme '$_THEME_NAME' exists. Replacing with the new version...";
-            sudo rm -rf "$_WP_DIR/html/wp-content/themes/$_THEME_NAME";
+            sudo rm -rf "/var/www/html/wp-content/themes/$_THEME_NAME";
           else
             echo "Theme '$_THEME_NAME' does not exist. Proceeding to extract...";
           fi
-          sudo mkdir -p "$_WP_DIR/html/wp-content/themes/$_THEME_NAME";
-          sudo tar -xzf theme-archive.tar.gz -C "$_WP_DIR/html/wp-content/themes/$_THEME_NAME";
+          sudo mkdir -p "/var/www/html/wp-content/themes/$_THEME_NAME";
+          sudo tar -xzf theme-archive.tar.gz -C "/var/www/html/wp-content/themes/$_THEME_NAME";
           rm theme-archive.tar.gz;
         '
 
@@ -112,9 +112,9 @@ steps:
       - '-c'
       - |
         gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
-          if [ ! -f "$_WP_CONFIG" ]; then
+          if [ ! -f "/var/www/html/wp-config.php" ]; then
             echo "wp-config.php does not exist. Creating and configuring...";
-            cp "$WP_DIR/wp-config-sample.php" "$WP_CONFIG";
+            cp "/var/www/html/wp-config-sample.php" "$WP_CONFIG";
             
             # Use sed to replace database details placeholders
             sed -i "s/database_name_here/${LIGA_DEBATE_DB_NAME}/g" "$WP_CONFIG";
@@ -130,10 +130,6 @@ steps:
       - "LIGA_DEBATE_DB_USER"
       - "LIGA_DEBATE_DB_PASSWORD"
       - "LIGA_DEBATE_DB_NAME"
-
-substitutions:
-  _WP_DIR: "/var/www/html"
-  _WP_CONFIG: "/var/www/html/wp-config.php"
 
 timeout: '1600s'  
 
