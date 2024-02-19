@@ -1,12 +1,14 @@
 steps:
-  #Step 1: Prepare the Theme
+  # Step 1: Prepare the Theme Archive
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Prepare Theme Archive'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
-        tar -czf theme-archive.tar.gz .
+        touch theme-archive.tar.gz
+        tar --exclude=theme-archive.tar.gz -zcvf theme-archive.tar.gz .
+
 
   # Step 2: Ensure the Compute Engine instance exists, create if it doesn't
   - name: 'gcr.io/cloud-builders/gcloud'
