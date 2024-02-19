@@ -126,6 +126,17 @@ steps:
           fi
         '
 
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Set Ownership and Permissions'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
+          sudo chown -R www-data:www-data /var/www/html/wp-content && \
+          sudo chmod -R 755 /var/www/html/wp-content
+        '
+
 timeout: '1600s'  
 
 options:
