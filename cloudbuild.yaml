@@ -117,37 +117,19 @@ steps:
             sudo cp "/var/www/html/wp-config-sample.php" "/var/www/html/wp-config.php";
             
             # Use sed with sudo to replace database details placeholders
-            sudo sed -i "s/database_name_here/$$LIGA_DEBATE_DB_NAME/g" "/var/www/html/wp-config.php";
-            sudo sed -i "s/username_here/$$LIGA_DEBATE_DB_USER/g" "/var/www/html/wp-config.php";
-            sudo sed -i "s/password_here/$$LIGA_DEBATE_DB_PASSWORD/g" "/var/www/html/wp-config.php";
-            sudo sed -i "s/localhost/$$LIGA_DEBATE_DB_HOST/g" "/var/www/html/wp-config.php";
+            sudo sed -i "s/database_name_here/$_DB_NAME/g" "/var/www/html/wp-config.php";
+            sudo sed -i "s/username_here/$_DB_USER/g" "/var/www/html/wp-config.php";
+            sudo sed -i "s/password_here/$_DB_PASSWORD/g" "/var/www/html/wp-config.php";
+            sudo sed -i "s/localhost/$_DB_HOST/g" "/var/www/html/wp-config.php";
           else
             echo "wp-config.php already exists. Skipping configuration.";
           fi
         '
-    secretEnv:
-      - "LIGA_DEBATE_DB_HOST"
-      - "LIGA_DEBATE_DB_USER"
-      - "LIGA_DEBATE_DB_PASSWORD"
-      - "LIGA_DEBATE_DB_NAME"
-
 
 timeout: '1600s'  
 
 options:
   logging: CLOUD_LOGGING_ONLY
-
-
-availableSecrets:
-  secretManager:
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_HOST/versions/latest
-      env: "LIGA_DEBATE_DB_HOST"
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_USER/versions/latest
-      env: "LIGA_DEBATE_DB_USER"
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_PASSWORD/versions/latest
-      env: "LIGA_DEBATE_DB_PASSWORD"
-    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_NAME/versions/latest
-      env: "LIGA_DEBATE_DB_NAME"
 
 tags: 
  - master
