@@ -114,13 +114,13 @@ steps:
         gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
           if [ ! -f "/var/www/html/wp-config.php" ]; then
             echo "wp-config.php does not exist. Creating and configuring...";
-            cp "/var/www/html/wp-config-sample.php" "/var/www/html/wp-config.php";
+            sudo cp "/var/www/html/wp-config-sample.php" "/var/www/html/wp-config.php";
             
-            # Use sed to replace database details placeholders
-            sed -i "s/database_name_here/$$LIGA_DEBATE_DB_NAME/g" "/var/www/html/wp-config.php";
-            sed -i "s/username_here/$$LIGA_DEBATE_DB_USER/g" "/var/www/html/wp-config.php";
-            sed -i "s/password_here/$$LIGA_DEBATE_DB_PASSWORD/g" "/var/www/html/wp-config.php";
-            sed -i "s/localhost/$$LIGA_DEBATE_DB_HOST/g" "/var/www/html/wp-config.php";
+            # Use sed with sudo to replace database details placeholders
+            sudo sed -i "s/database_name_here/$$LIGA_DEBATE_DB_NAME/g" "/var/www/html/wp-config.php";
+            sudo sed -i "s/username_here/$$LIGA_DEBATE_DB_USER/g" "/var/www/html/wp-config.php";
+            sudo sed -i "s/password_here/$$LIGA_DEBATE_DB_PASSWORD/g" "/var/www/html/wp-config.php";
+            sudo sed -i "s/localhost/$$LIGA_DEBATE_DB_HOST/g" "/var/www/html/wp-config.php";
           else
             echo "wp-config.php already exists. Skipping configuration.";
           fi
@@ -130,6 +130,7 @@ steps:
       - "LIGA_DEBATE_DB_USER"
       - "LIGA_DEBATE_DB_PASSWORD"
       - "LIGA_DEBATE_DB_NAME"
+
 
 timeout: '1600s'  
 
