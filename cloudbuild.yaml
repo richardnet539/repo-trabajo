@@ -124,6 +124,8 @@ steps:
 
             # Add FS_METHOD directive
             echo "define('FS_METHOD', 'direct');" | sudo tee -a /var/www/html/wp-config.php > /dev/null;
+
+           sed -i "/\/\* That's all, stop editing! Happy publishing. \*\//i if (isset(\$_SERVER['HTTP_X_FORWARDED_PROTO']) && \$_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {\n    \$_SERVER['HTTPS'] = 'on';\n}\n" "/var/www/html/wp-config.php";
           else
             echo "wp-config.php already exists. Skipping configuration.";
           fi
