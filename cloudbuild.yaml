@@ -37,42 +37,33 @@ steps:
           sudo systemctl start mariadb
         '
 
-   # Step 3: Copy only the Makefile to the VM's home directory
+   # Step 3: Copy only the Makefile to the VM's home directory, if no PHP files exist
   - name: 'gcr.io/cloud-builders/gcloud'
-    id: 'Copy Makefile'
-    args:
-      - compute
-      - scp
-      - Makefile
-      - $_GCE_USERNAME@$_INSTANCE_NAME:~/
-      - --zone=$_ZONE
-      - --project=$_PROJECT_ID
-
-  # Step 4: Ensure /var/www/html/ exists (wait for startup script to finish)
-  - name: 'gcr.io/cloud-builders/gcloud'
-    id: 'Wait for Startup Script'
+    id: 'Copy Makefile Conditionally'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
-        until gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='test -d /var/www/html/'; do
-          echo "Waiting for /var/www/html/ to be available..."
-          sleep 10
-        done
+        if ! gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='find /var/www/html/ -type f -name "*.php" | grep -q .'; then
+          gcloud compute scp Makefile $_GCE_USERNAME@$_INSTANCE_NAME:~/ --zone=$_ZONE --project=$_PROJECT_ID
+        else
+          echo "PHP files detected in /var/www/html/, skipping Makefile copy."
+        fi
 
-  # Step 5: Execute Makefile commands now assumes Makefile is in the home directory
+  # Step 4: Execute Makefile commands conditionally
   - name: 'gcr.io/cloud-builders/gcloud'
-    id: 'Run Makefile Commands'
+    id: 'Run Makefile Commands Conditionally'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
-        gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
-          sudo apt-get install -y make
-          sudo make -C ~ -f Makefile all
-        '
+        if ! gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='find /var/www/html/ -type f -name "*.php" | grep -q .'; then
+          gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='sudo apt-get install -y make && sudo make -C ~ -f Makefile all'
+        else
+          echo "PHP files detected in /var/www/html/, skipping Makefile execution."
+        fi
 
-  # Step 6: Copy the rest of the theme files to the instance
+  # Step 5: Copy the rest of the theme files to the instance
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Prepare Theme Archive'
     entrypoint: 'bash'
