@@ -97,10 +97,53 @@ steps:
           rm theme-archive.tar.gz;
         '
 
+    # Final Step: Check if wp-config.php exists, and if not, configure it
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Configure wp-config.php'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
+          if [ ! -f "$_WP_CONFIG" ]; then
+            echo "wp-config.php does not exist. Creating and configuring...";
+            cp "$WP_DIR/wp-config-sample.php" "$WP_CONFIG";
+            
+            # Use sed to replace database details placeholders
+            sed -i "s/database_name_here/${LIGA_DEBATE_DB_NAME}/g" "$WP_CONFIG";
+            sed -i "s/username_here/${LIGA_DEBATE_DB_USER}/g" "$WP_CONFIG";
+            sed -i "s/password_here/${LIGA_DEBATE_DB_PASSWORD}/g" "$WP_CONFIG";
+            sed -i "s/localhost/${LIGA_DEBATE_DB_HOST}/g" "$WP_CONFIG";
+          else
+            echo "wp-config.php already exists. Skipping configuration.";
+          fi
+        '
+    secretEnv:
+      - "LIGA_DEBATE_DB_HOST"
+      - "LIGA_DEBATE_DB_USER"
+      - "LIGA_DEBATE_DB_PASSWORD"
+      - "LIGA_DEBATE_DB_NAME"
+
+substitutions:
+  _WP_DIR: "/var/www/html"
+  _WP_CONFIG: "$_WP_DIR/wp-config.php"
+
 timeout: '1600s'  
 
 options:
   logging: CLOUD_LOGGING_ONLY
+
+
+availableSecrets:
+  secretManager:
+    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_HOST/versions/latest
+      env: "LIGA_DEBATE_DB_HOST"
+    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_USER/versions/latest
+      env: "LIGA_DEBATE_DB_USER"
+    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_PASSWORD/versions/latest
+      env: "LIGA_DEBATE_DB_PASSWORD"
+    - versionName: projects/$_PROJECT_ID/secrets/LIGA_DEBATE_DB_NAME/versions/latest
+      env: "LIGA_DEBATE_DB_NAME"
 
 tags: 
  - master
