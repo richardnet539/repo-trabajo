@@ -325,6 +325,10 @@ function ligaDebate_scripts()
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
+
+    wp_enqueue_script('custom-script', get_template_directory_uri() . '/js/custom.js', array('jquery'), null, true);
+    wp_enqueue_script('apply-field-id', get_template_directory_uri() . '/js/apply-field-id.js', array('jquery'), null, true);
+    wp_enqueue_script('process-participants-comments', get_template_directory_uri() . '/js/process-participants-comments.js', array('jquery'), null, true);
 }
 
 add_action('wp_enqueue_scripts', 'ligaDebate_scripts');
