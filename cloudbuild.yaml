@@ -121,6 +121,9 @@ steps:
             sudo sed -i "s/username_here/$_DB_USER/g" "/var/www/html/wp-config.php";
             sudo sed -i "s/password_here/$_DB_PASSWORD/g" "/var/www/html/wp-config.php";
             sudo sed -i "s/localhost/$_DB_HOST/g" "/var/www/html/wp-config.php";
+
+            # Add FS_METHOD directive
+            echo "define('FS_METHOD', 'direct');" | sudo tee -a /var/www/html/wp-config.php > /dev/null;
           else
             echo "wp-config.php already exists. Skipping configuration.";
           fi
