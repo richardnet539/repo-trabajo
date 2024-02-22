@@ -399,6 +399,7 @@ footer ul{
 .post-item {
 	@include breakpoint_md {
 		gap: 20px;
+		gap: 50px;
 	}
 
 	&__image {
@@ -432,10 +433,16 @@ footer ul{
 	color: #757575;
 }
 .page-numbers{
-	  display: flex;
+	display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: center;
     list-style: none;
+    gap: 10px;
+
 }
 .page-numbers li span{
 	padding: 5px 8px 5px 8px;
