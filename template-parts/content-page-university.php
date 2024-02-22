@@ -22,6 +22,8 @@
 	$query = new WP_Query($args);
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<h1>Estamos en content-page-university</h1>
+
 	<div class="entry-content pb-5">
 		<div class="c-grid c-grid-3 cardGallery">
 		<?php
@@ -93,3 +95,4 @@
 		wp_reset_postdata();
 			}
 					?>
+					<h1>content-Page University</h1>

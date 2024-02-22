@@ -45,16 +45,16 @@ function metabox_fields( $meta_boxes ) {
 
 	$meta_boxes[] = array(
 		'id' => 'custom',
-		'title' => esc_html__( 'Heading featured', 'ligaDebate' ),
-		'post_types' => array( 'page' ),
+		'title' => esc_html__( 'Premios de la liga', 'ligaDebate' ),
+		'post_types' => array( 'latamleague', 'spanishleague', 'university' ),
 		'context' => 'side',
 		'priority' => 'default',
-		'autosave' => 'false',
+		'autosave' => 'true',
 		'fields' => array(
 			array(
-				'id' => $prefix . 'heading_featured',
+				'id' => $prefix . 'league_awards',
 				'type' => 'wysiwyg',
-				'name' => esc_html__( 'Heading', 'ligaDebate' ),
+				// 'name' => esc_html__( 'Premios de la liga', 'ligaDebate' ),
 			),
 		),
 	);
