@@ -21,6 +21,13 @@
   z-index: 2;
 }
 
+.btn-bluelight{
+  background-color: #0085ca;
+  border-color: #0085ca;
+  color: #fff !important
+}
+
+
 // CARDS
 // ---------------------------------------------------------------
 
@@ -83,13 +90,56 @@
 
 .card-wrapped-3 {
   border: 0;
-  background: transparent;
+  background: blue;
   padding: 0;
   margin-bottom: 20px;
   @include breakpoint_md {
     margin-bottom: 110px;
   }
 }
+
+.gap-20 {
+  gap: 20px !important;
+}
+
+.cardLigas {
+  display: grid;
+  gap: 28px;
+  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.debate img {
+  object-fit: cover;
+  height: 272px;
+  width: 210px;
+}
+
+@media(max-width: 767.98px) {
+
+  .cardLigas,
+  .cardGalleryy {
+      gap: 25px;
+      grid-template-columns: repeat(1, 1fr);
+  }
+  .cardGallery-individual{
+      flex-direction: column;
+  }
+
+  .debate img {
+      height: 489px;
+      width: 512px;
+  }
+}
+
+@media(max-width: 320px) {
+  .debate img {
+      height: 187px;
+      width: 190px;
+  }
+}
+
+
 
 .wrapped-img {
   position: absolute;
@@ -125,6 +175,8 @@
       line-height: 1.25 !important;
     }
   }
+
+
 }
 
 @include wrapped_img($yellow, $yellow, yellow);
@@ -868,6 +920,7 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
 
 // PAGINATIONS
 // ---------------------------------------------------------------
+
 .pagination-split {
   $parent: pagination-split;
   &__item {
@@ -891,6 +944,7 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
     }
   }
 }
+
 
 
 // NAVS
