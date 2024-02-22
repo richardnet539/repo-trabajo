@@ -93,3 +93,4 @@
 		wp_reset_postdata();
 			}
 					?>
+					<h1>estamos en content-page-spain</h1>

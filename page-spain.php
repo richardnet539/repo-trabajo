@@ -11,7 +11,7 @@ get_header();
 ?>
 <div class="container">
 <div class="row">
-	<div id="primary" class="content-area <?php echo ligaDebate_main_content_bootstrap_classes(); ?>">
+	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
 		<?php
@@ -27,13 +27,10 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-<h1>Fin de page</h1>
 		</main><!-- #main -->
 	</div><!-- #primary -->
-	<?php
-	get_sidebar();
-	?>
 </div>
 </div>
+<h1>Page spain</h1>
 <?php
 get_footer();

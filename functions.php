@@ -281,6 +281,16 @@ function ligaDebate_widgets_init()
         'before_title' => '<h3 class="widget-title heading-style-3 text-uppercase">',
         'after_title' => '</h3>',
     ));
+
+    register_sidebar(array(
+        'id' => 'normativa-curso',
+        'name' => esc_html__('Normativas', 'ligaDebate'),
+        'description' => esc_html__('Displays top content', 'ligaDebate'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title heading-style-3 text-uppercase">',
+        'after_title' => '</h3>',
+    ));
 }
 
 add_action('widgets_init', 'ligaDebate_widgets_init');

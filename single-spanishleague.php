@@ -13,16 +13,18 @@ get_header();
 <div id="primary" class="content-area">
 	<main id="main" class="site-main">
 		<main id="main" class="site-main">
+		<h1>Estamos en Sinlge Spain</h1>
 		<?php
 			while(have_posts()):
 				the_post();
-				get_template_part('template-parts/content', 'latam');
+				get_template_part('template-parts/content', 'spain');
 			endwhile; // End of the loop.
 		?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	</div>
+	<h1>estamos en single-spain</h1>
 </div>
 <?php
 get_footer();
