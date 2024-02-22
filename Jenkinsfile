@@ -31,7 +31,8 @@ pipeline{
                         -t ${LATEST_THEME_IMAGE} \
                         .'
                 sh 'docker push ${LATEST_THEME_IMAGE}'
-                sh 'docker image rm -f ${LATEST_THEME_IMAGE}'
+                sh 'docker image tag ${LATEST_THEME_IMAGE} ${SERVER_REG}/${THEME_NAME}:${BRANCH_NAME}-${BUILD_ID}'
+                sh 'docker push ${SERVER_REG}/${THEME_NAME}:${BRANCH_NAME}-${BUILD_ID}'
                 echo '==== FINISHED DOCKER IMAGE ===='
             }
         }
