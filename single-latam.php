@@ -16,7 +16,7 @@ get_header();
 		<?php
 			while(have_posts()):
 				the_post();
-				get_template_part('template-parts/content', 'preuniversity-latam');
+				get_template_part('template-parts/content', 'latam');
 			endwhile; // End of the loop.
 		?>
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page University
+ * Template Name: Page Latam
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -9,6 +9,7 @@
 
 get_header();
 ?>
+<h1>estoy en page-latam</h1>
 <div class="container">
 <div class="row">
 	<div id="primary" class="content-area <?php echo ligaDebate_main_content_bootstrap_classes(); ?>">
@@ -18,7 +19,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content-page', 'university' );
+			get_template_part( 'template-parts/content-page', 'latam' );
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
