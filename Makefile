@@ -44,4 +44,3 @@ clean:
 	@sudo rm $(WP_FILE)
 
 .PHONY: all check_wp_exists download extract move_wp clean
-
