@@ -147,13 +147,4 @@ options:
   logging: CLOUD_LOGGING_ONLY
 
 tags: 
-          sudo chmod -R 755 /var/www/html/wp-content
-        '
-
-timeout: '1600s'  
-
-options:
-  logging: CLOUD_LOGGING_ONLY
-
-tags: 
  - master
