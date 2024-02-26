@@ -23,7 +23,7 @@ $query = new WP_Query($args);
 ?>
 
 <div class="pt-5">
-	<h1 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300">Liga de debate UNEATLANTICO</h1>
+	<h1 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300 pt-5">Liga de debate UNEATLANTICO</h1>
 </div>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
