@@ -21,8 +21,8 @@
 		?>
 		<div class="feature-heading__text">
 			<?php
-			if (rwmb_meta('heading_featured') != '') {
-				echo rwmb_meta( 'heading_featured' );
+			if (rwmb_meta('league_awards') != '') {
+				echo rwmb_meta( 'league_awards' );
 			}
 			?>
 		</div>
