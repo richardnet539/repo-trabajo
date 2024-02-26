@@ -12,6 +12,7 @@
 <div id="top" class="top bg-primary">
     <div class="container">
         <div class="region region-top">
+            <a>unetlantico.es</a>
             <?php dynamic_sidebar('top-content-1'); ?>
 
             <?php if (is_active_sidebar('top-menu-language')) { ?>

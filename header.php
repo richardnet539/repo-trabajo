@@ -52,6 +52,10 @@
 					<span class="site-description"><?php echo $ligaDebate_description; /* WPCS: xss ok. */ ?></span>
 				<?php endif; ?>
 			</div><!-- .site-branding -->
+			
+			<a href="http://localhost:8090/?customize_changeset_uuid=3b92d4ef-f116-4609-97cc-ba1f5f200835" class="custom-logo-link" rel="home" aria-current="page"><img src="http://localhost:8090/wp-content/uploads/2024/02/logo-liga-de-debate.svg" class="custom-logo" alt="Liga de debate" decoding="async"></a>
+				<img src="http://localhost:8090/wp-content/uploads/2024/02/logo-liga-de-debate.svg" class="custom-logo" alt="Liga de debate" decoding="async">
+			</a>
 
 			<a class="btn-bar navbar-toggler menu-toggle" data-toggle="collapse" data-target=".js-main-navigation" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></a>
 
@@ -71,6 +75,7 @@
 				) );
 				?>
 				<div><?php dynamic_sidebar( 'menu-header' ); ?></div>
+				<div><a href="/contactanos" role="button" class="btn btn-lg btn-primary text-uppercase mt-3 ml-xl-2 color-white fz-12 fw-600" tabindex="0">contáctanos</a></div>
 			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
