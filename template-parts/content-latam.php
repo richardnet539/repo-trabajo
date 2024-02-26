@@ -31,7 +31,7 @@ echo $js_code;
 		<?php the_title('<h2 class="entry-title heading-home--center fw-300 pb-4">', '</h2>'); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content pb-5">
+	<div class="entry-content pb-5 container">
 		<!-- The Modal -->
 		<div id="modal-slider" class="custom-modal">
 			<img id="modal-slider-image"
@@ -41,30 +41,8 @@ echo $js_code;
 
 		<?php
 		the_content();
-		//Premios
-		if (rwmb_meta('league_awards') != '') {
-			?>
-			<h2>Premios</h2>
-			<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate Preuniversitaria</p>
-			<?php
-			echo rwmb_meta( 'league_awards' );
-		}
 
-		// zona azul
-		if (is_active_sidebar('normativa-curso')) { ?>
-			<!-- Bloque de Curso - Normativa -->
-			<div>
-				<?php dynamic_sidebar('normativa-curso'); ?>
-			</div>	
-		<?php }
 ?>
-
-
-
-
-
-
-
 
 
 
@@ -87,9 +65,39 @@ echo $js_code;
 				}
 			}
 		</script>
-
-
+	</div><!-- .entry-content -->
+	
+	<?php
+	//Slider
+		if (rwmb_meta('slider_photos') != '') {
+			echo rwmb_meta( 'slider_photos' );
+		}
+		?>
+		<div class="container">
 		<?php
+		//Premios
+		if (rwmb_meta('league_awards') != '') {
+			?>
+				<h2>Premios</h2>
+				<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate Preuniversitaria</p>
+				<?php
+				echo rwmb_meta( 'league_awards' );
+		}
+
+		if (is_active_sidebar('normativa-curso')) { ?>
+			<!-- Bloque de Curso - Normativa -->
+			<div>
+				<?php dynamic_sidebar('normativa_curso'); ?>
+			</div>	
+		<?php } 
+
+		if (is_active_sidebar('contact-form')) { ?>
+			<!-- Bloque del Formulario de contacto -->
+			<div>
+				<?php dynamic_sidebar('contact_form'); ?>
+			</div>	
+		<?php } 
+
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__('Pages:', 'ligaDebate'),
@@ -97,9 +105,6 @@ echo $js_code;
 			)
 		);
 		?>
-	</div><!-- .entry-content -->
-	<h1>estamos en content-latam</h1>
-
-
-	</footer><!-- .entry-footer -->
+		</footer><!-- .entry-footer -->
+	</div>
 </article><!-- #post-<?php the_ID(); ?> -->
