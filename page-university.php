@@ -29,7 +29,7 @@ get_header();
 		</main><!-- #main -->
 	</div><!-- #primary -->
 </div>
-<h1>Page University</h1>
+<h1></h1>
 </div>
 <?php
 get_footer();

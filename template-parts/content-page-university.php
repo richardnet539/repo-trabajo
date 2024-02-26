@@ -23,7 +23,7 @@ $query = new WP_Query($args);
 ?>
 
 <div class="pt-5">
-	<h1 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300">Liga de debate UNEATLANTICO</h1>
+	<h1 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300 pt-5">Liga de debate UNEATLANTICO</h1>
 </div>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -94,7 +94,7 @@ $query = new WP_Query($args);
 
 <?php
 if ($query->max_num_pages > 1) {
-	echo '<ul class="page-numbers font-family-light">';
+	echo '<ul class="page-numbers font-family-light page-numbers-space">';
 	if ($curpage > 1) {
 		echo '<li>
 					<a class="previous page-numbers page button btn ml-xl-2 fz-14" href="' . get_pagenum_link(($curpage - 1 > 0 ? $curpage - 1 : 1)) . '">« Anterior</a>
