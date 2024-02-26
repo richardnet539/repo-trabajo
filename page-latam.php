@@ -20,6 +20,10 @@ get_header();
 
 			get_template_part( 'template-parts/content-page', 'latam' );
 
+
+
+
+
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
@@ -32,5 +36,6 @@ get_header();
 </div>
 <h1>Page LATAM</h1>
 </div>
+
 <?php
 get_footer();
