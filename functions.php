@@ -281,6 +281,16 @@ function ligaDebate_widgets_init()
         'before_title' => '<h3 class="widget-title heading-style-3 text-uppercase">',
         'after_title' => '</h3>',
     ));
+
+    register_sidebar(array(
+        'id' => 'normativa-curso',
+        'name' => esc_html__('Normativas', 'ligaDebate'),
+        'description' => esc_html__('Displays top content', 'ligaDebate'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title heading-style-3 text-uppercase">',
+        'after_title' => '</h3>',
+    ));
 }
 
 add_action('widgets_init', 'ligaDebate_widgets_init');
@@ -325,7 +335,7 @@ function ligaDebate_scripts()
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
-
+    
     wp_enqueue_script('custom-script', get_template_directory_uri() . '/js/custom.js', array('jquery'), null, true);
     wp_enqueue_script('apply-field-id', get_template_directory_uri() . '/js/apply-field-id.js', array('jquery'), null, true);
     wp_enqueue_script('process-participants-comments', get_template_directory_uri() . '/js/process-participants-comments.js', array('jquery'), null, true);

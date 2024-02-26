@@ -15,7 +15,7 @@
 		'orderby' => 'post_date',
 		'posts_per_page' => 6,
 		'paged' => $paged,
-		'post_type' => 'preuniversity-latam',
+		'post_type' => 'spanishleague',
 		'cat' =>  $cat,
 		'category__not_in' => 42
 	);
@@ -93,3 +93,4 @@
 		wp_reset_postdata();
 			}
 					?>
+					<h1>estamos en content-page-spain</h1>
