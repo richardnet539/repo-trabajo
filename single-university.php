@@ -9,11 +9,11 @@
 
 get_header();
 ?>
-<div class="container">
+<div class="content">
 <div id="primary" class="content-area">
 	<main id="main" class="site-main">
 		<main id="main" class="site-main">
-		<h1>Estamos en single</h1>
+			<h1>Estamos en Sinlge University</h1>
 		<?php
 			while(have_posts()):
 				the_post();

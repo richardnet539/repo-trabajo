@@ -99,3 +99,4 @@ document.addEventListener('wpcf7mailsent', function (event) {
         participantCountField.value = '1';
     }
 }, false);
+

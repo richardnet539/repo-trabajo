@@ -15,7 +15,7 @@
 		'orderby' => 'post_date',
 		'posts_per_page' => 6,
 		'paged' => $paged,
-		'post_type' => 'preuniversity-latam',
+		'post_type' => 'course',
 		'cat' =>  $cat,
 		'category__not_in' => 42
 	);
@@ -93,3 +93,5 @@
 		wp_reset_postdata();
 			}
 					?>
+
+<h1>content-Page Course</h1>

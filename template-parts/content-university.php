@@ -16,7 +16,7 @@
 		?>
 	</div>
 
-	<header class="entry-header py-3">
+	<header class="entry-header py-3 container">
 		<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">Gallery</h1>
 		<?php the_title('<h2 class="entry-title heading-home--center fw-300 pb-4">', '</h2>'); ?>
 	</header><!-- .entry-header -->
@@ -54,6 +54,35 @@
 
 
 		<?php
+		//Slider
+			if (rwmb_meta('slider_photos') != '') {
+				echo rwmb_meta( 'slider_photos' );
+			}
+			?>
+			<div class="container">
+			<?php
+			//Premios
+			if (rwmb_meta('league_awards') != '') {
+				?>
+					<h2>Premios</h2>
+					<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate Preuniversitaria</p>
+					<?php
+					echo rwmb_meta( 'league_awards' );
+			}
+
+			if (is_active_sidebar('normativa-curso')) { ?>
+				<!-- Bloque de Curso - Normativa -->
+				<div>
+					<?php dynamic_sidebar('normativa_curso'); ?>
+				</div>	
+			<?php } 
+
+			if (is_active_sidebar('contact-form')) { ?>
+				<!-- Bloque del Formulario de contacto -->
+				<div>
+					<?php dynamic_sidebar('contact_form'); ?>
+				</div>	
+			<?php } 
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__('Pages:', 'residencia'),
@@ -62,6 +91,5 @@
 		);
 		?>
 	</div><!-- .entry-content -->
-
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

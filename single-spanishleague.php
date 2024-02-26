@@ -9,20 +9,22 @@
 
 get_header();
 ?>
-<div class="container">
+<div class="content">
 <div id="primary" class="content-area">
 	<main id="main" class="site-main">
 		<main id="main" class="site-main">
+		<h1>Estamos en Sinlge Spain</h1>
 		<?php
 			while(have_posts()):
 				the_post();
-				get_template_part('template-parts/content', 'preuniversity-spain');
+				get_template_part('template-parts/content', 'spain');
 			endwhile; // End of the loop.
 		?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	</div>
+	<h1>estamos en single-spain</h1>
 </div>
 <?php
 get_footer();
