@@ -10,6 +10,7 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+
 	<div class="feature-heading mb-5">
 		<?php
 		$showThumbnail = get_the_post_thumbnail('184', 'page-thumbnail', ['class' => 'feature-heading__img img-fluid']);
@@ -18,8 +19,7 @@
 	</div>
 
 	<header class="entry-header py-3">
-		<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">Liga de debate Preuniversitaria España</h1>
-		<?php the_title('<h1 class="entry-title heading-home--center fz-30 color-dimgray fw-300 pb-4">', '</h1>'); ?>
+		<?php the_title('<h1 class="entry-title heading-home--center fw-300 pb-4">', '</h1>'); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content pb-5">
