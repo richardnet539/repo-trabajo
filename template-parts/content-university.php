@@ -9,6 +9,7 @@
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
 	<div class="feature-heading mb-5">
 		<?php
 		$showThumbnail = get_the_post_thumbnail('184', 'page-thumbnail', ['class' => 'feature-heading__img img-fluid']);
@@ -17,15 +18,31 @@
 	</div>
 
 	<header class="entry-header py-3">
+		<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">Liga de debate Preuniversitaria España</h1>
 		<?php the_title('<h1 class="entry-title heading-home--center fz-30 color-dimgray fw-300 pb-4">', '</h1>'); ?>
-	</header>
-	<!-- .entry-header -->
+	</header><!-- .entry-header -->
 
 	<div class="entry-content pb-5">
 
 
 		<?php
 		the_content();
+		//Premios
+		if (rwmb_meta('league_awards') != '') {
+			?>
+			<h2>Premios</h2>
+			<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate Preuniversitaria</p>
+			<?php
+			echo rwmb_meta( 'league_awards' );
+		}
+
+		// zona azul
+		if (is_active_sidebar('normativa-curso')) { ?>
+			<!-- Bloque de Curso - Normativa -->
+			<div>
+				<?php dynamic_sidebar('normativa-curso'); ?>
+			</div>	
+		<?php }
 		?>
 		<script>
 			const gallery = document.getElementsByClassName('wp-block-gallery');
@@ -49,35 +66,6 @@
 
 
 		<?php
-		//Slider
-			if (rwmb_meta('slider_photos') != '') {
-				echo rwmb_meta( 'slider_photos' );
-			}
-			?>
-			<div class="container">
-			<?php
-			//Premios
-			if (rwmb_meta('league_awards') != '') {
-				?>
-					<h2>Premios</h2>
-					<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate Preuniversitaria</p>
-					<?php
-					echo rwmb_meta( 'league_awards' );
-			}
-
-			if (is_active_sidebar('normativa-curso')) { ?>
-				<!-- Bloque de Curso - Normativa -->
-				<div>
-					<?php dynamic_sidebar('normativa_curso'); ?>
-				</div>	
-			<?php } 
-
-			if (is_active_sidebar('contact-form')) { ?>
-				<!-- Bloque del Formulario de contacto -->
-				<div>
-					<?php dynamic_sidebar('contact_form'); ?>
-				</div>	
-			<?php } 
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__('Pages:', 'residencia'),
@@ -86,5 +74,6 @@
 		);
 		?>
 	</div><!-- .entry-content -->
+
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
