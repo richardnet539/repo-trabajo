@@ -16,7 +16,7 @@
 		?>
 	</div>
 
-	<header class="entry-header py-3">s
+	<header class="entry-header py-3">
 		<?php the_title('<h1 class="entry-title heading-home--center fz-30 color-dimgray fw-300 pb-4">', '</h1>'); ?>
 	</header>
 	<!-- .entry-header -->
