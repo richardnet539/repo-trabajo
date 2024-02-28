@@ -45,8 +45,8 @@ function metabox_fields( $meta_boxes ) {
 
 	$meta_boxes[] = array(
 		'id' => 'custom',
-		'title' => esc_html__( 'Premios de la liga', 'ligaDebate' ),
-		'post_types' => array( 'latamleague', 'spanishleague', 'university' ),
+		'title' => esc_html__( 'Código extra', 'ligaDebate' ),
+		'post_types' => array( 'latamleague', 'spanishleague', 'university'),
 		'context' => 'side',
 		'priority' => 'default',
 		'autosave' => 'true',
@@ -54,7 +54,12 @@ function metabox_fields( $meta_boxes ) {
 			array(
 				'id' => $prefix . 'league_awards',
 				'type' => 'wysiwyg',
-				// 'name' => esc_html__( 'Premios de la liga', 'ligaDebate' ),
+				'name' => esc_html__( 'Premios de la liga', 'ligaDebate' ),
+			),
+			array(
+				'id' => $prefix . 'slider_photos',
+				'type' => 'wysiwyg',
+				'name' => esc_html__( 'Slider de fotos', 'ligaDebate' ),
 			),
 		),
 	);
@@ -62,6 +67,7 @@ function metabox_fields( $meta_boxes ) {
 	return $meta_boxes;
 }
 add_filter( 'rwmb_meta_boxes', 'metabox_fields' );
+
 
 // Custom Post Liga Universitaria
 
@@ -267,3 +273,69 @@ function spanish_league_taxonomy() {
 	register_taxonomy( 'spanishleagues', [ 'spanishleague' ], $args );
 }
 add_action( 'init', 'spanish_league_taxonomy' );
+
+// Custom Post Cursos
+
+function course_custom_post_types() {
+	register_post_type('course',
+		array(
+			'labels'      => array(
+				'name'          	=> __('Courses', 'ligaDebate'),
+				'singular_name' 	=> __('Course', 'ligaDebate'),
+				'menu_name'     	=> __( 'Cursos', 'ligaDebate' ),
+				'add_new'       	=> __( 'Añadir liga universitaria', 'ligaDebate' ),
+				'add_new_item'      => __( 'Añadir nueva liga universitaria', 'ligaDebate' ),
+				'new_item'          => __( 'Nueva liga universitaria', 'ligaDebate' ),
+				'edit_item'         => __( 'Editar liga universitaria', 'ligaDebate' ),
+				'view_item'         => __( 'Ver liga universitaria', 'ligaDebate' ),
+				'update_item'       => __( 'Ver liga universitaria', 'ligaDebate' ),
+				'all_items'         => __( 'Todas las liga universitarias', 'ligaDebate' ),
+				'search_items'      => __( 'Search liga universitaria', 'ligaDebate' ),
+				'parent_item_colon' => __( 'Parent university', 'ligaDebate' ),
+				'not_found'         => __( 'No universities found', 'ligaDebate' ),
+				'not_found_in_trash'=> __( 'No universities found in Trash', 'ligaDebate' )
+			),
+				'public'      	=> true,
+				'has_archive' 	=> true,
+				'capability_type' => 'post',
+				'menu_icon'   	=> 'dashicons-awards',
+				'menu_position' => 11,
+				'query_var'     => true,
+		 		'rewrite'       => [ 'slug' => 'courses' ],
+				'supports' 		=> ['title', 'editor', 'thumbnail', 'excerpt'],
+				'show_in_menu'  => true,
+				'show_ui'       => true,
+				'show_in_rest'  => true,
+		)
+	);
+}
+add_action('init', 'course_custom_post_types');
+
+
+// Taxonomy Cursos
+
+function course_taxonomy() {
+	$labels = array(
+		'name'              => _x( 'Universities', 'universities' ),
+		'singular_name'     => _x( 'University', 'university' ),
+		'search_items'      => __( 'Search university' ),
+		'all_items'         => __( 'All universities' ),
+		'parent_item'       => __( 'Parent university' ),
+		'parent_item_colon' => __( 'Parent university:' ),
+		'edit_item'         => __( 'Edit university' ),
+		'update_item'       => __( 'Update university' ),
+		'add_new_item'      => __( 'Add New university' ),
+		'new_item_name'     => __( 'New university Name' ),
+		'menu_name'         => __( 'Liga universitaria' ),
+	);
+	$args   = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => [ 'slug' => 'course' ],
+	);
+	register_taxonomy( 'course', [ 'courses' ], $args );
+}
+add_action( 'init', 'course_taxonomy' );
