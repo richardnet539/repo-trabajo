@@ -43,7 +43,7 @@ pipeline{
                 sh 'sshpass -p "${SSH_PASS}" ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "docker login ${SERVER_REG} -u ${DOCKER_USER} -p ${DOCKER_PASS}"'
                 sh 'sshpass -p "${SSH_PASS}" ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "docker kill ${THEME_NAME}"'
                 sh 'sshpass -p "${SSH_PASS}" ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "docker rm ${THEME_NAME}"'
-                sh 'sshpass -p "${SSH_PASS}" ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "docker run -d --name ${THEME_NAME} -dit --restart always -v ${SERVICES_DIRECTORY}/${THEME_NAME}:/var/www/html/wp-content/uploads -p 8132:80 -e WORDPRESS_DB_HOST=172.22.4.33:6033 -e WORDPRESS_DB_USER=ligaDeDebateAdmin -e WORDPRESS_DB_PASSWORD=cPkJPy3V9BGiLuskpGWF -e WORDPRESS_DB_NAME=liga_de_debate ${SERVER_REG}/${THEME_NAME}:${BRANCH_NAME}-${BUILD_ID}"'
+                sh 'sshpass -p "${SSH_PASS}" ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "docker run -d --name ${THEME_NAME} -dit --restart always -v ${SERVICES_DIRECTORY}/${THEME_NAME}/uploads:/var/www/html/wp-content/uploads -v ${SERVICES_DIRECTORY}/${THEME_NAME}/plugins:/var/www/html/wp-content/plugins -p 8132:80 -e WORDPRESS_DB_HOST=172.22.4.33:6033 -e WORDPRESS_DB_USER=ligaDeDebateAdmin -e WORDPRESS_DB_PASSWORD=cPkJPy3V9BGiLuskpGWF -e WORDPRESS_DB_NAME=liga_de_debate ${SERVER_REG}/${THEME_NAME}:${BRANCH_NAME}-${BUILD_ID}"'
                 }
                 echo '==== FINISHED DEPLOYMENT ===='
             }
