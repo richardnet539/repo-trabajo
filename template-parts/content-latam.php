@@ -17,7 +17,7 @@ $js_code = '<script>' . $js_code . '</script>';
 echo $js_code;
 }
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <h1>estamos en content-latam</h1>
 	<div class="feature-heading mb-5">
 		<?php

@@ -9,5 +9,6 @@ RUN mkdir ./wp-content/themes/${PROJECT_NAME}
 COPY ./ ./wp-content/themes/${PROJECT_NAME}
 
 VOLUME /var/www/html/wp-content/uploads
+VOLUME /var/www/html/wp-content/plugins
 
 EXPOSE 80
