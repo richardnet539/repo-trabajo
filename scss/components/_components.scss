@@ -1207,7 +1207,7 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
   display: flex;
   gap: 20px;
 
-  li{
+  li a{
     color: #fff;
   }
 }
