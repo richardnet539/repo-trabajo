@@ -8,7 +8,7 @@
  */
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="feature-heading mb-5">
 		<?php
 		$showThumbnail = get_the_post_thumbnail('184', 'page-thumbnail', ['class' => 'feature-heading__img img-fluid']);

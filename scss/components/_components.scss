@@ -1409,4 +1409,34 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
         }
       }
     }
+<<<<<<< HEAD
   }
+=======
+  }
+}
+
+.wp-block-table table thead{
+  border: 5px red solid;
+  background-color: #0085ca;
+}
+
+.wp-block-table table tbody tr:nth-child(odd) {
+  background-color: #F9F9F9; /* Light grey for odd rows */
+}
+.wp-block-table table tbody tr:nth-child(even) {
+  background-color: #a00c0c; /* Slightly darker grey for even rows */
+}
+
+#nav_menu-3 h3{
+  display: none;
+}
+#menu-footer-menu{
+  list-style: none;
+  display: flex;
+  gap: 20px;
+
+  li a{
+    color: #fff;
+  }
+}
+>>>>>>> 4e5e957734993b4b6f951974aaa7eac1f1bd2ec2
