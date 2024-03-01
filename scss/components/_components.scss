@@ -1191,3 +1191,10 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
   border: 5px red solid;
   background-color: #0085ca;
 }
+
+.wp-block-table table tbody tr:nth-child(odd) {
+  background-color: #F9F9F9; /* Light grey for odd rows */
+}
+.wp-block-table table tbody tr:nth-child(even) {
+  background-color: #a00c0c; /* Slightly darker grey for even rows */
+}
