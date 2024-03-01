@@ -1198,3 +1198,16 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
 .wp-block-table table tbody tr:nth-child(even) {
   background-color: #a00c0c; /* Slightly darker grey for even rows */
 }
+
+#nav_menu-3 h3{
+  display: none;
+}
+.menu-footer-menu{
+  list-style: none;
+  display: flex;
+  gap: 20px;
+
+  li{
+    color: #fff;
+  }
+}
