@@ -1186,3 +1186,8 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
     }
   }
 }
+
+.wp-block-table table thead{
+  border: 5px red solid;
+  background-color: #0085ca;
+}
