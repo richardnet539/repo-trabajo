@@ -27,45 +27,7 @@
 
 		<?php
 		the_content();
-		//Premios
-		if (rwmb_meta('league_awards') != '') {
-			?>
-			<h2>Premios</h2>
-			<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate Preuniversitaria</p>
-			<?php
-			echo rwmb_meta( 'league_awards' );
-		}
 
-		// zona azul
-		if (is_active_sidebar('normativa-curso')) { ?>
-			<!-- Bloque de Curso - Normativa -->
-			<div>
-				<?php dynamic_sidebar('normativa-curso'); ?>
-			</div>	
-		<?php }
-		?>
-		<script>
-			const gallery = document.getElementsByClassName('wp-block-gallery');
-			const modal = document.getElementById("modal-slider");
-			const arr = [...gallery[0].children];
-			arr.forEach((element, index) => {
-				element.children[0].addEventListener("click", e => {
-					const imageElement = document.getElementById('modal-slider-image');
-
-					imageElement.src = element.children[0].currentSrc;
-					modal.style.display = "flex";
-
-				});
-			});
-			window.onclick = function (event) {
-				if (event.target == modal) {
-					modal.style.display = "none";
-				}
-			}
-		</script>
-
-
-		<?php
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__('Pages:', 'residencia'),
