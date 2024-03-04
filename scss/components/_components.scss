@@ -1160,61 +1160,38 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
   }
 }
 
-  // TABLES
-  // ---------------------------------------------------------------
-  .table {
-    &--format {
-      @include table__format($theme-primary);
-      width: 99.9%;
-      text-align: left;
+// TABLES
+// ---------------------------------------------------------------
+.table {
+  &--format {
+    @include table__format($theme-primary);
+    width: 99.9%;
+    text-align: left;
 
-      .ord {
-        text-align: center;
-        width: 35px;
-      }
+    .ord {
+      text-align: center;
+      width: 35px;
+    }
 
-      &--half {
+    &--half {
 
-        >tbody,
-        >tfoot {
-          >tr {
+      >tbody,
+      >tfoot {
+        >tr {
 
-            >th,
-            >td {
-              width: 50%;
-            }
+          >th,
+          >td {
+            width: 50%;
           }
         }
       }
+    }
 
-      &--1 {
-        >thead {
-          >tr {
-            &:nth-child(2) {
-              th {
-                &:first-child {
-                  text-align: left;
-                }
-              }
-            }
-          }
-        }
-
-        >tbody,
-        >tfoot {
-          >tr {
-
-            >th,
-            >td {
-
-              &:last-child,
-              &:nth-last-child(2),
-              &:nth-last-child(3),
-              &:nth-last-child(4),
-              &:nth-last-child(5) {
-                text-align: center;
-              }
-
+    &--1 {
+      >thead {
+        >tr {
+          &:nth-child(2) {
+            th {
               &:first-child {
                 text-align: left;
               }
@@ -1223,220 +1200,248 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
         }
       }
 
-      &--2 {
-        >tbody {
-          >tr {
-            >td {
+      >tbody,
+      >tfoot {
+        >tr {
 
-              &:first-child,
-              &:last-child,
-              &:nth-last-child(2) {
-                text-align: center;
-              }
+          >th,
+          >td {
 
-              &:nth-child(2) {
-                text-align: left;
-              }
-            }
-          }
-        }
-
-        >tfoot {
-          >tr {
-
-            >th,
-            >td {
-              &:nth-child(2) {
-                text-align: left;
-              }
-
-              &:last-child,
-              &:nth-last-child(2) {
-                text-align: center;
-              }
-            }
-          }
-        }
-      }
-
-      &--3 {
-        >tbody {
-          >tr {
-            >td {
-              &:first-child {
-                text-align: center;
-              }
-
-              &:last-child {
-                text-align: left;
-              }
-            }
-          }
-        }
-      }
-
-      &--4 {
-        >tbody {
-          >tr {
-            &:nth-child(even) {
-              >td:nth-child(odd) {
-                text-align: center;
-              }
+            &:last-child,
+            &:nth-last-child(2),
+            &:nth-last-child(3),
+            &:nth-last-child(4),
+            &:nth-last-child(5) {
+              text-align: center;
             }
 
-            >td {
-              &:first-child {
-                text-align: left;
-              }
-
-              &:last-child,
-              &:nth-last-child(2) {
-                text-align: center;
-              }
-            }
-          }
-        }
-
-        >tfoot {
-          >tr {
-
-            >th,
-            >td {
-              &:last-child {
-                text-align: center;
-              }
-            }
-          }
-        }
-      }
-
-      &--5 {
-        >thead {
-          >tr {
-            >th {
-              vertical-align: middle;
-            }
-
-            &:nth-child(2) {
-              background: inherit !important;
-            }
-          }
-        }
-
-        >tbody,
-        >tfoot {
-          >tr {
-
-            >th,
-            >td {
-
-              &:last-child,
-              &:nth-last-child(2),
-              &:nth-last-child(3),
-              &:nth-last-child(4),
-              &:nth-last-child(5) {
-                text-align: center;
-              }
-
-              &:first-child {
-                text-align: left;
-              }
-            }
-          }
-        }
-      }
-
-      &--6 {
-        >tbody {
-          >tr {
-            >td {
-              &:last-child {
-                text-align: center;
-              }
-            }
-          }
-        }
-      }
-
-      &--7 {
-
-        >tbody,
-        >tfoot {
-          >tr {
-
-            >td,
-            >th {
-
-              &:last-child,
-              &:nth-last-child(2),
-              &:nth-last-child(3) {
-                text-align: center;
-              }
-
-              &:first-child {
-                text-align: left;
-              }
-            }
-          }
-        }
-      }
-
-      &--8 {
-        >tbody {
-          >tr {
-            >td {
-
-              &:last-child,
-              &:nth-last-child(2) {
-                text-align: center;
-              }
-            }
-          }
-        }
-
-        >tfoot {
-          >tr {
-
-            >th,
-            >td {
-
-              &:last-child,
-              &:nth-last-child(2) {
-                text-align: center;
-              }
+            &:first-child {
+              text-align: left;
             }
           }
         }
       }
     }
-<<<<<<< HEAD
-  }
-=======
+
+    &--2 {
+      >tbody {
+        >tr {
+          >td {
+
+            &:first-child,
+            &:last-child,
+            &:nth-last-child(2) {
+              text-align: center;
+            }
+
+            &:nth-child(2) {
+              text-align: left;
+            }
+          }
+        }
+      }
+
+      >tfoot {
+        >tr {
+
+          >th,
+          >td {
+            &:nth-child(2) {
+              text-align: left;
+            }
+
+            &:last-child,
+            &:nth-last-child(2) {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    &--3 {
+      >tbody {
+        >tr {
+          >td {
+            &:first-child {
+              text-align: center;
+            }
+
+            &:last-child {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+
+    &--4 {
+      >tbody {
+        >tr {
+          &:nth-child(even) {
+            >td:nth-child(odd) {
+              text-align: center;
+            }
+          }
+
+          >td {
+            &:first-child {
+              text-align: left;
+            }
+
+            &:last-child,
+            &:nth-last-child(2) {
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      >tfoot {
+        >tr {
+
+          >th,
+          >td {
+            &:last-child {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    &--5 {
+      >thead {
+        >tr {
+          >th {
+            vertical-align: middle;
+          }
+
+          &:nth-child(2) {
+            background: inherit !important;
+          }
+        }
+      }
+
+      >tbody,
+      >tfoot {
+        >tr {
+
+          >th,
+          >td {
+
+            &:last-child,
+            &:nth-last-child(2),
+            &:nth-last-child(3),
+            &:nth-last-child(4),
+            &:nth-last-child(5) {
+              text-align: center;
+            }
+
+            &:first-child {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+
+    &--6 {
+      >tbody {
+        >tr {
+          >td {
+            &:last-child {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    &--7 {
+
+      >tbody,
+      >tfoot {
+        >tr {
+
+          >td,
+          >th {
+
+            &:last-child,
+            &:nth-last-child(2),
+            &:nth-last-child(3) {
+              text-align: center;
+            }
+
+            &:first-child {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+
+    &--8 {
+      >tbody {
+        >tr {
+          >td {
+
+            &:last-child,
+            &:nth-last-child(2) {
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      >tfoot {
+        >tr {
+
+          >th,
+          >td {
+
+            &:last-child,
+            &:nth-last-child(2) {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
-.wp-block-table table thead{
-  border: 5px red solid;
-  background-color: #0085ca;
+/*table of wordpress*/
+.wp-block-table table thead {
+  border: 5px #337ab7;
+  background-color: #337ab7;
 }
 
 .wp-block-table table tbody tr:nth-child(odd) {
-  background-color: #F9F9F9; /* Light grey for odd rows */
-}
-.wp-block-table table tbody tr:nth-child(even) {
-  background-color: #a00c0c; /* Slightly darker grey for even rows */
+  background-color: #f9fbfd;
+  /* Light grey for odd rows */
 }
 
-#nav_menu-3 h3{
+.wp-block-table table tbody tr:nth-child(even) {
+  background-color: #f5f8fd;
+  /* Slightly darker grey for even rows */
+}
+
+.wp-block-table td, .wp-block-table th {
+  border: 0.5px #e0ebf4 solid;
+  padding: 12px;
+}
+
+#nav_menu-3 h3 {
   display: none;
 }
-#menu-footer-menu{
+
+#menu-footer-menu {
   list-style: none;
   display: flex;
   gap: 20px;
 
-  li a{
+  li a {
     color: #fff;
   }
 }
->>>>>>> 4e5e957734993b4b6f951974aaa7eac1f1bd2ec2
