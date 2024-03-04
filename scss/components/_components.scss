@@ -1450,3 +1450,49 @@ th {
   text-align: inherit;
   color: #fff;
 }
+
+//cards course
+
+.wp-block-group{
+  gap: 30px;
+}
+
+.wp-block-group .wp-block-columns{
+  border: 1px solid #EDE2E2;
+  background-color: #f8f8f8;
+  padding: 30px 30px 20px 30px;
+  border-radius: 10px;
+  gap: 0px;
+}
+
+.wp-block-group .wp-block-columns .wp-block-column .wp-block-group h3{
+  font-size: 22px;
+  color: #58595B;
+}
+
+.wp-block-group .wp-block-columns .wp-block-column .wp-block-group p{
+  padding-top: 10px;
+}
+
+.wp-block-group .wp-block-columns .wp-block-column .wp-block-group h3::before{
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 55px;
+  // left: calc(50% - 28px);
+  margin-top: 45px;
+  border-bottom: 3px solid #84bed6;
+}
+
+.wp-block-group .wp-block-columns .wp-block-column figure img{
+  border-radius: 10px;
+  width: 80%;
+}
+
+@media(max-width: 767.98px) {
+  .wp-block-group .wp-block-columns .wp-block-column figure{
+    display: flex;
+    justify-content: center;
+  }
+  
+}
