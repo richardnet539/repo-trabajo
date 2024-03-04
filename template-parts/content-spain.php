@@ -74,7 +74,7 @@
 
 		if (is_active_sidebar('normativa-curso')) { ?>
 			<!-- Bloque de Curso - Normativa -->
-			<div>
+			<div class="bg-light-blue">
 				<?php dynamic_sidebar('normativa_curso'); ?>
 			</div>	
 		<?php } 

@@ -9,24 +9,33 @@
 
 get_header();
 ?>
-<div class="content">
-<div id="primary" class="content-area">
-	<main id="main" class="site-main">
+<div class="container">
+	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<main id="main" class="site-main">
+				<main id="main" class="site-main">
 
-				<?php
-				while (have_posts()):
-					the_post();
-					get_template_part('template-parts/content', 'university');
-				endwhile; // End of the loop.
-				?>
+					<?php
+					while (have_posts()):
+						the_post();
+						get_template_part('template-parts/content', 'university');
+					endwhile; // End of the loop.
+					?>
 
-			</main><!-- #main -->
+				</main><!-- #main -->
 
 
-		</div><!-- #primary -->
-	</div>
+	</div><!-- #primary -->
 </div>
+</div>
+
+<?php
+if (is_active_sidebar('normativa-curso')) { ?>
+	<!-- Bloque de Curso - Normativa -->
+	<div>
+		<?php dynamic_sidebar('normativa-curso'); ?>
+	</div>
+<?php }
+?>
 <?php
 get_footer();
