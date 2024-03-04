@@ -8,7 +8,7 @@
  */
 
 ?>
-<article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="feature-heading mb-5">
 		<?php
 		$showThumbnail = get_the_post_thumbnail('184', 'page-thumbnail', ['class' => 'feature-heading__img img-fluid']);
@@ -26,9 +26,6 @@
 	<div class="entry-content pb-5 container">
 		<!-- The Modal -->
 		<div id="modal-slider" class="custom-modal">
-			<img id="modal-slider-image"
-				src="" alt="slide 2"
-				/>
 		</div>
 
 		<?php
@@ -74,7 +71,7 @@
 
 		if (is_active_sidebar('normativa-curso')) { ?>
 			<!-- Bloque de Curso - Normativa -->
-			<div class="bg-light-blue">
+			<div>
 				<?php dynamic_sidebar('normativa_curso'); ?>
 			</div>	
 		<?php } 
