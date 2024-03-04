@@ -23,7 +23,6 @@ get_header();
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	</div>
-	<h1>estamos en single-latam</h1>
 </div>
 <?php
 get_footer();
