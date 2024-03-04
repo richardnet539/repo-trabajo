@@ -26,9 +26,7 @@
 	<div class="entry-content pb-5 container">
 		<!-- The Modal -->
 		<div id="modal-slider" class="custom-modal">
-			<img id="modal-slider-image"
-				src="" alt="slide 2"
-				/>
+
 		</div>
 
 		<?php
