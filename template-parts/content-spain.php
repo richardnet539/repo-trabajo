@@ -17,7 +17,7 @@
 	</div>
 
 	<header class="entry-header py-3">
-		<?php the_title('<h2 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h2>'); ?>
+		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
 	</header><!-- .entry-header -->
 
 
@@ -58,7 +58,7 @@
 		//Premios
 		if (rwmb_meta('league_awards') != '') {
 			?>
-				<h2>Premios</h2>
+				<h2 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">Premios</h2>
 				<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate Preuniversitaria</p>
 				<?php
 				echo rwmb_meta( 'league_awards' );
