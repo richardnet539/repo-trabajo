@@ -23,10 +23,6 @@
 
 
 	<div class="entry-content pb-5 container">
-		<!-- The Modal -->
-		<div id="modal-slider" class="custom-modal">
-		</div>
-
 		<?php
 		the_content();
 		?>
