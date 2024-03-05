@@ -7,15 +7,6 @@
  * @package liga-de-debate
  */
 
-
-function console_log($output, $with_script_tags = true) {
-$js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
-');';
-if ($with_script_tags) {
-$js_code = '<script>' . $js_code . '</script>';
-}
-echo $js_code;
-}
 ?>
 <article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <h1>estamos en content-latam</h1>
@@ -27,18 +18,10 @@ echo $js_code;
 	</div>
 
 	<header class="entry-header py-3">
-		<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">Gallery</h1>
-		<?php the_title('<h2 class="entry-title heading-home--center fw-300 pb-4">', '</h2>'); ?>
+		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content pb-5 container">
-		<!-- The Modal -->
-		<div id="modal-slider" class="custom-modal">
-			<img id="modal-slider-image"
-				src="" alt="slide 2"
-				/>
-		</div>
-
 		<?php
 		the_content();
 
@@ -78,7 +61,7 @@ echo $js_code;
 		//Premios
 		if (rwmb_meta('league_awards') != '') {
 			?>
-				<h2>Premios</h2>
+				<h2 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300 p-4.3" style="padding-top: 5px;">Premios</h2>
 				<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate Preuniversitaria</p>
 				<?php
 				echo rwmb_meta( 'league_awards' );

@@ -31,7 +31,7 @@
 		//Premios
 		if (rwmb_meta('league_awards') != '') {
 			?>
-			<h1 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300 p-4.3">Premios</h1>
+			<h2 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300 p-4.3" style="padding-top: 5px;">Premios</h2>
 			<div class="text-center">
 				<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate
 					Preuniversitaria</p>
