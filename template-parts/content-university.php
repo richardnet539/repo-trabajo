@@ -32,29 +32,7 @@
 			<?php
 			echo rwmb_meta('league_awards');
 		}
-
-
 		?>
-		<script>
-			const gallery = document.getElementsByClassName('wp-block-gallery');
-			const modal = document.getElementById("modal-slider");
-			const arr = [...gallery[0].children];
-			arr.forEach((element, index) => {
-				element.children[0].addEventListener("click", e => {
-					const imageElement = document.getElementById('modal-slider-image');
-
-					imageElement.src = element.children[0].currentSrc;
-					modal.style.display = "flex";
-
-				});
-			});
-			window.onclick = function (event) {
-				if (event.target == modal) {
-					modal.style.display = "none";
-				}
-			}
-		</script>
-
 
 		<?php
 		wp_link_pages(
