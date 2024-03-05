@@ -10,15 +10,7 @@
 ?>
 <article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-
-	<div class="feature-heading mb-5">
-		<?php
-		$showThumbnail = get_the_post_thumbnail('184', 'page-thumbnail', ['class' => 'feature-heading__img img-fluid']);
-		echo get_the_post_thumbnail('184', 'page-thumbnail', ['class' => 'feature-heading__img img-fluid']);
-		?>
-	</div>
-
-	<header class="entry-header py-3">
+	<header class="entry-header py-3 mt-5">
 		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
 	</header>
 	<!-- .entry-header -->
