@@ -38,7 +38,7 @@
 
 			if (is_active_sidebar('programa-curso')) { ?>
 				<!-- Bloque del Programa -->
-				<div class="pt-3">
+				<div class="pt-3 container">
 					<?php dynamic_sidebar('programa-curso'); ?>
 				</div>	
 			<?php }
