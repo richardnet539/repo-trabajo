@@ -8,51 +8,19 @@
  */
 
 ?>
-<article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="feature-heading mb-5">
-		<?php
-		$showThumbnail = get_the_post_thumbnail('184', 'page-thumbnail', ['class' => 'feature-heading__img img-fluid']);
-		echo get_the_post_thumbnail('184', 'page-thumbnail', ['class' => 'feature-heading__img img-fluid']);
-		?>
-	</div>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header py-3">
-		<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">Gallery</h1>
-		<?php the_title('<h2 class="entry-title heading-home--center fw-300 pb-4">', '</h2>'); ?>
+	<header class="entry-header py-3 mt-5 container">
+		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
 	</header><!-- .entry-header -->
 
 
 
 	<div class="entry-content pb-5 container">
-		<!-- The Modal -->
-		<div id="modal-slider" class="custom-modal">
-
-		</div>
-
 		<?php
 		the_content();
 		?>
-		<script>
-			const gallery = document.getElementsByClassName('wp-block-gallery');
-			const modal = document.getElementById("modal-slider");
-			const arr = [...gallery[0].children];
-			arr.forEach((element, index) => {
-				element.children[0].addEventListener("click", e => {
-					const imageElement = document.getElementById('modal-slider-image');
-
-					imageElement.src = element.children[0].currentSrc;
-					modal.style.display = "flex";
-
-				});
-			});
-			window.onclick = function (event) {
-				if (event.target == modal) {
-					modal.style.display = "none";
-				}
-			}
-		</script>
-
-
+		
 		<?php
 	//Slider
 		if (rwmb_meta('slider_photos') != '') {
@@ -64,7 +32,7 @@
 		//Premios
 		if (rwmb_meta('league_awards') != '') {
 			?>
-				<h2>Premios</h2>
+				<h2 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">Premios</h2>
 				<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate Preuniversitaria</p>
 				<?php
 				echo rwmb_meta( 'league_awards' );
@@ -72,7 +40,7 @@
 
 		if (is_active_sidebar('normativa-curso')) { ?>
 			<!-- Bloque de Curso - Normativa -->
-			<div class="bg-light-blue">
+			<div>
 				<?php dynamic_sidebar('normativa_curso'); ?>
 			</div>	
 		<?php } 

@@ -9,11 +9,10 @@
 
 get_header();
 ?>
-<div class="container">
+<div class="content">
 <div id="primary" class="content-area">
 	<main id="main" class="site-main">
 		<main id="main" class="site-main">
-		<h1>Estamos en Sinlge LATAM</h1>
 		<?php
 			while(have_posts()):
 				the_post();
@@ -24,7 +23,6 @@ get_header();
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	</div>
-	<h1>estamos en single course</h1>
 </div>
 <?php
 get_footer();
