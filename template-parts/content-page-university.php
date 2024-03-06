@@ -23,7 +23,7 @@ $query = new WP_Query($args);
 ?>
 
 <div class="pt-5">
-	<h1 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300 pt-5">Liga de debate UNEATLANTICO</h1>
+	<h1 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300 pt">Liga de debate UNEATLANTICO</h1>
 </div>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -36,42 +36,42 @@ $query = new WP_Query($args);
 					$query->the_post();
 					?>
 
+					<div class="container">
+						<div class=" card card-wrapped card-wrapped bg-silver-light ">
 
-					<div class=" card-wrapped bg-silver-light ">
+							<div class="cardGallery-individual p-3 d-flex gap-20">
 
-						<div class="cardGallery-individual p-3 d-flex gap-20">
-
-							<div class='cardGallery-content  cardGallery-end debate'>
-								<?php
-								the_post_thumbnail();
-								?>
-							</div>
-
-
-							<div class="d-flex justify-content-center flex-column">
-								<h3 class="cardGallery-center p-2 cardTitle d-flex justify-content-center ">
-									<?php the_title('<div class="color-dimgray d-flex fz-25 fw-400"><a href="' . esc_url(get_permalink()) . '" >', '</a></div>'); ?>
-								</h3>
-								<div
-									class="h3 heading-style-1 heading-style-1--center heading-border--pastel-cyan color-dimgray text-uppercase">
-								</div>
-
-
-
-								<div class="fz-16 p-2 color-text mt-2 font-family-light textDescript-card text-center">
+								<div class='cardGallery-content  cardGallery-end debate'>
 									<?php
-									if (!has_excerpt()) {
-										echo '';
-									} else {
-										?>
-										<?php
-										echo get_the_excerpt();
-									}
+									the_post_thumbnail();
 									?>
 								</div>
-								<button class="btn btn-bluelight mt-4 fz-14">Semana del 26 Febrero de 2024</button>
-							</div>
 
+
+								<div class="d-flex justify-content-center flex-column" >
+									<h3 class="cardGallery-center p-2 cardTitle d-flex justify-content-center">
+										<?php the_title('<div class="color-dimgray d-flex fz-25 fw-400" style="font-weight: bold;text-align: center;"><a href="' . esc_url(get_permalink()) . '" >', '</a></div>'); ?>
+									</h3>
+									<div
+										class="h3 heading-style-1 heading-style-1--center heading-border--pastel-cyan color-dimgray text-uppercase" >
+									</div>
+
+
+
+									<div class="fz-16 p-2 color-text mt-2 font-family-light textDescript-card text-center">
+										<?php
+										if (!has_excerpt()) {
+											echo '';
+										} else {
+											?>
+											<?php
+											echo get_the_excerpt();
+										}
+										?>
+									</div>
+									<button class="btn btn-bluelight mt-4 fz-14"style="border-radius: 10px;">Semana del 26 Febrero de 2024</button>
+								</div>
+							</div>
 
 						</div>
 
