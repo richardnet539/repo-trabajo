@@ -114,7 +114,7 @@
 
 .cardLigas {
   display: grid;
-  gap: 28px;
+  gap: 6px;
   justify-items: center;
   grid-template-columns: repeat(2, 1fr);
 }
@@ -123,6 +123,7 @@
   object-fit: cover;
   height: 272px;
   width: 210px;
+  border-radius: 4px;
 }
 
 @media(max-width: 767.98px) {
@@ -139,9 +140,11 @@
 
   .debate img {
     height: 489px;
-    width: 512px;
+    width: 481px;
   }
+  
 }
+
 
 @media(max-width: 320px) {
   .debate img {
@@ -149,6 +152,7 @@
     width: 190px;
   }
 }
+
 
 
 
@@ -436,9 +440,6 @@
     }
   }
 }
-
-
-
 
 // OBJECTS
 // ---------------------------------------------------------------
