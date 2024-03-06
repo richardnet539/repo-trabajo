@@ -15,7 +15,7 @@
             <?php dynamic_sidebar('top-content-1'); ?>
 
             <?php if (is_active_sidebar('top-menu-language')) { ?>
-                <!-- Bloque de idiomas -->
+                <!-- Bloque de idiomas
                 <div id="block-bloqueidiomas" class="block block-language">
                     <div class="cont-idiomas btn-group">
                         <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" role="button"
@@ -26,7 +26,7 @@
                             <?php dynamic_sidebar('top-menu-language'); ?>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             <?php } ?>
 
             <!-- Bloque de busqueda -->

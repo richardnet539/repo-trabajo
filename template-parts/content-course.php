@@ -9,21 +9,21 @@
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header py-3">
+	<header class="entry-header py-3 container">
 		<?php the_title('<h2 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h2>'); ?>
 	</header><!-- .entry-header -->
-	<div class="entry-content container pb-5">
-		<?php
-		the_content();
-		?>
+		<div class="entry-content container pb-5">
 			<?php
-			wp_link_pages(
-				array(
-					'before' => '<div class="page-links">' . esc_html__('Pages:', 'residencia'),
-					'after' => '</div>',
-				)
-			);
+			the_content();
 			?>
+				<?php
+				wp_link_pages(
+					array(
+						'before' => '<div class="page-links">' . esc_html__('Pages:', 'residencia'),
+						'after' => '</div>',
+					)
+				);
+				?>
 		</div><!-- .entry-content -->
 		<div class="content">
 			<?php
@@ -38,7 +38,7 @@
 
 			if (is_active_sidebar('programa-curso')) { ?>
 				<!-- Bloque del Programa -->
-				<div class="pt-3">
+				<div class="pt-3 container">
 					<?php dynamic_sidebar('programa-curso'); ?>
 				</div>	
 			<?php }
