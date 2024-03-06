@@ -74,6 +74,31 @@ $query = new WP_Query($args);
 								</div>
 							</div>
 
+								<div class="d-flex justify-content-center flex-column" >
+									<h3 class="cardGallery-center p-2 cardTitle d-flex justify-content-center">
+										<?php the_title('<div class="color-dimgray d-flex fz-25 fw-400" style="font-weight: bold;text-align: center;"><a href="' . esc_url(get_permalink()) . '" >', '</a></div>'); ?>
+									</h3>
+									<div
+										class="h3 heading-style-1 heading-style-1--center heading-border--pastel-cyan color-dimgray text-uppercase" >
+									</div>
+
+
+
+									<div class="fz-16 p-2 color-text mt-2 font-family-light textDescript-card text-center">
+										<?php
+										if (!has_excerpt()) {
+											echo '';
+										} else {
+											?>
+											<?php
+											echo get_the_excerpt();
+										}
+										?>
+									</div>
+									<button class="btn btn-bluelight mt-4 fz-14"style="border-radius: 10px;">Semana del 26 Febrero de 2024</button>
+								</div>
+							</div>
+
 						</div>
 
 
