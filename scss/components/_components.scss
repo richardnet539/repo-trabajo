@@ -1553,15 +1553,29 @@ th {
   font-weight: bold;
 }
 .participant-block{
-  display: grid;
+  
+  max-width: 500px;
   background-color: #F2F5FA;
   border-radius: 10px;
-  grid-template-columns: repeat(2, 1fr);
   row-gap: 60px;
   font-size: 14px;
   color: #58595B;
   padding: 26px;
+  .participant-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .captain-check{
+    display: flex;
+    flex-direction: column;
+  }
   input{
-    border-color: #E1E1E1;
+    border: 2px solid #E1E1E1;
+    border-radius: 10px;
+    max-width: 245px;
+  }
+  textarea{
+    max-width: 500px;
+    grid-column: 1 / -1;
   }
 }
