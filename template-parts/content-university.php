@@ -10,17 +10,10 @@
 ?>
 <article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-
-	<div class="feature-heading mb-5">
-		<?php
-		$showThumbnail = get_the_post_thumbnail('184', 'page-thumbnail', ['class' => 'feature-heading__img img-fluid']);
-		echo get_the_post_thumbnail('184', 'page-thumbnail', ['class' => 'feature-heading__img img-fluid']);
-		?>
-	</div>
-
-	<header class="entry-header py-3">
-		<?php the_title('<h1 class="entry-title heading-home--center fw-300 pb-4">', '</h1>'); ?>
-	</header><!-- .entry-header -->
+	<header class="entry-header py-3 mt-5">
+		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
+	</header>
+	<!-- .entry-header -->
 
 	<div class="entry-content pb-5">
 
@@ -30,40 +23,16 @@
 		//Premios
 		if (rwmb_meta('league_awards') != '') {
 			?>
-			<h2>Premios</h2>
-			<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate Preuniversitaria</p>
+			<h2 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300 p-4.3" style="padding-top: 5px;">Premios</h2>
+			<div class="text-center">
+				<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate
+					Preuniversitaria</p>
+			</div>
+
 			<?php
-			echo rwmb_meta( 'league_awards' );
+			echo rwmb_meta('league_awards');
 		}
-
-		// zona azul
-		if (is_active_sidebar('normativa-curso')) { ?>
-			<!-- Bloque de Curso - Normativa -->
-			<div>
-				<?php dynamic_sidebar('normativa-curso'); ?>
-			</div>	
-		<?php }
 		?>
-		<script>
-			const gallery = document.getElementsByClassName('wp-block-gallery');
-			const modal = document.getElementById("modal-slider");
-			const arr = [...gallery[0].children];
-			arr.forEach((element, index) => {
-				element.children[0].addEventListener("click", e => {
-					const imageElement = document.getElementById('modal-slider-image');
-
-					imageElement.src = element.children[0].currentSrc;
-					modal.style.display = "flex";
-
-				});
-			});
-			window.onclick = function (event) {
-				if (event.target == modal) {
-					modal.style.display = "none";
-				}
-			}
-		</script>
-
 
 		<?php
 		wp_link_pages(
