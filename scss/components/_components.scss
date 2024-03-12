@@ -340,6 +340,16 @@
 @include wrapped_img($pastel-cyan, $pastel-cyan, pastel-cyan);
 @include wrapped_img($pastel-green, $pastel-green, pastel-green);
 
+/*formulario liga*/
+.form-liga{
+  padding-left: 7px;
+  padding-right: 7px;
+  border: 1px solid #ced4da;
+  height: calc(2.25rem + 2px);
+  border-radius: .25rem;
+  width: 100%;
+}
+
 
 
 .wrapped-img-2 {
