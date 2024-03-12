@@ -1651,10 +1651,6 @@ th {
 
 }
 
-.participant {
-  color: #0082CA;
-  font-weight: bold;
-}
 
 .participant-block {
   display: grid;
@@ -1662,6 +1658,12 @@ th {
   gap: 60px;
   font-size: 14px;
   color: #58595B;
+
+  .participant {
+    color: #0082CA !important;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 
   input {
     border-color: #E1E1E1;
