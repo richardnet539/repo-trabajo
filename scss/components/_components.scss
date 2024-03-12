@@ -1303,6 +1303,7 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
 @media (max-width: 959px) {
 
   .participant-block{
+    border: solid red 2px;
     grid-template-columns: repeat(1, 1fr);
   }
 
