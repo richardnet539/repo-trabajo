@@ -116,7 +116,7 @@
   display: grid;
   gap: 6px;
   justify-items: center;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /*Debate image*/
@@ -124,8 +124,8 @@
   object-fit: cover;
   -webkit-transform: translate(0px, -0.5px);
   border-radius: 185px;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 @media(max-width: 833px) {
@@ -145,8 +145,8 @@
 /*circule around the image*/
 .staff-member--picture {
   transform: translate(-98px, 28px);
-  height: 209px;
-  width: 209px;
+  height: 159px;
+  width: 159px;
   border-radius: 50%;
   border: #84bed6 5px solid;
 }
