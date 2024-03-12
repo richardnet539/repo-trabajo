@@ -1669,13 +1669,19 @@ th {
   .container-inputs{
     border-radius: 10px;
     max-width: 668px;
+    padding: 20px 8px;
+    div p{
+      margin-bottom: 5px !important;
+    }
   }
   .new-participant{
-    background-color: #0082CA;
+    background-color: #0082ca;
     color: #fff;
     border: transparent;
-    border-radius: 10px;
-    padding: 20px 10px;
+    border-radius: 2px;
+    padding: 6px 26px;
+    font-size: 12px;
+    text-transform: uppercase;
   }
 }
 
