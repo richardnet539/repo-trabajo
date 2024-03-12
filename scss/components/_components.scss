@@ -1690,7 +1690,7 @@ th {
     text-align: center;
     width: 38%;
     p{
-      margin: 0;
+      margin: 0px !important;
     }
   }
 }
@@ -1708,4 +1708,8 @@ th {
     border-color: #f8643b;
     text-transform: uppercase !important;
     margin-top: 1rem !important;
+    padding: 5px;
+    p{
+      margin: 0px !important;
+    }
 }
