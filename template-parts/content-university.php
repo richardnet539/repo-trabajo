@@ -24,7 +24,6 @@
 		if (rwmb_meta('slider_photos') != '') {
 			echo rwmb_meta( 'slider_photos' );
 		}
-		?>
 
 		//Premios
 		if (rwmb_meta('league_awards') != '') {
