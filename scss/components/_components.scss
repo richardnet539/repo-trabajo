@@ -608,7 +608,7 @@
 
   .form-search {
     box-sizing: content-box;
-    background: white url('./img/icon-search-blue.svg') no-repeat right 6px center;
+    background: white url('www.residencia.uneatlantico.es/wp-content/themes/residencia-blog/img/icon-search-blue.svg') no-repeat right 6px center;
     background-size: 12px;
     background-color: mix($theme-primary, white, 30%);
     border: solid 1px transparent;
@@ -1711,4 +1711,7 @@ th {
   height: calc(2.25rem + 2px);
   border-radius: .25rem;
   width: 100%;
+}
+.widget-top-content1{
+  font-size: 15px;
 }

@@ -1,11 +1,13 @@
 // Home Styles
 
 .widget-home-banner {
+	width: 100%;
 	img {
 		position: relative;
 		height: 350px !important;
 		max-width: 1920px !important;
 		width: auto;
+		object-fit: cover;
 		@include breakpoint_md {
 			height: 250px !important;
 			right: calc(125% - 25px);
