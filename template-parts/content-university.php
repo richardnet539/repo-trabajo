@@ -21,9 +21,13 @@
 		<?php
 		the_content();
 		//Slider
-		if (rwmb_meta('slider_photos') != '') {
-			echo rwmb_meta( 'slider_photos' );
-		}
+		if (is_active_sidebar('slider-liga-debate')) { ?>
+			<!-- Bloque del Formulario de contacto -->
+			<div>
+				<?php dynamic_sidebar('slider-liga-debate'); ?>
+			</div>	
+		<?php 
+		} 
 
 		//Premios
 		if (rwmb_meta('league_awards') != '') {
@@ -43,7 +47,8 @@
 			<div>
 				<?php dynamic_sidebar('formulario-contacto-curso'); ?>
 			</div>	
-		<?php } 
+		<?php 
+		} 
 		?>
 
 		<?php

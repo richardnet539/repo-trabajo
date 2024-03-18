@@ -56,11 +56,6 @@ function metabox_fields( $meta_boxes ) {
 				'type' => 'wysiwyg',
 				'name' => esc_html__( 'Premios de la liga', 'ligaDebate' ),
 			),
-			array(
-				'id' => $prefix . 'slider_photos',
-				'type' => 'wysiwyg',
-				'name' => esc_html__( 'Slider de fotos', 'ligaDebate' ),
-			),
 		),
 	);
 
