@@ -26,7 +26,7 @@
 	//Slider
 	if (is_active_sidebar('slider-liga-debate')) { ?>
 		<!-- Bloque del Formulario de contacto -->
-		<div>
+		<div id="slider-fullwidth" class="bg-light-blue">
 			<?php dynamic_sidebar('slider-liga-debate'); ?>
 		</div>	
 	<?php 
