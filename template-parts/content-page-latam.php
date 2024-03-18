@@ -93,5 +93,3 @@
 		wp_reset_postdata();
 			}
 					?>
-
-<h1>content-Page LATAM</h1>

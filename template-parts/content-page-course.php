@@ -93,5 +93,3 @@
 		wp_reset_postdata();
 			}
 					?>
-
-<h1>content-Page Course</h1>

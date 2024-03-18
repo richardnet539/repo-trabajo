@@ -34,7 +34,6 @@ get_header();
 		</main><!-- #main -->
 	</div><!-- #primary -->
 </div>
-<h1>Page LATAM</h1>
 </div>
 
 <?php

@@ -29,7 +29,6 @@ get_header();
 		</main><!-- #main -->
 	</div><!-- #primary -->
 </div>
-<h1>Page Course</h1>
 </div>
 <?php
 get_footer();
