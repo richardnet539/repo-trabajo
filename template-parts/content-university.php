@@ -20,6 +20,11 @@
 
 		<?php
 		the_content();
+		//Slider
+		if (rwmb_meta('slider_photos') != '') {
+			echo rwmb_meta( 'slider_photos' );
+		}
+
 		//Premios
 		if (rwmb_meta('league_awards') != '') {
 			?>
@@ -32,6 +37,13 @@
 			<?php
 			echo rwmb_meta('league_awards');
 		}
+
+		if (is_active_sidebar('formulario-contacto-curso')) { ?>
+			<!-- Bloque del Formulario de contacto -->
+			<div>
+				<?php dynamic_sidebar('formulario-contacto-curso'); ?>
+			</div>	
+		<?php } 
 		?>
 
 		<?php

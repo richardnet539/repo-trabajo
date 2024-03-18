@@ -156,33 +156,123 @@
     padding-top: 94px;
     padding-bottom: 60px;
   }
-  
+
 }
 
-@media(max-width: 810px) {
+@media(max-width: 827px) {
 
   .circule {
     margin-left: 225px;
     margin-top: -139px;
-    transform: translate(-91px, 10px);
+    transform: translate(-4px, 10px);
   }
 }
 
-@media (max-width: 436px) {
+@media (max-width: 767px) {
   .circule {
     margin-left: 225px;
     margin-top: -139px;
     -webkit-transform: translate(-98px, 10px);
-    transform: translate(-147px, 10px);
+    transform: translate(-93px, 10px);
   }
 }
 
-@media (max-width: 334px) {
+@media (max-width: 484px) {
   .circule {
     margin-left: 225px;
     margin-top: -139px;
-    -webkit-transform: translate(-98px, 10px);
-    transform: translate(-200px, 10px);
+    -webkit-transform: translate(-91px, 10px);
+    transform: translate(-117px, 10px);
+  }
+}
+
+@media (max-width: 430px) {
+  .circule {
+    margin-left: 225px;
+    margin-top: -139px;
+    -webkit-transform: translate(-91px, 10px);
+    transform: translate(-148px, 10px);
+  }
+}
+
+@media (max-width: 391px) {
+  .circule {
+    margin-left: 225px;
+    margin-top: -139px;
+    -webkit-transform: translate(-91px, 10px);
+    transform: translate(-167px, 10px);
+  }
+}
+
+@media (max-width: 366px) {
+  .circule {
+    margin-left: 225px;
+    margin-top: -139px;
+    -webkit-transform: translate(-91px, 10px);
+    transform: translate(-185px, 10px);
+  }
+}
+
+@media (max-width: 317px) {
+  .circule {
+    margin-left: 225px;
+    margin-top: -139px;
+    -webkit-transform: translate(-91px, 10px);
+    transform: translate(-208px, 10px);
+  }
+}
+
+@media (max-width: 297px) {
+  .circule {
+    margin-left: 225px;
+    margin-top: -139px;
+    -webkit-transform: translate(-91px, 10px);
+    transform: translate(-214px, 10px);
+  }
+}
+
+@media (max-width: 273px) {
+  .circule {
+    margin-left: 225px;
+    margin-top: -139px;
+    -webkit-transform: translate(-91px, 10px);
+    transform: translate(-226px, 10px);
+  }
+}
+
+@media (max-width: 276px) {
+  .circule {
+    margin-left: 225px;
+    margin-top: -139px;
+    -webkit-transform: translate(-91px, 10px);
+    transform: translate(-224px, 10px);
+  }
+}
+
+@media (max-width: 254px) {
+  .circule {
+    margin-left: 225px;
+    margin-top: -139px;
+    -webkit-transform: translate(-91px, 10px);
+    transform: translate(-235px, 10px);
+  }
+}
+
+@media (max-width: 262px) {
+  .circule {
+    margin-left: 225px;
+    margin-top: -139px;
+    -webkit-transform: translate(-91px, 10px);
+    transform: translate(-232px, 10px);
+  }
+}
+
+@media (max-width: 210px) {
+  .circule {
+    margin-left: 225px;
+    margin-top: -139px;
+    -webkit-transform: translate(-91px, 10px);
+    transform: translate(-246px, 10px);
   }
 }
 
@@ -200,10 +290,9 @@
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 994px;
+    max-width: 1361px !important;
   }
 }
-
 
 .wrapped-img {
   position: absolute;
@@ -251,7 +340,15 @@
 @include wrapped_img($pastel-cyan, $pastel-cyan, pastel-cyan);
 @include wrapped_img($pastel-green, $pastel-green, pastel-green);
 
-
+/*formulario liga*/
+.form-liga {
+  padding-left: 7px;
+  padding-right: 7px;
+  border: 1px solid #ced4da;
+  height: calc(2.25rem + 2px);
+  border-radius: .25rem;
+  width: 100%;
+}
 
 .wrapped-img-2 {
   position: absolute;
@@ -1548,7 +1645,7 @@ th {
 
 }
 
-.participant{
+.participant {
   color: #0082CA;
   font-weight: bold;
 }
@@ -1578,4 +1675,40 @@ th {
     max-width: 500px;
     grid-column: 1 / -1;
   }
+}
+
+.participant-block .container-inputs {
+  border-radius: 10px;
+  max-width: 668px;
+  padding: 20px 8px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.new-participant {
+  background-color: #0082ca;
+  color: #fff;
+  border: transparent;
+  border-radius: 5px;
+  padding: 6px 26px;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  width: 38%;
+}
+
+.participant-block {
+  padding-left: 7px;
+  padding-right: 7px;
+  border: 1px solid #ced4da;
+  height: calc(2.25rem + 2px);
+  border-radius: .25rem;
+  width: 100%;
 }

@@ -46,12 +46,13 @@
 			</div>	
 		<?php } 
 
-		if (is_active_sidebar('contact-form')) { ?>
+		if (is_active_sidebar('formulario-contacto-curso')) { ?>
 			<!-- Bloque del Formulario de contacto -->
 			<div>
-				<?php dynamic_sidebar('contact_form'); ?>
+				<?php dynamic_sidebar('formulario-contacto-curso'); ?>
 			</div>	
 		<?php } 
+		?>
 
 		wp_link_pages(
 			array(
