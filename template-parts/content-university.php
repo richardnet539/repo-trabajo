@@ -37,6 +37,13 @@
 			<?php
 			echo rwmb_meta('league_awards');
 		}
+
+		if (is_active_sidebar('formulario-contacto-curso')) { ?>
+			<!-- Bloque del Formulario de contacto -->
+			<div>
+				<?php dynamic_sidebar('formulario-contacto-curso'); ?>
+			</div>	
+		<?php } 
 		?>
 
 		<?php

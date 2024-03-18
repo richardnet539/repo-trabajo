@@ -292,15 +292,6 @@ function ligaDebate_widgets_init()
         'after_title' => '</h3>',
     ));
 
-    register_sidebar(array(
-        'id' => 'contact-form',
-        'name' => esc_html__('Formulario de contacto', 'ligaDebate'),
-        'description' => esc_html__('Displays top content', 'ligaDebate'),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => '</div>',
-        'before_title' => '<h3 class="widget-title heading-style-3 text-uppercase">',
-        'after_title' => '</h3>',
-    ));
 
     register_sidebar(array(
         'id' => 'programa-curso',
