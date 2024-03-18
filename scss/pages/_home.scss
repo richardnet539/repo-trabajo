@@ -1,7 +1,6 @@
 // Home Styles
 
 .widget-home-banner {
-	width: 100%;
 	img {
 		position: relative;
 		height: 350px !important;
@@ -13,5 +12,9 @@
 			right: calc(125% - 25px);
 		}
 	}
+}
+
+.widget-home-banner div{
+	width: 100%;
 }
 
