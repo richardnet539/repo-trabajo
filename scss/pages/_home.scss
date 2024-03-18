@@ -5,16 +5,12 @@
 		position: relative;
 		height: 350px !important;
 		max-width: 1920px !important;
-		width: auto;
 		object-fit: cover;
+		width: 100%;
 		@include breakpoint_md {
 			height: 250px !important;
 			right: calc(125% - 25px);
 		}
 	}
-}
-
-.widget-home-banner div{
-	width: 100%;
 }
 
