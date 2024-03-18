@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const submitButton = document.getElementById("form-groups-submit");
 
+  if (!submitButton) return;
+
   submitButton.parentNode.insertBefore(addButton, submitButton);
 
   const labelsToShow = [
