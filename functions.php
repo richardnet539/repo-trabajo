@@ -370,7 +370,7 @@ function ligaDebate_scripts()
     wp_enqueue_script('ligaDebate-isotopejs', 'https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js', array('jquery'), '1', true);
 
     // Main theme js
-    wp_enqueue_script('ligaDebate-scripts', get_template_directory_uri() . '/js/scripts.min.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('ligaDebate-scripts', get_template_directory_uri() . '/js/scripts.min.js', array('jquery'), null, true);
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
