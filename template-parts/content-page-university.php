@@ -39,9 +39,9 @@ $query = new WP_Query($args);
 					<div class="cardDebate">
 						<div class=" card card-wrapped card-wrapped bg-silver-light ">
 
-							<div class="cardGallery-individual p-3 d-flex gap-20">
+							<div class="cardGallery-individual px-3 d-flex gap-20">
 
-								<div class='cardGallery-content  cardGallery-end debate' style="width: 60px">
+								<div class='cardGallery-content  cardGallery-end debate' style="width: 50px">
 									<div class="staff-member--picture img-responsive circule">
 										<?php
 										the_post_thumbnail();
@@ -49,7 +49,7 @@ $query = new WP_Query($args);
 									</div>
 								</div>
 
-								<div class="d-flex justify-content-center flex-column">
+								<div class="d-flex justify-content-center flex-column align-self-start">
 									<h3 class="cardGallery-center p-2 cardTitle d-flex justify-content-center ">
 										<?php the_title('<div class="color-dimgray color-dimgray-a d-flex fz-25 fw-400" style="font-weight: bold;text-align: left;"><a href="' . esc_url(get_permalink()) . '" >', '</a></div>'); ?>
 									</h3>
