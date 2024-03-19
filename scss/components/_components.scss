@@ -1799,8 +1799,9 @@ th {
 }
 .wp-element-button{
   background: #0082ca;
-    color: white;
-    border-radius: 5px;
-    padding: 10px 60px;
-    margin: 30px 10px;
+  color: white !important;
+  border-radius: 5px;
+  padding: 10px 65px;
+  margin: 30px 10px;
+  text-transform: uppercase;
 }
