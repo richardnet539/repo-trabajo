@@ -14,7 +14,6 @@ get_header();
 	<div class="col-lg-9 col-md-9 col-sm-12">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-		<h1>Estamosbsbhtre en Sinlge University</h1>
 		<?php
 		while ( have_posts() ) :
 			the_post();
