@@ -199,7 +199,7 @@
 
 @media screen and (max-width: 470px) {
   .cardGallery-individual {
-    min-width: 0;
+    min-width: 0 !important;
   }
   .circule{
     display: none;
@@ -216,14 +216,9 @@
 }
 
 @media(max-width: 833px) {
-  .cardDebate {
-    padding-top: 94px;
-    padding-bottom: 60px;
+  .cardGallery-end{
+    width: 50px;
   }
-
-}
-.cardGallery-end{
-  width: 50px;
 }
 
 @media (max-width: 767px) {
