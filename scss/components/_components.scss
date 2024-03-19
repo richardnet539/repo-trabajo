@@ -156,8 +156,40 @@
 
 @media screen and (max-width: 1366px) {
   .cardGallery-individual{
-    min-width: 0;
+    min-width: 300px;
     border: 2px solid green;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .cardGallery-individual{
+    min-width: 380px;
+    min-height: 222px;
+    border: 2px solid yellow;
+  }
+
+  .cardLigas,
+  .cardGallery {
+    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .cardGallery-individual {
+    min-width: 610px;
+    border: 2px solid pink;
+    min-height: 180px;
+  }
+
+  .staff-member--picture{
+    transform: translate(-75px, 6px);
+  }
+
+  .cardLigas,
+  .cardGallery {
+    gap: 25px;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -169,9 +201,6 @@
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .cardGallery-individual {
-    flex-direction: column;
-  }
 
 }
 
