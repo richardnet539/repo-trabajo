@@ -51,7 +51,7 @@ $query = new WP_Query($args);
 
 								<div class="d-flex justify-content-center flex-column align-self-start">
 									<h3 class="cardGallery-center p-2 cardTitle d-flex justify-content-center ">
-										<?php the_title('<div class="color-dimgray color-dimgray-a d-flex fz-25 fw-400" style="font-weight: bold;text-align: left;"><a href="' . esc_url(get_permalink()) . '" >', '</a></div>'); ?>
+										<?php the_title('<div class="color-dimgray color-dimgray-a d-flex fz-25 fw-700 text-center"><a href="' . esc_url(get_permalink()) . '" >', '</a></div>'); ?>
 									</h3>
 									<div
 										class="h3 heading-style-1 heading-style-1--center heading-border--pastel-cyan color-dimgray text-uppercase ">
