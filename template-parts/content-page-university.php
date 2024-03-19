@@ -22,9 +22,9 @@ $args = array(
 $query = new WP_Query($args);
 ?>
 
-<div class="pt-5">
-	<h1 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300 pt">Liga de debate UNEATLANTICO</h1>
-</div>
+<header class="entry-header pt-5">
+		<?php the_title('<h1 class="heading-home heading-home--center fz-30 color-dimgray fw-300 pt">', '</h1>'); ?>
+</header>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-content pb-2">
