@@ -1793,6 +1793,10 @@ th {
   margin-left: -50vw;
   margin-right: -50vw;
   background-color: $light-blue !important;
+  padding: 14px 0px;
+  .swiper-slide{
+    margin-right: 5px !important;
+  }
 }
 .wp-block-buttons {
   justify-content: center;
