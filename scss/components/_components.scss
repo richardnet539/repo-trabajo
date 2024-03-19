@@ -1792,4 +1792,15 @@ th {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  background-color: $light-blue !important;
+}
+.wp-block-buttons {
+  justify-content: center;
+}
+.wp-block-button{
+  background: #0082ca;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 60px;
+    margin: 30px 10px;
 }
