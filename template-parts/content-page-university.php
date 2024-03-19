@@ -28,8 +28,7 @@ $query = new WP_Query($args);
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-content pb-2">
-
-		<div class="cardLigas cardGalleryy c-grid c-grid-3 container">
+		<div class="cardLigas cardGallery c-grid c-grid-3 container">
 			<?php
 			if ($query->have_posts()):
 				while ($query->have_posts()):
@@ -74,10 +73,7 @@ $query = new WP_Query($args);
 									</div>
 								</div>
 							</div>
-
 						</div>
-
-
 					</div>
 					<?php
 
