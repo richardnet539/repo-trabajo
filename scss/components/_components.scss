@@ -114,7 +114,6 @@
 
 .cardDebate{
   padding-left: 75px;
-  border: 2px solid red;
 }
 
 .cardLigas {
@@ -157,7 +156,6 @@
 @media screen and (max-width: 1366px) {
   .cardGallery-individual{
     min-width: 300px;
-    border: 2px solid green;
   }
 }
 
@@ -165,7 +163,6 @@
   .cardGallery-individual{
     min-width: 380px;
     min-height: 222px;
-    border: 2px solid yellow;
   }
 
   .cardLigas,
@@ -178,7 +175,6 @@
 @media screen and (max-width: 991px) {
   .cardGallery-individual {
     min-width: 610px;
-    border: 2px solid pink;
     min-height: 180px;
   }
 
@@ -198,6 +194,15 @@
   .cardGallery {
     gap: 25px;
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .cardGallery-individual {
+    min-width: 0;
+  }
+  .circule{
+    display: none;
   }
 }
 
