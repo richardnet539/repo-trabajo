@@ -136,10 +136,10 @@
 /*Debate image*/
 .debate img {
   object-fit: cover;
-  -webkit-transform: translate(0px, -0.5px);
+  -webkit-transform: translate(0px, 0px);
   border-radius: 185px;
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 110px;
+  max-height: 110px;
 }
 
 .cardGallery-individual {
@@ -149,6 +149,8 @@
 
 .cardLigas-body{
   gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 @media(max-width: 833px) {
@@ -167,9 +169,9 @@
 
 /*circule around the image*/
 .staff-member--picture {
-  transform: translate(-98px, 28px);
-  height: 159px;
-  width: 159px;
+  transform: translate(-62px, 66px);
+  height: 119px;
+  width: 119px;
   border-radius: 50%;
   border: #84bed6 5px solid;
 }
