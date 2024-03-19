@@ -217,13 +217,26 @@
   }
 
 }
+.cardGallery-end{
+  width: 50px;
+}
 
 @media (max-width: 767px) {
+  .cardDebate{
+    padding-left: 0px;
+    padding-bottom: 0px;
+  }
+  .cardGallery-individual{
+    min-width: 400px;
+    padding-top: 50px !important;
+  }
+  .cardGallery-end{
+    width: 0;
+  }
   .circule {
     margin-left: 225px;
     margin-top: -139px;
-    -webkit-transform: translate(-98px, 10px);
-    transform: translate(-93px, 10px);
+    transform: translate(-97px, 4px) !important;
   }
 }
 
