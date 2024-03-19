@@ -56,11 +56,7 @@ $query = new WP_Query($args);
 									<div
 										class="h3 heading-style-1 heading-style-1--center heading-border--pastel-cyan color-dimgray text-uppercase ">
 									</div>
-
-									<div class="text-uppercase">
-										<h4 style="padding-top: 10px;color: #58595B;">Semana del 26 de Febrero de 2024</h4>
-									</div>
-									<div class="fz-16 p-2 color-text mt-2 font-family-light textDescript-card text-left">
+									<div class="fz-14 p-2 color-text mt-2 font-family-light textDescript-card text-left">
 										<?php
 										if (!has_excerpt()) {
 											echo '';
@@ -70,6 +66,9 @@ $query = new WP_Query($args);
 											echo get_the_excerpt();
 										}
 										?>
+									</div>
+									<div class="date-publication">										
+										<?php echo rwmb_meta( 'date_publication' ); ?>
 									</div>
 								</div>
 							</div>
