@@ -154,6 +154,12 @@
   flex-direction: column;
 }
 
+@media(max-width: 1366px) {
+  .cardLigas{
+    min-width: 0;
+  }
+}
+
 @media(max-width: 833px) {
 
   .cardLigas,
