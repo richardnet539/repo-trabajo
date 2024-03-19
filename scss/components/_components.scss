@@ -183,7 +183,7 @@
   }
 
   .staff-member--picture{
-    transform: translate(-75px, 6px);
+    transform: translate(-75px, 6px) !important;
   }
 
   .cardLigas,
@@ -194,14 +194,11 @@
 }
 
 @media(max-width: 833px) {
-
   .cardLigas,
   .cardGallery {
     gap: 25px;
     grid-template-columns: repeat(1, 1fr);
   }
-
-
 }
 
 /*circule around the image*/
@@ -219,15 +216,6 @@
     padding-bottom: 60px;
   }
 
-}
-
-@media(max-width: 827px) {
-
-  .circule {
-    margin-left: 225px;
-    margin-top: -139px;
-    transform: translate(-4px, 10px);
-  }
 }
 
 @media (max-width: 767px) {
