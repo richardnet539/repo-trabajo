@@ -16,8 +16,6 @@
 	<!-- .entry-header -->
 
 	<div class="entry-content pb-5">
-
-
 		<?php
 		the_content();
 		//Slider
