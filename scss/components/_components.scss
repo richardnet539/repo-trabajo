@@ -144,7 +144,7 @@
 
 .cardGallery-individual {
   max-width: 400px;
-  height: 300px;
+  min-height: 250px;
 }
 
 .cardLigas-body{
@@ -156,7 +156,7 @@
 @media(max-width: 833px) {
 
   .cardLigas,
-  .cardGalleryy {
+  .cardGallery {
     gap: 25px;
     grid-template-columns: repeat(1, 1fr);
   }

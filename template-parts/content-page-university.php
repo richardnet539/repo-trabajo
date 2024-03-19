@@ -29,7 +29,7 @@ $query = new WP_Query($args);
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-content pb-2">
 
-		<div class="cardLigas cardGalleryy c-grid c-grid-3 container" style="gap: 72px; row-gap: 10px;">
+		<div class="cardLigas cardGalleryy c-grid c-grid-3 container">
 			<?php
 			if ($query->have_posts()):
 				while ($query->have_posts()):
@@ -39,7 +39,7 @@ $query = new WP_Query($args);
 					<div class="cardDebate">
 						<div class=" card card-wrapped card-wrapped bg-silver-light ">
 
-							<div class="cardGallery-individual px-3 d-flex gap-20">
+							<div class="cardGallery-individual p-3 d-flex gap-20">
 
 								<div class='cardGallery-content  cardGallery-end debate' style="width: 50px">
 									<div class="staff-member--picture img-responsive circule">
