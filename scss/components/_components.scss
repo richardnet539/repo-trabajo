@@ -206,6 +206,13 @@
   }
 }
 
+@media screen and (min-width: 469px) and (max-width: 767px) {
+  .cardDebate {
+    padding-top: 94px;
+    padding-bottom: 60px;
+  }
+}
+
 /*circule around the image*/
 .staff-member--picture {
   transform: translate(-75px, 40px);
