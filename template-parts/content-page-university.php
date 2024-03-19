@@ -41,7 +41,7 @@ $query = new WP_Query($args);
 
 							<div class="cardGallery-individual p-3 d-flex gap-20">
 
-								<div class='cardGallery-content  cardGallery-end debate' style="width: 50px">
+								<div class='cardGallery-content  cardGallery-end debate'>
 									<div class="staff-member--picture img-responsive circule">
 										<?php
 										the_post_thumbnail();
