@@ -125,11 +125,12 @@
   .cardTitle{
     text-transform: uppercase;
   }
-  .date-publication{
-    font-weight: 700;
-    color: #58595B;
-    font-size: 10px;
-  }
+}
+
+.date-publication{
+  font-weight: 700;
+  color: #58595B;
+  font-size: 10px;
 }
 
 /*Debate image*/
@@ -143,6 +144,11 @@
 
 .cardGallery-individual {
   max-width: 400px;
+  height: 300px;
+}
+
+.cardLigas-body{
+  gap: 10px;
 }
 
 @media(max-width: 833px) {

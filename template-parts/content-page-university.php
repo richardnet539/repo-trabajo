@@ -56,19 +56,21 @@ $query = new WP_Query($args);
 									<div
 										class="h3 heading-style-1 heading-style-1--center heading-border--pastel-cyan color-dimgray text-uppercase ">
 									</div>
-									<div class="fz-14 p-2 color-text mt-2 font-family-light textDescript-card text-left">
-										<?php
-										if (!has_excerpt()) {
-											echo '';
-										} else {
-											?>
-											<?php
-											echo get_the_excerpt();
-										}
-										?>
-									</div>
-									<div class="date-publication">										
-										<?php echo rwmb_meta( 'date_publication' ); ?>
+									<div class="cardLigas-body">
+										<div class="fz-14 color-text mt-2 font-family-light textDescript-card text-left">
+												<?php
+												if (!has_excerpt()) {
+													echo '';
+												} else {
+													?>
+													<?php
+													echo get_the_excerpt();
+												}
+												?>
+											</div>
+											<div class="date-publication">										
+												<?php echo rwmb_meta( 'date_publication' ); ?>
+											</div>
 									</div>
 								</div>
 							</div>
