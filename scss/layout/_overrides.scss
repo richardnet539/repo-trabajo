@@ -33,4 +33,19 @@
 	
 }
 
+.banner-letters{
+	.banner-letters--uneat{
+	color: #008ACA !important;
+	}
+}
 
+@media(min-width: 767.98px) {
+	.banner-letters, .banner-letters--uneat{
+		font-size: 30px !important;
+	}
+}
+
+.wpcp-carousel-content-wrapper img{
+	width: 100%;
+	object-fit: cover;
+}

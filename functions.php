@@ -292,9 +292,10 @@ function ligaDebate_widgets_init()
         'after_title' => '</h3>',
     ));
 
+
     register_sidebar(array(
-        'id' => 'contact-form',
-        'name' => esc_html__('Formulario de contacto', 'ligaDebate'),
+        'id' => 'programa-curso',
+        'name' => esc_html__('Programas', 'ligaDebate'),
         'description' => esc_html__('Displays top content', 'ligaDebate'),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget' => '</div>',
@@ -303,9 +304,9 @@ function ligaDebate_widgets_init()
     ));
 
     register_sidebar(array(
-        'id' => 'programa-curso',
-        'name' => esc_html__('Programas', 'ligaDebate'),
-        'description' => esc_html__('Displays top content', 'ligaDebate'),
+        'id' => 'slider-liga-debate',
+        'name' => esc_html__('Slider de ligas', 'ligaDebate'),
+        'description' => esc_html__('Displays carrousel', 'ligaDebate'),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h3 class="widget-title heading-style-3 text-uppercase">',
@@ -367,10 +368,10 @@ function ligaDebate_scripts()
     }
 
     // Isotope Library
-    wp_enqueue_script('ligaDebate-isotopejs', 'https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js', array('jquery'), '1', true);
+    wp_enqueue_script('ligaDebate-isotopejs', 'https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js', array('jquery'), null, true);
 
     // Main theme js
-    wp_enqueue_script('ligaDebate-scripts', get_template_directory_uri() . '/js/scripts.min.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('ligaDebate-scripts', get_template_directory_uri() . '/js/scripts.min.js', array('jquery', 'slick', 'isotope'), null, true);
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');

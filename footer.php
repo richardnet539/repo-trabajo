@@ -20,14 +20,16 @@
         <div class="site-info py-2 text-right">
             &copy; Copyright Universidad Europea del Atlántico
             <?php
-            wp_nav_menu(array(
-                'theme_location' => 'menu-2',
-                'menu_id' => 'menu-menu-footer',
-                'depth' => 1,
-                'container' => 'div',
-                'container_class' => 'menu-menu-footer-container',
-                'menu_class' => 'menu',
-            ));
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'menu-2',
+                    'menu_id' => 'menu-menu-footer',
+                    'depth' => 1,
+                    'container' => 'div',
+                    'container_class' => 'menu-menu-footer-container',
+                    'menu_class' => 'menu',
+                )
+            );
             ?>
             <?php dynamic_sidebar('footer-menu'); ?>
         </div><!-- .site-info -->
@@ -39,4 +41,5 @@
 <?php wp_footer(); ?>
 
 </body>
+
 </html>

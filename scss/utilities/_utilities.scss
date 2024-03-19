@@ -35,6 +35,9 @@
 .color-dimgray {
   color: $gray-text !important;
 }
+.color-dimgray-a a{
+  color: $gray-text !important;
+}
 .color-silver-light {
   color: $silver-light !important;
 }
@@ -150,6 +153,10 @@
 }
 .bg-pastel-purple {
   background-color: $pastel-purple !important;
+}
+
+.pt-6{
+  padding-top: 100px !important;
 }
 
 // Borders

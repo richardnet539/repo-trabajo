@@ -1,4 +1,13 @@
-const fieldsToShow = ['first-name', 'last-name', 'email', 'municipality', 'autonomus-community', 'grade', 'comments', 'captain'];
+const fields = [
+    "first-name",
+    "last-name",
+    "email",
+    "municipality",
+    "autonomous-community",
+    "grade",
+    "comments",
+    "captain",
+  ];
 
 const fieldHandlers = {
     comments: handleCommentsField,
@@ -18,6 +27,7 @@ function handleCaptainField(fieldName) {
 
 function handleDefaultField(fieldName) {
     const fieldElement = document.querySelector(`input[name="${fieldName}"]`);
+    if (!fieldElement) return;
     fieldElement.id = fieldName;
 }
 
@@ -28,5 +38,5 @@ function applyFieldLogic(field) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    fieldsToShow.forEach(applyFieldLogic);
+    fields.forEach(applyFieldLogic);
 });
