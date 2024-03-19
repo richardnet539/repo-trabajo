@@ -206,7 +206,7 @@
   }
 }
 
-@media screen and (min-width: 469px) and (max-width: 767px) {
+@media screen and (min-width: 468px) and (max-width: 767px) {
   .cardDebate {
     padding-top: 94px;
     padding-bottom: 60px;
@@ -222,7 +222,7 @@
   border: #84bed6 5px solid;
 }
 
-@media(max-width: 833px) {
+@media(min-width: 833px) {
   .cardGallery-end{
     width: 50px;
   }
