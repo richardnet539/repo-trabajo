@@ -6,9 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const submitButton = document.getElementById("form-groups-submit");
 
-  if (!submitButton) return;
-
-  submitButton.parentNode.insertBefore(addButton, submitButton);
+  submitButton.parentNode.insertBefore(addButton);
 
   const labelsToShow = [
     "Nombre",
@@ -171,3 +169,13 @@ document.addEventListener("DOMContentLoaded", function () {
     false
   );
 });
+
+
+jQuery(document).ready(function($) {
+    $('input.wpcf7-form-control').addClass("container-inputs");
+});
+
+$(document).ready(function() {
+    $('input.wpcf7-form-control').addClass("participant-block");
+});
+
