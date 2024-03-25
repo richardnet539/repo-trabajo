@@ -3,11 +3,11 @@ const fields = [
     "last-name",
     "email",
     "municipality",
-    "autonomous-community",
+    "autonomus-community",
     "grade",
     "comments",
     "captain",
-  ];
+];
 
 const fieldHandlers = {
     comments: handleCommentsField,
@@ -27,7 +27,6 @@ function handleCaptainField(fieldName) {
 
 function handleDefaultField(fieldName) {
     const fieldElement = document.querySelector(`input[name="${fieldName}"]`);
-    console.log(fieldElement);
     fieldElement.id = fieldName;
 }
 

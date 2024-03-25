@@ -110,6 +110,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const currentParticipantCount = updateParticipantCount();
 
       if (currentParticipantCount) {
+
+        console.log("Participants")
+
+        const container = document.getElementById (`participant-${currentParticipantCount}-container`);
+        
+        if (container) {
+          container.style.display = "block";
+        }
+
         fieldsToShow.forEach((field, index) => {
           const fieldName = `participant-${currentParticipantCount}-${field}`;
           const participantTitle = document.getElementById(
@@ -123,6 +132,8 @@ document.addEventListener("DOMContentLoaded", function () {
             currentParticipantCount
           );
         });
+
+
       }
     });
 });
