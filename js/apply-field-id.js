@@ -27,7 +27,7 @@ function handleCaptainField(fieldName) {
 
 function handleDefaultField(fieldName) {
     const fieldElement = document.querySelector(`input[name="${fieldName}"]`);
-    console.log(fieldElement);
+    if (!fieldElement) return;
     fieldElement.id = fieldName;
 }
 

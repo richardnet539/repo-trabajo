@@ -112,68 +112,138 @@
   gap: 20px !important;
 }
 
+.cardDebate{
+  padding-left: 75px;
+}
+
 .cardLigas {
   display: grid;
   gap: 6px;
   justify-items: center;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  .cardTitle{
+    text-transform: uppercase;
+  }
+}
+
+.date-publication{
+  font-weight: 700;
+  color: #58595B;
+  font-size: 10px;
 }
 
 /*Debate image*/
 .debate img {
   object-fit: cover;
-  -webkit-transform: translate(0px, -0.5px);
+  -webkit-transform: translate(0px, 0px);
   border-radius: 185px;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 120px;
+  max-height: 120px;
 }
 
-@media(max-width: 833px) {
+.cardGallery-individual {
+  max-width: 400px;
+  min-height: 250px;
+  min-width: 362px;
+}
+
+.cardLigas-body{
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1366px) {
+  .cardGallery-individual{
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .cardGallery-individual{
+    min-width: 380px;
+    min-height: 222px;
+  }
 
   .cardLigas,
-  .cardGalleryy {
+  .cardGallery {
+    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .cardGallery-individual {
+    min-width: 610px;
+    min-height: 180px;
+  }
+
+  .staff-member--picture{
+    transform: translate(-75px, 6px) !important;
+  }
+
+  .cardLigas,
+  .cardGallery {
     gap: 25px;
     grid-template-columns: repeat(1, 1fr);
   }
-
-  .cardGallery-individual {
-    flex-direction: column;
-  }
-
-}
-
-/*circule around the image*/
-.staff-member--picture {
-  transform: translate(-98px, 28px);
-  height: 209px;
-  width: 209px;
-  border-radius: 50%;
-  border: #84bed6 5px solid;
 }
 
 @media(max-width: 833px) {
+  .cardLigas,
+  .cardGallery {
+    gap: 25px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .cardGallery-individual {
+    min-width: 0 !important;
+  }
+  .circule{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 468px) and (max-width: 767px) {
   .cardDebate {
     padding-top: 94px;
     padding-bottom: 60px;
   }
-
 }
 
-@media(max-width: 827px) {
+/*circule around the image*/
+.staff-member--picture {
+  transform: translate(-75px, 40px);
+  height: 129px;
+  width: 129px;
+  border-radius: 50%;
+  border: #84bed6 5px solid;
+}
 
-  .circule {
-    margin-left: 225px;
-    margin-top: -139px;
-    transform: translate(-4px, 10px);
+@media(min-width: 768px) {
+  .cardGallery-end{
+    width: 50px;
   }
 }
 
 @media (max-width: 767px) {
+  .cardDebate{
+    padding-left: 0px;
+    padding-bottom: 0px;
+  }
+  .cardGallery-individual{
+    min-width: 400px;
+    padding-top: 50px !important;
+  }
+  .cardGallery-end{
+    width: 0;
+  }
   .circule {
     margin-left: 225px;
     margin-top: -139px;
-    -webkit-transform: translate(-98px, 10px);
-    transform: translate(-93px, 10px);
+    transform: translate(-97px, 4px) !important;
   }
 }
 
@@ -278,7 +348,6 @@
 
 .card {
   border-radius: 10px;
-
 }
 
 @media(max-width: 320px) {
@@ -1714,4 +1783,29 @@ th {
 }
 .widget-top-content1{
   font-size: 15px;
+}
+
+#slider-fullwidth {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: $light-blue !important;
+  padding: 14px 0px;
+  .swiper-slide{
+    margin-right: 5px !important;
+  }
+}
+.wp-block-buttons {
+  justify-content: center;
+}
+.wp-element-button{
+  background: #0082ca;
+  color: white !important;
+  border-radius: 5px;
+  padding: 10px 65px;
+  margin: 30px 10px;
+  text-transform: uppercase;
 }

@@ -16,14 +16,16 @@
 	<!-- .entry-header -->
 
 	<div class="entry-content pb-5">
-
-
 		<?php
 		the_content();
 		//Slider
-		if (rwmb_meta('slider_photos') != '') {
-			echo rwmb_meta( 'slider_photos' );
-		}
+		if (is_active_sidebar('slider-liga-debate')) { ?>
+			<!-- Bloque del Formulario de contacto -->
+			<div id="slider-fullwidth" class="bg-light-blue">
+				<?php dynamic_sidebar('slider-liga-debate'); ?>
+			</div>	
+		<?php 
+		} 
 
 		//Premios
 		if (rwmb_meta('league_awards') != '') {
@@ -43,13 +45,14 @@
 			<div>
 				<?php dynamic_sidebar('formulario-contacto-curso'); ?>
 			</div>	
-		<?php } 
+		<?php 
+		} 
 		?>
 
 		<?php
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__('Pages:', 'residencia'),
+				'before' => '<div class="page-links">' . esc_html__('Pages:', 'ligaDebate'),
 				'after' => '</div>',
 			)
 		);
