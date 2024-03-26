@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         },
         false
-    );f
+    );
 });
 
 
@@ -208,6 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
 jQuery(document).ready(function ($) {
     $('#form-groups-submit').each(function (i, field) {
         $(field).addClass('buttom-submit-group');
+        
     });
 });
 
@@ -265,6 +266,3 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
     $('.wpcf7-list-item-label').addClass('input-capitan-checkbox');
 });
-
-
-
