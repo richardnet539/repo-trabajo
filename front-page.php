@@ -14,7 +14,7 @@ get_header(); ?>
 ?>
 
 
-<div class="container py-5">
+<div class="container pb-5">
   <?php 
      dynamic_sidebar( 'home-pre-content' ); 
   ?>

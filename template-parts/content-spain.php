@@ -8,57 +8,56 @@
  */
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header py-3 mt-5 container">
+	<header class="entry-header py-3 mt-5">
 		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
-	</header><!-- .entry-header -->
+	</header>
+	<!-- .entry-header -->
 
-
-
-	<div class="entry-content pb-5 container">
+	<div class="entry-content pb-5">
 		<?php
 		the_content();
-		?>
-		
-		<?php
-	//Slider
-		if (rwmb_meta('slider_photos') != '') {
-			echo rwmb_meta( 'slider_photos' );
-		}
-		?>
-		<div class="container">
-		<?php
+		//Slider
+		if (is_active_sidebar('slider-liga-debate')) { ?>
+			<!-- Bloque del Formulario de contacto -->
+			<div id="slider-fullwidth" class="bg-light-blue">
+				<?php dynamic_sidebar('slider-liga-debate'); ?>
+			</div>	
+		<?php 
+		} 
+
 		//Premios
 		if (rwmb_meta('league_awards') != '') {
 			?>
-				<h2 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">Premios</h2>
-				<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate Preuniversitaria</p>
-				<?php
-				echo rwmb_meta( 'league_awards' );
-		}
+			<h2 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300 p-4.3" style="padding-top: 5px;">Premios</h2>
+			<div class="text-center">
+				<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate
+					Preuniversitaria</p>
+			</div>
 
-		if (is_active_sidebar('normativa-curso')) { ?>
-			<!-- Bloque de Curso - Normativa -->
-			<div>
-				<?php dynamic_sidebar('normativa_curso'); ?>
-			</div>	
-		<?php } 
+			<?php
+			echo rwmb_meta('league_awards');
+		}
 
 		if (is_active_sidebar('formulario-contacto-curso')) { ?>
 			<!-- Bloque del Formulario de contacto -->
 			<div>
 				<?php dynamic_sidebar('formulario-contacto-curso'); ?>
 			</div>	
-		<?php } 
+		<?php 
+		} 
+		?>
 
+		<?php
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__('Pages:', 'residencia'),
+				'before' => '<div class="page-links">' . esc_html__('Pages:', 'ligaDebate'),
 				'after' => '</div>',
 			)
 		);
 		?>
 	</div><!-- .entry-content -->
+
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
