@@ -33,7 +33,6 @@ get_header();
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	</div>
-	<div class="col-lg-3 col-md-3 col-sm-12">
 <?php
 // get_sidebar();
 ?>
