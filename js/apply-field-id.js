@@ -10,7 +10,7 @@ const fields = [
   "tutor",
   "captain",
   "comments",
-];
+];  
 
 const fieldHandlers = {
   comments: handleCommentsField,
