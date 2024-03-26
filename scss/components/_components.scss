@@ -419,14 +419,30 @@
   width: 100%;
 }
 
+.team-name-input {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+@media (max-width:1197px) {
+  .team-name-input {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  }
+}
+
 @media (max-width:458px) {
-  .input-width {
-    width: 366px !important;
+  .input-width:not([type="checkbox"]) {
+    width: 350px !important;
   }
 }
 
 @media (max-width:414px) {
-  .input-width {
+  .input-width:not([type="checkbox"]) {
     width: 266px !important;
   }
 }
@@ -515,15 +531,38 @@
   }
 }
 
-@media (max-width:402px) {
+@media (min-width:526px) {
+  .buttom-container {
+    width:554px;
+  }
+}
+
+@media (max-width:552px) {
+  .buttom-container {
+    width:415px;
+  }
+}
+
+@media (max-width:474px) {
+  .buttom-container {
+    width: 405px;
+  }
+}
+
+@media (max-width:410px) {
   .buttom-container {
     width:329px;
   }
 }
 
 .buttom-submit-group {
-  width: 194px;
+  width: 242px;
+  background-color: #f8643b;
+  color: white;
+  border-block-color: #f8643b;
+  font-weight: bold;
 }
+
 
 .buttom-align {
   text-align: center;
@@ -541,16 +580,18 @@
 }
 
 .container-all-forms {
-  display: grid !important;
-  grid-template-columns: repeat(1, 1fr);
-  /* Default to one column for smaller screens */
-
+  display: grid ;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
   .container-all-forms {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px;
   }
 }
 
