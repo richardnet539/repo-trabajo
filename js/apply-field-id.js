@@ -10,7 +10,7 @@ const fields = [
   "tutor",
   "captain",
   "comments",
-];  
+];
 
 const fieldHandlers = {
   comments: handleCommentsField,
@@ -34,12 +34,16 @@ function handleDefaultField(fieldName) {
   fieldElement.id = fieldName;
 }
 
-function applyFieldLogic(field) {
-  const fieldName = `participant-1-${field}`;
+function applyFieldLogic(field, participantNumber) {
+  const fieldName = `participant-${participantNumber}-${field}`;
   const handler = fieldHandlers[field] || fieldHandlers.default;
   handler(fieldName);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  fields.forEach(applyFieldLogic);
+  for (let participantNumber = 1; participantNumber <= 3; participantNumber++) {
+    fields.forEach((field) => {
+      applyFieldLogic(field, participantNumber);
+    });
+  }
 });
