@@ -3,11 +3,11 @@ const fields = [
     "last-name",
     "email",
     "municipality",
-    "autonomous-community",
+    "autonomus-community",
     "grade",
     "comments",
     "captain",
-  ];
+];
 
 const fieldHandlers = {
     comments: handleCommentsField,
