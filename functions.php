@@ -400,7 +400,7 @@ function handle_dynamic_participant_fields($contact_form) {
             $participant_info .= "Nombre: " . (isset($posted_data["participant-$i-first-name"]) ? $posted_data["participant-$i-first-name"] : '') . "\n";
             $participant_info .= "Apellidos: " . (isset($posted_data["participant-$i-last-name"]) ? $posted_data["participant-$i-last-name"] : '') . "\n";
             $participant_info .= "E-mail: " . (isset($posted_data["participant-$i-email"]) ? $posted_data["participant-$i-email"] : '') . "\n";
-            $participant_info .= "Municipio: " . (isset($posted_data["participant-$i-city"]) ? $posted_data["participant-$i-city"] : '') . "\n";
+            $participant_info .= "Municipio: " . (isset($posted_data["participant-$i-municipality"]) ? $posted_data["participant-$i-municipality"] : '') . "\n";
             $participant_info .= "Comunidad Autónoma: " . (isset($posted_data["participant-$i-state"]) ? $posted_data["participant-$i-state"] : '') . "\n";
             $participant_info .= "Grado que cursa en UNEATLANTICO: " . (isset($posted_data["participant-$i-grade"]) ? $posted_data["participant-$i-grade"] : '') . "\n";
             $participant_info .= "Comentarios: " . (isset($posted_data["participant-$i-comments"]) ? $posted_data["participant-$i-comments"] : '') . "\n";
