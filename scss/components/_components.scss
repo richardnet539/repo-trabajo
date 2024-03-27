@@ -1107,12 +1107,12 @@
     text-align: center;
 
     &:before {
-      left: calc(50% - 168px);
+      left: calc(50% - 155px);
     }
 
     @include breakpoint_md {
       &:before {
-        left: calc(50% - 160px);
+        left: calc(50% - 111px);
       }
     }
   }
