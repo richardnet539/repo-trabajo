@@ -22,7 +22,14 @@ get_header();
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	</div>
-	<h1>estamos en single-spain</h1>
 </div>
+
 <?php
+if (is_active_sidebar('normativa-curso')) { ?>
+	<!-- Bloque de Curso - Normativa -->
+	<div>
+		<?php dynamic_sidebar('normativa-curso'); ?>
+	</div>
+<?php } 
+?>
 get_footer();
