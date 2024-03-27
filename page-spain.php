@@ -31,6 +31,5 @@ get_header();
 	</div><!-- #primary -->
 </div>
 </div>
-<h1>Page spain</h1>
 <?php
 get_footer();
