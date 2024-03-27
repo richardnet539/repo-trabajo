@@ -1112,7 +1112,7 @@
 
     @include breakpoint_md {
       &:before {
-        left: calc(50% - 98px);
+        left: calc(50% - 160px);
       }
     }
   }
@@ -1916,8 +1916,7 @@ th {
 @media(max-width: 767.98px) {
   .wp-block-group .wp-block-columns .wp-block-column figure {
     display: flex;
-    justify-content: center;
-    left: calc(50% - 159px);
+    justify-content: center
   }
 
 }
