@@ -10,7 +10,7 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header py-3 container">
-		<?php the_title('<h2 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h2>'); ?>
+		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
 	</header><!-- .entry-header -->
 		<div class="entry-content container pb-5">
 			<?php
