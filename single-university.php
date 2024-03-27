@@ -21,19 +21,11 @@ get_header();
 
 				</main><!-- #main -->
 
-
 	</div><!-- #primary -->
 </div>
 </div>
 
 <?php
-if (is_active_sidebar('normativa-curso')) { ?>
-	<!-- Bloque de Curso - Normativa -->
-	<div>
-		<?php dynamic_sidebar('normativa-curso'); ?>
-	</div>
-<?php }
-
 if (is_active_sidebar('contact-form')) { ?>
 	<!-- Bloque del Formulario de contacto -->
 	<div>

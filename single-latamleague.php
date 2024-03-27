@@ -24,4 +24,6 @@ get_header();
 	</div>
 </div>
 <?php
+?>
+<?php
 get_footer();
