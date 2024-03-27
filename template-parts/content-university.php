@@ -8,7 +8,7 @@
  */
 
 ?>
-<article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header py-3 mt-5">
 		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
@@ -39,6 +39,13 @@
 			<?php
 			echo rwmb_meta('league_awards');
 		}
+
+		if (is_active_sidebar('normativa-curso')) { ?>
+			<!-- Bloque- Normativa -->
+			<div>
+				<?php dynamic_sidebar('normativa-curso'); ?>
+			</div>
+		<?php } 
 
 		if (is_active_sidebar('formulario-contacto-curso')) { ?>
 			<!-- Bloque del Formulario de contacto -->
