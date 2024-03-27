@@ -23,5 +23,14 @@ get_header();
 	</div><!-- #primary -->
 	</div>
 </div>
+
+<?php
+if (is_active_sidebar('normativa-curso')) { ?>
+	<!-- Bloque preuniversitaria latam- Normativa -->
+	<div>
+		<?php dynamic_sidebar('normativa-curso'); ?>
+	</div>
+<?php } 
+?>
 <?php
 get_footer();
