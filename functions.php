@@ -384,6 +384,44 @@ function ligaDebate_scripts()
 
 add_action('wp_enqueue_scripts', 'ligaDebate_scripts');
 
+add_action('wpcf7_before_send_mail', 'handle_dynamic_participant_fields' );
+add_action('wpcf7_before_send_mail', 'handle_dynamic_participant_fields');
+function handle_dynamic_participant_fields($contact_form) {
+    $submission = WPCF7_Submission::get_instance();
+    if ($submission) {
+        $posted_data = $submission->get_posted_data();
+        $mail = $contact_form->prop('mail'); 
+        $email_body = $mail['body'];
+        $email_body .= "\n";
+        
+        $participant_count = isset($posted_data['participant-count']) ? (int) $posted_data['participant-count'] : 1;
+        
+        for ($i = 1; $i <= $participant_count; $i++) {
+            $participant_info = "Participante $i:\n";
+            $participant_info .= "Nombre: " . (isset($posted_data["participant-$i-first-name"]) ? $posted_data["participant-$i-first-name"] : '') . "\n";
+            $participant_info .= "Apellidos: " . (isset($posted_data["participant-$i-last-name"]) ? $posted_data["participant-$i-last-name"] : '') . "\n";
+            $participant_info .= "E-mail: " . (isset($posted_data["participant-$i-email"]) ? $posted_data["participant-$i-email"] : '') . "\n";
+            $participant_info .= "Colegio/IES: " . (isset($posted_data["participant-$i-school"]) ? $posted_data["participant-$i-school"] : '') . "\n";
+            $participant_info .= "Municipio: " . (isset($posted_data["participant-$i-municipality"]) ? $posted_data["participant-$i-municipality"] : '') . "\n";
+            $participant_info .= "Comunidad Autónoma: " . (isset($posted_data["participant-$i-autonomous-community"]) ? $posted_data["participant-$i-autonomous-community"] : '') . "\n";
+            $participant_info .= "Etapa (ESO o Bachillerato): " . (isset($posted_data["participant-$i-stage"]) ? $posted_data["participant-$i-stage"] : '') . "\n";
+            $participant_info .= "Curso: " . (isset($posted_data["participant-$i-course"]) ? $posted_data["participant-$i-course"] : '') . "\n";
+            $participant_info .= "Profesor(a)/Tutor(a) de la Liga: " . (isset($posted_data["participant-$i-tutor"]) ? $posted_data["participant-$i-tutor"] : '') . "\n";
+            $participant_info .= "Capitán: " . (isset($posted_data["participant-$i-captain"]) && $posted_data["participant-$i-captain"] ? 'Sí' : 'No') . "\n";
+            $participant_info .= "Comentarios: " . (isset($posted_data["participant-$i-comments"]) ? $posted_data["participant-$i-comments"] : '') . "\n\n";
+
+            $email_body .= $participant_info;
+        }
+
+        $mail['body'] = $email_body;
+        $contact_form->set_properties(array('mail' => $mail));
+
+        // Return the form object if you've modified it
+        return $contact_form;
+    }
+}
+
+
 /**
  * Implement the Custom Header feature.
  */

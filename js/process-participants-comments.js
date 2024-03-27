@@ -24,7 +24,7 @@ function setFieldId(fieldElement, fieldName) {
 }
 
 function processParticipantComments() {
-    for (let i = 2; i <= 5; i++) {
+    for (let i = 4; i <= 5; i++) {
         processParticipantCommentField(i);
     }
 }
