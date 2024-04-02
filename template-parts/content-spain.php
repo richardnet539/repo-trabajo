@@ -40,6 +40,13 @@
 			echo rwmb_meta('league_awards');
 		}
 
+		if (is_active_sidebar('normativa-curso')) { ?>
+			<!-- Bloque de Curso - Normativa -->
+			<div>
+				<?php dynamic_sidebar('normativa-curso'); ?>
+			</div>
+		<?php } 
+
 		if (is_active_sidebar('formulario-contacto-curso')) { ?>
 			<!-- Bloque del Formulario de contacto -->
 			<div>
