@@ -23,13 +23,7 @@ get_header();
 	</div><!-- #primary -->
 	</div>
 </div>
-
+</div>
 <?php
-if (is_active_sidebar('normativa-curso')) { ?>
-	<!-- Bloque de Curso - Normativa -->
-	<div>
-		<?php dynamic_sidebar('normativa-curso'); ?>
-	</div>
-<?php } 
-?>
 get_footer();
+?>
