@@ -9,9 +9,10 @@
 
 ?>
 <article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header py-3">
+	<header class="entry-header py-3 mt-5">
 		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
-	</header><!-- .entry-header -->
+	</header>
+	<!-- .entry-header -->
 		<div class="entry-content pb-5">
 			<?php
 			the_content();
