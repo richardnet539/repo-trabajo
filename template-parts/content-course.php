@@ -8,7 +8,7 @@
  */
 
 ?>
-<article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="content" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header py-3 container">
 		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
 	</header><!-- .entry-header -->
@@ -34,19 +34,19 @@
 					<?php dynamic_sidebar('colaboradores-curso'); ?>
 				</div>	
 			<?php }
-			
+			?>
+		</div>
+		<div class="container">
+			<?php
+				if (is_active_sidebar('programa-curso')) { ?>
+					<!-- Bloque del Programa -->
+					<div class="pt-3">
+						<?php dynamic_sidebar('programa-curso'); ?>
+					</div>	
+				<?php }
 
-			if (is_active_sidebar('programa-curso')) { ?>
-				<!-- Bloque del Programa -->
-				<div class="pt-3 container">
-					<?php dynamic_sidebar('programa-curso'); ?>
-				</div>	
-			<?php }
-			
-
-			// zona azul
-			if (is_active_sidebar('formulario-contacto-curso')) { ?>
-				<!-- Bloque de Curso - Normativa -->
+				if (is_active_sidebar('formulario-contacto-curso')) { ?>
+				<!-- Bloque de Formulario de contacto -->
 				<div class="pt-3">
 					<?php dynamic_sidebar('formulario-contacto-curso'); ?>
 				</div>	
