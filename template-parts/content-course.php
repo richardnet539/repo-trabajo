@@ -8,11 +8,11 @@
  */
 
 ?>
-<article class="content" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header py-3 container">
+<article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<header class="entry-header py-3">
 		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
 	</header><!-- .entry-header -->
-		<div class="entry-content container pb-5">
+		<div class="entry-content pb-5">
 			<?php
 			the_content();
 			?>
@@ -25,12 +25,12 @@
 				);
 				?>
 		</div><!-- .entry-content -->
-		<div class="content">
+		<div>
 			<?php
 			// zona azul
 			if (is_active_sidebar('colaboradores-curso')) { ?>
 				<!-- Bloque de Colaboradores -->
-				<div class="bg-light-blue pt-3">
+				<div class="pt-3" id="slider-fullwidth">
 					<?php dynamic_sidebar('colaboradores-curso'); ?>
 				</div>	
 			<?php }
