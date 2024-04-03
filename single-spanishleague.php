@@ -23,7 +23,7 @@ get_header();
 	</div><!-- #primary -->
 	</div>
 </div>
-</div>
+<?php
+?>
 <?php
 get_footer();
-?>
