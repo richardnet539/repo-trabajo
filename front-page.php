@@ -26,7 +26,7 @@ get_header(); ?>
   ?>
 </div>
 
-<div class="pt-5">
+<div class="">
   <?php 
      dynamic_sidebar( 'home-content' ); 
   ?>
