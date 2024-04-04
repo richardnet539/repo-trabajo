@@ -250,7 +250,7 @@
     align-items: center;
   }
   .card-normativa{
-    width: 75%;
+    width: 75% !important;
   }
 }
 
@@ -359,10 +359,11 @@
 }
 .container-card-normativa{
   display: flex;
-  column-gap: 30px;
+  column-gap: 50px;
 }
 .card-normativa{
   width: 37%;
+  max-width: 570px;
 }
 @media(max-width: 320px) {
   .debate img {
