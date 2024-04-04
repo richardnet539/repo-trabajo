@@ -245,6 +245,9 @@
     margin-top: -139px;
     transform: translate(-97px, 4px) !important;
   }
+  .container-card-normativa{
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 484px) {
@@ -348,8 +351,15 @@
 
 .card {
   border-radius: 10px;
+  min-width: min-content;
 }
-
+.container-card-normativa{
+  display: flex;
+  column-gap: 30px;
+}
+.card-normativa{
+  width: 37%;
+}
 @media(max-width: 320px) {
   .debate img {
     height: 199px;
@@ -500,7 +510,7 @@
 }
 
 @media (max-width: 414px) {
-  .bg-light-bluee {
+  .bg-light-bluee, .buttom-container{
     max-width: 265px !important;
   }
 }
