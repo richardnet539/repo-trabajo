@@ -359,11 +359,11 @@
 }
 .container-card-normativa{
   display: flex;
-  column-gap: 50px;
+  column-gap: 40px;
 }
 .card-normativa{
   width: 37%;
-  max-width: 570px;
+  max-width: 525px;
 }
 @media(max-width: 320px) {
   .debate img {
@@ -505,7 +505,7 @@
 
 .bg-light-bluee {
   background-color: #f5f8fd !important;
-  width: 555px;
+  width: 535px;
 }
 
 @media (max-width: 552px) {
@@ -606,7 +606,7 @@
 .container-all-forms {
   display: grid ;
   grid-template-columns: repeat(2, 1fr);
-  gap: 50px;
+  gap: 40px;
 }
 
 @media (max-width: 1200px) {
