@@ -46,7 +46,7 @@ function metabox_fields( $meta_boxes ) {
 	$meta_boxes[] = array(
 		'id' => 'custom',
 		'title' => esc_html__( 'Código extra', 'ligaDebate' ),
-		'post_types' => array( 'latamleague', 'spanishleague', 'university'),
+		'post_types' => array( 'latamleague', 'spanishleague', 'university', 'course'),
 		'context' => 'side',
 		'priority' => 'default',
 		'autosave' => 'true',
