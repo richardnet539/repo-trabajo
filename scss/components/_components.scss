@@ -137,14 +137,14 @@
   object-fit: cover;
   -webkit-transform: translate(0px, 0px);
   border-radius: 185px;
-  max-width: 120px;
-  max-height: 120px;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .cardGallery-individual {
   max-width: 400px;
   min-height: 250px;
-  min-width: 362px;
+  min-width: 290px;
 }
 
 .cardLigas-body{
@@ -216,15 +216,15 @@
 /*circule around the image*/
 .staff-member--picture {
   transform: translate(-75px, 40px);
-  height: 129px;
-  width: 129px;
+  height: 109px;
+  width: 109px;
   border-radius: 50%;
   border: #84bed6 5px solid;
 }
 
 @media(min-width: 768px) {
   .cardGallery-end{
-    width: 50px;
+    width: 25px;
   }
 }
 
@@ -428,7 +428,7 @@
 
 .team-form-container > :last-child {
   align-self: center; 
-  margin-left: 300px;
+  margin-left: 10%;
 }
 
 @media (max-width: 1197px) {
