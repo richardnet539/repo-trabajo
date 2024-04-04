@@ -37,7 +37,7 @@
 			<?php }
 			?>
 		</div>
-		<div class="container">
+		<div>
 			<?php
 				if (is_active_sidebar('programa-curso')) { ?>
 					<!-- Bloque del Programa -->
