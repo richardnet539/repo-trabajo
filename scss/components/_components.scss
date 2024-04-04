@@ -452,7 +452,7 @@
 
 @media (max-width:414px) {
   .input-width:not([type="checkbox"]) {
-    width: 266px !important;
+    width: 100% !important;
   }
 }
 
@@ -2033,4 +2033,11 @@ th {
   padding: 10px 65px;
   margin: 30px 10px;
   text-transform: uppercase;
+}
+
+
+@media screeen and (max-width: 414px){
+  .team-form-container.container-all-forms.form-flex.bg-light-bluee{
+    max-width: 285px !important;
+  } 
 }
