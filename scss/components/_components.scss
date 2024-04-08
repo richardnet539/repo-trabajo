@@ -135,7 +135,7 @@
 }
 
 .card-image-blue-2{
-  width: 48%;
+  width: 47%;
 }
 
 
@@ -150,8 +150,8 @@
   object-fit: cover;
   -webkit-transform: translate(0px, 0px);
   border-radius: 185px;
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 120px;
+  max-height: 120px;
 }
 
 .cardGallery-individual {
@@ -232,15 +232,15 @@
 /*circule around the image*/
 .staff-member--picture {
   transform: translate(-75px, 40px);
-  height: 109px;
-  width: 109px;
+  height: 129px;
+  width: 129px;
   border-radius: 50%;
   border: #84bed6 5px solid;
 }
 
 @media(min-width: 768px) {
   .cardGallery-end{
-    width: 25px;
+    width: 45px;
   }
 }
 
