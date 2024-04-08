@@ -9,7 +9,7 @@
 		width: 100%;
 		@include breakpoint_md {
 			height: 250px !important;
-			right: calc(125% - 25px);
+			// right: calc(125% - 25px);
 		}
 	}
 }
