@@ -22,7 +22,8 @@ get_header();
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	</div>
-	<h1>estamos en single-spain</h1>
 </div>
+<?php
+?>
 <?php
 get_footer();

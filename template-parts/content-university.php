@@ -8,7 +8,7 @@
  */
 
 ?>
-<article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header py-3 mt-5">
 		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
@@ -21,7 +21,7 @@
 		//Slider
 		if (is_active_sidebar('slider-liga-debate')) { ?>
 			<!-- Bloque del Formulario de contacto -->
-			<div id="slider-fullwidth" class="bg-light-blue">
+			<div id="slider-fullwidth" class="mt-5 bg-light-blue">
 				<?php dynamic_sidebar('slider-liga-debate'); ?>
 			</div>	
 		<?php 
@@ -30,7 +30,7 @@
 		//Premios
 		if (rwmb_meta('league_awards') != '') {
 			?>
-			<h2 class="h1 heading-home heading-home--center fz-30 color-dimgray fw-300 p-4.3" style="padding-top: 5px;">Premios</h2>
+			<h2 class="mt-5 h1 heading-home heading-home--center fz-30 color-dimgray fw-300 p-4.3" style="padding-top: 5px;">Premios</h2>
 			<div class="text-center">
 				<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate
 					Preuniversitaria</p>
@@ -39,6 +39,13 @@
 			<?php
 			echo rwmb_meta('league_awards');
 		}
+
+		if (is_active_sidebar('normativa-curso')) { ?>
+			<!-- Bloque- Normativa -->
+			<div>
+				<?php dynamic_sidebar('normativa-curso'); ?>
+			</div>
+		<?php } 
 
 		if (is_active_sidebar('formulario-contacto-curso')) { ?>
 			<!-- Bloque del Formulario de contacto -->

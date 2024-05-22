@@ -8,11 +8,12 @@
  */
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header py-3 container">
-		<?php the_title('<h2 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h2>'); ?>
-	</header><!-- .entry-header -->
-		<div class="entry-content container pb-5">
+<article class="container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<header class="entry-header py-3 mt-5">
+		<?php the_title('<h1 class="entry-title heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
+	</header>
+	<!-- .entry-header -->
+		<div class="entry-content pb-5">
 			<?php
 			the_content();
 			?>
@@ -25,28 +26,28 @@
 				);
 				?>
 		</div><!-- .entry-content -->
-		<div class="content">
+		<div>
 			<?php
 			// zona azul
 			if (is_active_sidebar('colaboradores-curso')) { ?>
 				<!-- Bloque de Colaboradores -->
-				<div class="bg-light-blue pt-3">
+				<div class="pt-3" id="slider-fullwidth">
 					<?php dynamic_sidebar('colaboradores-curso'); ?>
 				</div>	
 			<?php }
-			
+			?>
+		</div>
+		<div>
+			<?php
+				if (is_active_sidebar('programa-curso')) { ?>
+					<!-- Bloque del Programa -->
+					<div class="pt-3">
+						<?php dynamic_sidebar('programa-curso'); ?>
+					</div>	
+				<?php }
 
-			if (is_active_sidebar('programa-curso')) { ?>
-				<!-- Bloque del Programa -->
-				<div class="pt-3 container">
-					<?php dynamic_sidebar('programa-curso'); ?>
-				</div>	
-			<?php }
-			
-
-			// zona azul
-			if (is_active_sidebar('formulario-contacto-curso')) { ?>
-				<!-- Bloque de Curso - Normativa -->
+				if (is_active_sidebar('formulario-contacto-curso')) { ?>
+				<!-- Bloque de Formulario de contacto -->
 				<div class="pt-3">
 					<?php dynamic_sidebar('formulario-contacto-curso'); ?>
 				</div>	

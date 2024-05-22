@@ -1,34 +1,43 @@
 document.addEventListener("DOMContentLoaded", function () {
   const addButton = document.createElement("button");
   addButton.id = "add-participant";
-  addButton.textContent = "Add Participant";
+  addButton.textContent = "Añadir Participante";
   addButton.type = "button";
 
-  const submitButton = document.getElementById("form-groups-submit");
+  const wrapperDiv = document.createElement("div");
+  wrapperDiv.id = "participant-wrapper";
 
-  if (!submitButton) return;
+  wrapperDiv.appendChild(addButton);
 
-  submitButton.parentNode.insertBefore(addButton, submitButton);
+  const addParagraphText = document.getElementById("participant-add");
+
+  addParagraphText.parentNode.insertBefore(wrapperDiv, addParagraphText);
 
   const labelsToShow = [
     "Nombre",
     "Apellidos",
     "E-mail",
+    "Colegio/IES",
     "Municipio",
     "Comunidad Autónoma",
-    "Grado que cursa en UNEATLANTICO",
-    "Comentarios",
+    "Etapa (ESO o Bachillerato)",
+    "Curso",
+    "Profesor(a)/Turto(a) de la Liga",
     "Capitán",
+    "Comentarios",
   ];
   const fieldsToShow = [
     "first-name",
     "last-name",
     "email",
+    "school",
     "municipality",
     "autonomous-community",
-    "grade",
-    "comments",
+    "stage",
+    "course",
+    "tutor",
     "captain",
+    "comments",
   ];
 
   function updateParticipantCount() {
@@ -88,6 +97,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const wrapperParagraph = document.createElement("p");
 
+    wrapperParagraph.id = fieldName;
+    labelParagraph.id = fieldName + "-" + "label";
+
     setupFieldAttributes(field, fieldElement);
     wrapAndInsertFieldElement(
       field,
@@ -133,7 +145,19 @@ document.addEventListener("DOMContentLoaded", function () {
     wrapperSpan.appendChild(fieldElement);
     wrapperSpan.parentNode.insertBefore(wrapperParagraph, wrapperSpan);
     wrapperParagraph.appendChild(wrapperSpan);
-    wrapperParagraph.parentNode.insertBefore(labelParagraph, wrapperParagraph);
+    console.log(labelParagraph.id);
+    if (labelParagraph.id.includes("captain")) {
+      const wrapperParagraphParent = wrapperParagraph.parentNode;
+      wrapperParagraphParent.parentNode.insertBefore(
+        labelParagraph,
+        wrapperParagraphParent
+      );
+    } else {
+      wrapperParagraph.parentNode.insertBefore(
+        labelParagraph,
+        wrapperParagraph
+      );
+    }
   }
 
   document
@@ -142,6 +166,28 @@ document.addEventListener("DOMContentLoaded", function () {
       const currentParticipantCount = updateParticipantCount();
 
       if (currentParticipantCount) {
+        const container = document.getElementById(
+          `participant-${currentParticipantCount}-container`
+        );
+
+        if (container) {
+          container.style.display = "block";
+        }
+
+        if (currentParticipantCount) {
+          const participantContainer = document.getElementById(
+            `container-${currentParticipantCount}`
+          );
+
+          if (participantContainer) {
+            participantContainer.style.display = "block";
+          }
+        }
+
+        if (currentParticipantCount >= 5) {
+          document.getElementById(`participant-add`).style.display = "none";
+        }
+
         fieldsToShow.forEach((field, index) => {
           const fieldName = `participant-${currentParticipantCount}-${field}`;
           const participantTitle = document.getElementById(
@@ -170,4 +216,66 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     false
   );
+});
+
+jQuery(document).ready(function ($) {
+  $("#form-groups-submit").each(function (i, field) {
+    $(field).addClass("buttom-submit-group");
+  });
+});
+
+jQuery(document).ready(function ($) {
+  var $inputFields = $("input.wpcf7-form-control");
+
+  $inputFields.each(function (i, field) {
+    $(field).addClass("form-liga");
+    $(field).addClass("input-width");
+
+    var nameAttribute = $(field).attr("name");
+    if (nameAttribute && nameAttribute.indexOf("captain") !== -1) {
+      $(field).addClass("checkbox-input");
+
+      var labelContainer = $("<label></label>");
+
+      var divContainer = $('<div class="captain-container"></div>');
+
+      var participantIndex = Math.floor((i - 2) / 8) + 1;
+
+      $(field).wrap(labelContainer);
+
+      $(field).after(`<p id="captain-sibling-${participantIndex}">Asignar</p>`);
+      $(field)
+        .add(`#captain-sibling-${participantIndex}`)
+        .wrapAll(divContainer);
+    }
+  });
+});
+
+jQuery(document).ready(function ($) {
+  $("#participant-wrapper").each(function (i, field) {
+    $(field).addClass("buttom-container");
+  });
+});
+
+jQuery(document).ready(function ($) {
+  $("textarea.wpcf7-form-control").each(function (i, field) {
+    $(field).addClass("form-liga");
+    $(field).addClass("input-width");
+  });
+});
+
+jQuery(document).ready(function ($) {
+  $("#add-participant").each(function (i, field) {
+    $(field).addClass("buttom-liga");
+  });
+});
+
+jQuery(document).ready(function ($) {
+  $("textarea.wpcf7-form-control").each(function (i, field) {
+    $(field).addClass("size-input-textarea");
+  });
+});
+
+jQuery(document).ready(function ($) {
+  $(".wpcf7-list-item-label").addClass("input-capitan-checkbox");
 });
