@@ -1,37 +1,26 @@
 {
-  "name": "theme-liga-de-debate",
+  "name": "liga-de-debate",
   "version": "1.0.0",
-  "description": "A customized theme for ligaDebate project",
-  "main": "gulpfile.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"gulp"
+    "build-css": "sass ./scss:./",
+    "watch-css": "sass --watch ./scss:./",
+    "start": "node dev/browsersync.js",
+    "setup": "node dev/setup.js",
+    "dev:linux": "npm run setup && concurrently \"npm run start\" \"npm run watch-css\"",
+    "dev:windows": "npm run setup && concurrently \"npm run start\" \"npm run watch-css\"",
+    "dev": "npm run dev:linux"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@repositorios.ctdesarrollo.org:ctdesign/wordpress/uneatlantico/theme-liga-de-debate.git"
-  },
-  "author": "Erika Avila",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "type": "module",
-  "devDependencies": {
-    "browser-sync": "^2.27.7",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-cli": "^2.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-jshint": "^2.1.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^5.0.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-uglify": "^3.0.1",
-    "gulp-util": "^3.0.8",
-    "jshint": "^2.13.1",
-    "sass": "^1.44.0"
+  "dependencies": {
+    "sass": "^1.77.2"
   },
-  "browserslist": [
-    "last 2 versions",
-    "> 5%",
-    "Firefox ESR"
-  ]
+  "devDependencies": {
+    "browser-sync": "^3.0.2",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^7.0.0"
+  }
 }
