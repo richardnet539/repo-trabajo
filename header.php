@@ -17,7 +17,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1.0">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap" rel="stylesheet">
-
+	<!-- CookiePro Cookies Consent Notice start for uneatlantico.es -->
+	<script type="text/javascript" src="https://cookie-cdn.cookiepro.com/consent/018e9a60-e772-7722-82c3-98dae004d75e/OtAutoBlock.js" ></script>
+	<script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js" data-language="es" type="text/javascript" charset="UTF-8" data-domain-script="018e9a60-e772-7722-82c3-98dae004d75e" ></script>
+	<script type="text/javascript">
+	function OptanonWrapper() { }
+	</script>
+	<!-- CookiePro Cookies Consent Notice end for uneatlantico.es -->
 	<?php wp_head(); ?>
 </head>
 
