@@ -41,7 +41,7 @@ steps:
       - |
         gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
           sudo apt-get update && \
-          sudo apt-get install -y apache2 php mariadb-server libapache2-mod-php php-mysql && \
+          sudo apt-get install -y apache2 php mariadb-server libapache2-mod-php php-mysql nodejs npm && \
           sudo systemctl enable apache2 && \
           sudo systemctl enable mariadb && \
           sudo systemctl start apache2 && \
@@ -85,6 +85,7 @@ steps:
       - --zone=$_ZONE
       - --project=$_PROJECT_ID
       
+
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Check and Replace Theme'
     entrypoint: 'bash'
@@ -103,6 +104,18 @@ steps:
           rm theme-archive.tar.gz;
         '
 
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Build CSS'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh $_GCE_USERNAME@$_INSTANCE_NAME --zone=$_ZONE --command='
+          cd /var/www/html/wp-content/themes/$_THEME_NAME && \
+          sudo npm install --only=production && \
+          sudo npm run build-css && \
+          sudo rm -rf node_modules
+        '
 
     # Final Step: Check if wp-config.php exists, and if not, configure it
   - name: 'gcr.io/cloud-builders/gcloud'
