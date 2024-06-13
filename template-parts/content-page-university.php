@@ -36,7 +36,6 @@ $query = new WP_Query($args);
 					?>
 
 					<div class="cardDebate">
-					<P></P>
 					<div class="card card-wrapped card-wrapped bg-silver-light" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
 
 							<div class="cardGallery-individual p-3 d-flex gap-20"> 
