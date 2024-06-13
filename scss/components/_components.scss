@@ -613,6 +613,11 @@
   padding-left: 6px;
 }
 
+.wpcf7-list-item {
+	display: inline-block;
+	margin: 0 0 0 0;
+}
+
 .captain-container {
   display: flex !important;
   flex-direction: row;
@@ -2062,8 +2067,6 @@ th {
   background: #0082ca;
   color: white !important;
   border-radius: 5px;
-  padding: 10px 65px;
-  margin: 30px 10px;
   text-transform: uppercase;
 }
 
