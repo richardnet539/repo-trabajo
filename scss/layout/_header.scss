@@ -253,6 +253,7 @@
 		padding-bottom: 8px;
 		.navbar-nav {
 			margin-top: 20px;
+			gap: 10px;
 			@include breakpoint_lg {
 				margin-top: 0;
 			}
