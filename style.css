@@ -1811,7 +1811,6 @@ a[data-toggle=collapse]:not([aria-expanded=false]) .heading-collapse__icon {
 #menu-footer-menu {
   list-style: none;
   display: flex;
-  gap: 20px;
 }
 #menu-footer-menu li a {
   color: #fff;

@@ -624,6 +624,7 @@
   gap: 10px;
 }
 
+
 .container-all-forms {
   display: grid ;
   grid-template-columns: repeat(2, 1fr);
@@ -1910,7 +1911,6 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
 #menu-footer-menu {
   list-style: none;
   display: flex;
-  gap: 20px;
 
   li a {
     color: #fff;
