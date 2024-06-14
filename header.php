@@ -70,7 +70,7 @@
 						'container'     => 'div',
 						// 'container_class' => '',
 						'container_id'    => 'main-navigation',
-						'menu_class'    => 'navbar-nav ml-auto text-uppercase fz-11',
+						'menu_class'    => 'navbar-nav ml-auto text-uppercase fz-14',
 					'fallback_cb'   => 'WP_Bootstrap_Navwalker::fallback',
 					'walker'      => new WP_Bootstrap_Navwalker()
 
