@@ -1917,6 +1917,15 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
   }
 }
 
+#menu-footer-menu li.menu-item:after {
+  content: '|';
+	margin: 0 5px;
+}
+
+#menu-footer-menu li.menu-item:last-child:after {
+  content: '';
+}
+
 th {
   text-align: inherit;
   color: #fff;
