@@ -199,6 +199,7 @@
 	.custom-logo {
 		width: 320px;
 		height: auto;
+		padding-top: 10px;
 		@include breakpoint_md {
 			width: 250px;
 		}

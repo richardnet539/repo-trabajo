@@ -2624,6 +2624,7 @@ th {
 .site-branding .custom-logo {
   width: 320px;
   height: auto;
+  padding-top: 10px;
 }
 @media (max-width: 767.98px) {
   .site-branding .custom-logo {
