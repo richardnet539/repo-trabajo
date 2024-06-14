@@ -1029,7 +1029,7 @@ blockquote {
 }
 .search-block-form .form-search {
   box-sizing: content-box;
-  background: white url("www.residencia.uneatlantico.es/wp-content/themes/residencia-blog/img/icon-search-blue.svg") no-repeat right 6px center;
+  background: white url("/wp-content/uploads/2024/06/icon-search_b.png") no-repeat right 6px center;
   background-size: 12px;
   background-color: #c2d7e9;
   border: solid 1px transparent;
@@ -1811,10 +1811,18 @@ a[data-toggle=collapse]:not([aria-expanded=false]) .heading-collapse__icon {
 #menu-footer-menu {
   list-style: none;
   display: flex;
-  gap: 20px;
 }
 #menu-footer-menu li a {
   color: #fff;
+}
+
+#menu-footer-menu li.menu-item:after {
+  content: "|";
+  margin: 0 5px;
+}
+
+#menu-footer-menu li.menu-item:last-child:after {
+  content: "";
 }
 
 th {
@@ -2433,7 +2441,7 @@ th {
 .top {
   width: 100%;
   float: left;
-  min-height: 28px;
+  min-height: 35px;
 }
 .top a {
   color: white;
@@ -2616,6 +2624,7 @@ th {
 .site-branding .custom-logo {
   width: 320px;
   height: auto;
+  padding-top: 10px;
 }
 @media (max-width: 767.98px) {
   .site-branding .custom-logo {
@@ -2631,6 +2640,7 @@ th {
 }
 .region-header.navbar .navbar-nav {
   margin-top: 20px;
+  gap: 10px;
 }
 @media (max-width: 991.98px) {
   .region-header.navbar .navbar-nav {
