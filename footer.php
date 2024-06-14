@@ -17,7 +17,7 @@
 
 <footer id="colophon" class="site-footer bg-dimgray color-white">
     <div class="container">
-        <div class="site-info py-2 text-right">
+        <div class="site-info py-2 text-right" style="font-size: 13px;">
             &copy; Copyright Universidad Europea del Atlántico
             <?php
             wp_nav_menu(
@@ -31,7 +31,9 @@
                 )
             );
             ?>
-            <?php dynamic_sidebar('footer-menu'); ?>
+            <div style="font-size: 13px;">
+                <?php dynamic_sidebar('footer-menu'); ?>
+            </div>
         </div><!-- .site-info -->
     </div>
 </footer><!-- #colophon -->
