@@ -3,6 +3,8 @@
 	width: 100%;
 	float: left;
 	min-height: 35px;
+	align-items: center;
+	display: flex;
 	a {
 		color: white;
 	}
@@ -175,7 +177,7 @@
 	}
 	&__link {
 		float: left;
-		margin-top: 3px;
+		// margin-top: 3px;
 		font-size: 15px;
 		img {
 			width: 16px;
