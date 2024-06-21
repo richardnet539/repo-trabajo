@@ -249,7 +249,8 @@ blockquote {
   text-transform: uppercase;
 }
 
-.group-card-image-blue-3, .group-card-image-blue-2 {
+.group-card-image-blue-3,
+.group-card-image-blue-2 {
   column-gap: 40px;
 }
 
@@ -317,7 +318,8 @@ blockquote {
     gap: 25px;
     grid-template-columns: repeat(1, 1fr);
   }
-  .card-image-blue-3, .card-image-blue-2 {
+  .card-image-blue-3,
+  .card-image-blue-2 {
     width: 95%;
   }
 }
@@ -646,7 +648,8 @@ blockquote {
   }
 }
 @media (max-width: 414px) {
-  .bg-light-bluee, .buttom-container {
+  .bg-light-bluee,
+  .buttom-container {
     max-width: 265px !important;
   }
 }
@@ -1209,6 +1212,10 @@ blockquote {
   .heading-home--center:before {
     left: calc(50% - 111px);
   }
+}
+
+.divisor-titles {
+  padding-top: 4px;
 }
 
 .heading-style-1 {
