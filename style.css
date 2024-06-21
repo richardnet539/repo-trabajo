@@ -1215,12 +1215,12 @@ blockquote {
 }
 
 .divisor-titles {
-  padding-top: 4px;
+  padding-top: 5px;
 }
 
 .heading-style-1 {
   position: relative;
-  padding-bottom: 11px;
+  padding-bottom: 12px;
 }
 .heading-style-1:before {
   content: "";
