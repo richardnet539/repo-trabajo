@@ -1213,7 +1213,7 @@ blockquote {
 
 .heading-style-1 {
   position: relative;
-  padding-bottom: 7px;
+  padding-bottom: 11px;
 }
 .heading-style-1:before {
   content: "";
@@ -1964,6 +1964,12 @@ th {
     max-width: 265px !important;
   }
 }
+.divisor-cards {
+  border-bottom: 5px solid #84bed6;
+  width: 55px;
+  border-radius: 5px;
+}
+
 .color-primary {
   color: #337ab7 !important;
 }
@@ -2442,6 +2448,8 @@ th {
   width: 100%;
   float: left;
   min-height: 35px;
+  align-items: center;
+  display: flex;
 }
 .top a {
   color: white;
@@ -2599,7 +2607,6 @@ th {
 }
 .block-top-social__link {
   float: left;
-  margin-top: 3px;
   font-size: 15px;
 }
 .block-top-social__link img {
@@ -3596,6 +3603,10 @@ footer ul {
 
 .single #secondary {
   padding: 0px;
+}
+
+.single p {
+  font-size: 16px;
 }
 
 #content {
