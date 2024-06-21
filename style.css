@@ -249,7 +249,8 @@ blockquote {
   text-transform: uppercase;
 }
 
-.group-card-image-blue-3, .group-card-image-blue-2 {
+.group-card-image-blue-3,
+.group-card-image-blue-2 {
   column-gap: 40px;
 }
 
@@ -317,7 +318,8 @@ blockquote {
     gap: 25px;
     grid-template-columns: repeat(1, 1fr);
   }
-  .card-image-blue-3, .card-image-blue-2 {
+  .card-image-blue-3,
+  .card-image-blue-2 {
     width: 95%;
   }
 }
@@ -646,7 +648,8 @@ blockquote {
   }
 }
 @media (max-width: 414px) {
-  .bg-light-bluee, .buttom-container {
+  .bg-light-bluee,
+  .buttom-container {
     max-width: 265px !important;
   }
 }
@@ -712,7 +715,7 @@ blockquote {
 
 .buttom-align {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 26px;
 }
 
 .input-capitan-checkbox {
@@ -1211,9 +1214,13 @@ blockquote {
   }
 }
 
+.divisor-titles {
+  padding-top: 5px;
+}
+
 .heading-style-1 {
   position: relative;
-  padding-bottom: 7px;
+  padding-bottom: 12px;
 }
 .heading-style-1:before {
   content: "";
@@ -1964,6 +1971,12 @@ th {
     max-width: 265px !important;
   }
 }
+.divisor-cards {
+  border-bottom: 5px solid #84bed6;
+  width: 55px;
+  border-radius: 5px;
+}
+
 .color-primary {
   color: #337ab7 !important;
 }
@@ -2442,6 +2455,8 @@ th {
   width: 100%;
   float: left;
   min-height: 35px;
+  align-items: center;
+  display: flex;
 }
 .top a {
   color: white;
@@ -2599,7 +2614,6 @@ th {
 }
 .block-top-social__link {
   float: left;
-  margin-top: 3px;
   font-size: 15px;
 }
 .block-top-social__link img {
@@ -3596,6 +3610,10 @@ footer ul {
 
 .single #secondary {
   padding: 0px;
+}
+
+.single p {
+  font-size: 16px;
 }
 
 #content {
