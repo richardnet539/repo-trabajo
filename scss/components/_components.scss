@@ -249,7 +249,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-235px, -75px) scale(0);
+  transform: translate(-235px, -72px) scale(0);
   height: 129px;
   width: 129px;
   border-radius: 50%;
@@ -260,8 +260,8 @@
 }
 
 .staff-member--picture:hover + .staff-member--picture__box {
-  transform: translate(-235px, -75px) scale(1);
-  opacity: 0.8;
+  transform: translate(-235px, -72px) scale(1);
+  opacity: 0.4;
 }
 
 @media(min-width: 768px) {
