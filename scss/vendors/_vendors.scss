@@ -244,7 +244,7 @@ ul.parsley-errors-list {
 }
 .blog h2 a{
 	font-size: 20px;
-	color: #0082ca;
+	color: $theme-primary;
 }
 .blog .entry-content p{
 	font-size: 15px;
@@ -270,7 +270,7 @@ ul.parsley-errors-list {
 }
 .post .entry-title{
 	font-size:25px;
-	color: #0082ca;
+	color: $theme-primary;
 }
 
 .post .entry-date{
@@ -291,7 +291,7 @@ ul.parsley-errors-list {
 }
 .post .entry-content a{
 	 font-weight: bold;
-	 color: #0082ca;
+	 color: $theme-primary;
 }
 
 .blog .post .entry-content p{
@@ -424,7 +424,7 @@ footer ul{
 	bottom: 0;
 }
 .post-item__body__information__title a{
-	color: #0082ca;
+	color: $theme-primary;
 	font-weight: 600;
 }
 .post-item__body__information__date{
@@ -447,7 +447,7 @@ footer ul{
 	padding: 5px 8px 5px 8px;
 	border: 1px solid rgba(0,0,0,.125);
 	border-radius: 5px;
-	background-color: #0082CA;
+	background-color: $theme-primary;
 	color: white
 }
 .page-numbers li a{
