@@ -475,6 +475,11 @@
 @include wrapped_img($pastel-green, $pastel-green, pastel-green);
 
 /*formulario liga*/
+.wpcf7-form .termsAndConditions{
+  display: flex;
+  align-items: baseline;
+}
+
 .form-liga {
   padding-left: 7px;
   padding-right: 7px;
@@ -482,6 +487,9 @@
   height: calc(2.25rem + 2px);
   border-radius: .25rem;
   width: 100%;
+  text-area{
+    height: calc(2.25rem + 40px) !important;
+  }
 }
 
 .team-form-container {
@@ -2001,7 +2009,7 @@ th {
   width: 55px;
   // left: calc(50% - 28px);
   margin-top: 45px;
-  border-bottom: 3px solid #84bed6;
+  border-bottom: 3px solid $primary-light;
 }
 
 .wp-block-group .wp-block-columns .wp-block-column figure img {
@@ -2134,7 +2142,7 @@ th {
 
 
 .divisor-cards {
-  border-bottom: 3px solid $pastel-cyan;
+  border-bottom: 3px solid $primary-light;
   width: 55px;
   border-radius: 5px;
 }
