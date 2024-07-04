@@ -46,6 +46,9 @@ $query = new WP_Query($args);
 										the_post_thumbnail();
 										?>
 									</div>
+									<div class="staff-member--picture__box">
+
+									</div>
 								</div>
 
 								<div class="d-flex justify-content-center flex-column align-self-start">

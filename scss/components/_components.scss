@@ -1,5 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
+@import './button';
 
 // BUTTONS
 // ---------------------------------------------------------------
@@ -143,8 +144,8 @@
 
 .date-publication {
   font-weight: 700;
-  color: #58595B;
-  font-size: 10px;
+  color: $theme-primary;
+  font-size: 12px;
 }
 
 /*Debate image*/
@@ -242,6 +243,21 @@
   width: 129px;
   border-radius: 50%;
   border: #84bed6 5px solid;
+}
+
+.staff-member--picture__box {
+  transform: translate(-75px, -90px);
+  height: 129px;
+  width: 129px;
+  border-radius: 50%;
+  border: #84bed6 5px solid;
+  background-color: #84bed6;
+  transition: all 0.4s ease-in-out;
+  transform: scale(0);
+}
+
+.staff-member--picture:hover + .staff-member--picture__box {
+  transform: scale(1);
 }
 
 @media(min-width: 768px) {
@@ -553,12 +569,9 @@
 }
 
 .buttom-liga {
-  background-color: #0082CA;
+  background-color: $theme-primary;
   margin-block: 17px;
-  border-color: #0082CA;
-  border-bottom-color: #0082CA;
-  border-left-color: #0082CA;
-  border-right-color: #0082CA;
+  border-color: $theme-primary;
   border-radius: 3px;
   color: white;
   border: none;
@@ -622,7 +635,7 @@
 
 .buttom-align {
   text-align: center;
-  padding-top: 26px;
+  padding-top: 50px;
 }
 
 .input-capitan-checkbox {
@@ -630,8 +643,10 @@
 }
 
 .wpcf7-list-item {
-  display: inline-block;
+  // display: inline-block;
   margin: 0 0 0 0;
+  display: flex;
+  align-items: center;
 }
 
 .captain-container {
@@ -664,7 +679,7 @@
 
 
 .participant-add {
-  color: #0082ca;
+  color: $theme-primary;
   font-weight: bold;
   margin-top: 10px;
   display: flex !important;
@@ -1904,8 +1919,8 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
 
 
 .wp-block-table table thead {
-  border: 5px #337ab7;
-  background-color: #337ab7;
+  border: 5px $theme-primary;
+  background-color: $theme-primary;
 }
 
 .wp-block-table table tbody tr:nth-child(odd) {
@@ -1922,6 +1937,7 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
 .wp-block-table th {
   border: 0.5px #e0ebf4 solid;
   padding: 12px;
+  font-size: 14px;
 }
 
 #nav_menu-3 h3 {
@@ -1998,7 +2014,7 @@ th {
 }
 
 .participant {
-  color: #0082CA;
+  color: $theme-primary;
   font-weight: bold;
   margin-top: 10px;
 }
@@ -2052,7 +2068,7 @@ th {
 }
 
 .new-participant {
-  background-color: #0082ca;
+  background-color: $theme-primary;
   color: #fff;
   border: transparent;
   border-radius: 5px;
@@ -2099,7 +2115,7 @@ th {
 }
 
 .wp-element-button {
-  background: #0082ca;
+  background: $theme-primary;
   color: white !important;
   border-radius: 5px;
   text-transform: uppercase;

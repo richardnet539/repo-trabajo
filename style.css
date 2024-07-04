@@ -22,6 +22,10 @@ Text Domain: ligaDebate
   line-height: 1;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Muli", sans-serif;
   font-size: 13px;
@@ -46,7 +50,7 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  font-size: 16px;
+  font-size: 18px;
   color: #289fd2;
 }
 
@@ -73,6 +77,7 @@ a:hover {
 
 p {
   margin-bottom: 0.5rem;
+  font-size: 16px;
 }
 
 ul {
@@ -112,6 +117,15 @@ blockquote {
 .post-edit-link:hover, .post-edit-link:active {
   background-color: #4b4c4d;
   border-color: #4b4c4d;
+}
+
+.registerInLeague div {
+  width: 20%;
+}
+.registerInLeague div a {
+  width: 100%;
+  color: #289fd2;
+  border-radius: 4px;
 }
 
 .btn-primary {
@@ -264,8 +278,8 @@ blockquote {
 
 .date-publication {
   font-weight: 700;
-  color: #58595B;
-  font-size: 10px;
+  color: #337ab7;
+  font-size: 12px;
 }
 
 /*Debate image*/
@@ -351,6 +365,21 @@ blockquote {
   width: 129px;
   border-radius: 50%;
   border: #84bed6 5px solid;
+}
+
+.staff-member--picture__box {
+  transform: translate(-75px, -90px);
+  height: 129px;
+  width: 129px;
+  border-radius: 50%;
+  border: #84bed6 5px solid;
+  background-color: #84bed6;
+  transition: all 0.4s ease-in-out;
+  transform: scale(0);
+}
+
+.staff-member--picture:hover + .staff-member--picture__box {
+  transform: scale(1);
 }
 
 @media (min-width: 768px) {
@@ -654,12 +683,9 @@ blockquote {
   }
 }
 .buttom-liga {
-  background-color: #0082CA;
+  background-color: #337ab7;
   margin-block: 17px;
-  border-color: #0082CA;
-  border-bottom-color: #0082CA;
-  border-left-color: #0082CA;
-  border-right-color: #0082CA;
+  border-color: #337ab7;
   border-radius: 3px;
   color: white;
   border: none;
@@ -715,7 +741,7 @@ blockquote {
 
 .buttom-align {
   text-align: center;
-  padding-top: 26px;
+  padding-top: 50px;
 }
 
 .input-capitan-checkbox {
@@ -723,8 +749,9 @@ blockquote {
 }
 
 .wpcf7-list-item {
-  display: inline-block;
   margin: 0 0 0 0;
+  display: flex;
+  align-items: center;
 }
 
 .captain-container {
@@ -753,7 +780,7 @@ blockquote {
 }
 
 .participant-add {
-  color: #0082ca;
+  color: #337ab7;
   font-weight: bold;
   margin-top: 10px;
   display: flex !important;
@@ -1809,6 +1836,7 @@ a[data-toggle=collapse]:not([aria-expanded=false]) .heading-collapse__icon {
 .wp-block-table th {
   border: 0.5px #e0ebf4 solid;
   padding: 12px;
+  font-size: 14px;
 }
 
 #nav_menu-3 h3 {
@@ -1879,7 +1907,7 @@ th {
   }
 }
 .participant {
-  color: #0082CA;
+  color: #337ab7;
   font-weight: bold;
   margin-top: 10px;
 }
@@ -1917,7 +1945,7 @@ th {
 }
 
 .new-participant {
-  background-color: #0082ca;
+  background-color: #337ab7;
   color: #fff;
   border: transparent;
   border-radius: 5px;
@@ -1959,8 +1987,12 @@ th {
   justify-content: center;
 }
 
+#premios-section p, .widget_block p {
+  font-size: 15px !important;
+}
+
 .wp-element-button {
-  background: #0082ca;
+  background: #337ab7;
   color: white !important;
   border-radius: 5px;
   text-transform: uppercase;
@@ -1972,7 +2004,7 @@ th {
   }
 }
 .divisor-cards {
-  border-bottom: 5px solid #84bed6;
+  border-bottom: 3px solid #84bed6;
   width: 55px;
   border-radius: 5px;
 }
@@ -3328,10 +3360,6 @@ ul.parsley-errors-list > li:before {
   -webkit-box-orient: vertical;
 }
 
-.blog hr {
-  display: none;
-}
-
 .blog article {
   height: 170px;
 }
@@ -3367,7 +3395,7 @@ ul.parsley-errors-list > li:before {
 
 .blog h2 a {
   font-size: 20px;
-  color: #0082ca;
+  color: #337ab7;
 }
 
 .blog .entry-content p {
@@ -3402,7 +3430,7 @@ ul.parsley-errors-list > li:before {
 
 .post .entry-title {
   font-size: 25px;
-  color: #0082ca;
+  color: #337ab7;
 }
 
 .post .entry-date {
@@ -3423,7 +3451,7 @@ ul.parsley-errors-list > li:before {
 
 .post .entry-content a {
   font-weight: bold;
-  color: #0082ca;
+  color: #337ab7;
 }
 
 .blog .post .entry-content p {
@@ -3569,7 +3597,7 @@ footer ul {
 }
 
 .post-item__body__information__title a {
-  color: #0082ca;
+  color: #337ab7;
   font-weight: 600;
 }
 
@@ -3594,7 +3622,7 @@ footer ul {
   padding: 5px 8px 5px 8px;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 5px;
-  background-color: #0082CA;
+  background-color: #337ab7;
   color: white;
 }
 
@@ -3610,10 +3638,6 @@ footer ul {
 
 .single #secondary {
   padding: 0px;
-}
-
-.single p {
-  font-size: 16px;
 }
 
 #content {
