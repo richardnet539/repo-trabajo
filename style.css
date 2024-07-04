@@ -379,7 +379,7 @@ blockquote {
 }
 
 .staff-member--picture:hover + .staff-member--picture__box {
-  transform: scale(1);
+  transform: translate(-75px, -90px) scale(1);
 }
 
 @media (min-width: 768px) {
