@@ -364,22 +364,26 @@ blockquote {
   height: 129px;
   width: 129px;
   border-radius: 50%;
-  border: #84bed6 5px solid;
+  border: #289fd2 5px solid;
 }
 
 .staff-member--picture__box {
-  transform: translate(-75px, -90px);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-75px, -90px) scale(0);
   height: 129px;
   width: 129px;
   border-radius: 50%;
-  border: #84bed6 5px solid;
-  background-color: #84bed6;
+  border: #289fd2 5px solid;
+  background-color: #289fd2;
   transition: all 0.4s ease-in-out;
-  transform: scale(0);
+  opacity: 0;
 }
 
 .staff-member--picture:hover + .staff-member--picture__box {
   transform: translate(-75px, -90px) scale(1);
+  opacity: 1;
 }
 
 @media (min-width: 768px) {
