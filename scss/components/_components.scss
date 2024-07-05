@@ -1,5 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
+@import './button';
 
 // BUTTONS
 // ---------------------------------------------------------------
@@ -112,7 +113,7 @@
   gap: 20px !important;
 }
 
-.cardDebate{
+.cardDebate {
   padding-left: 75px;
 }
 
@@ -121,28 +122,30 @@
   gap: 6px;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
-  .cardTitle{
+
+  .cardTitle {
     text-transform: uppercase;
   }
 }
 
-.group-card-image-blue-3, .group-card-image-blue-2{
-  column-gap:40px;
+.group-card-image-blue-3,
+.group-card-image-blue-2 {
+  column-gap: 40px;
 }
 
-.card-image-blue-3{
+.card-image-blue-3 {
   width: 31%;
 }
 
-.card-image-blue-2{
+.card-image-blue-2 {
   width: 47%;
 }
 
 
-.date-publication{
+.date-publication {
   font-weight: 700;
-  color: #58595B;
-  font-size: 10px;
+  color: $theme-primary;
+  font-size: 12px;
 }
 
 /*Debate image*/
@@ -160,20 +163,20 @@
   min-width: 290px;
 }
 
-.cardLigas-body{
+.cardLigas-body {
   gap: 10px;
   display: flex;
   flex-direction: column;
 }
 
 @media screen and (max-width: 1366px) {
-  .cardGallery-individual{
+  .cardGallery-individual {
     min-width: 300px;
   }
 }
 
 @media screen and (max-width: 1200px) {
-  .cardGallery-individual{
+  .cardGallery-individual {
     min-width: 380px;
     min-height: 222px;
   }
@@ -191,7 +194,7 @@
     min-height: 180px;
   }
 
-  .staff-member--picture{
+  .staff-member--picture {
     transform: translate(-75px, 6px) !important;
   }
 
@@ -200,12 +203,15 @@
     gap: 25px;
     grid-template-columns: repeat(1, 1fr);
   }
-  .card-image-blue-3, .card-image-blue-2{
+
+  .card-image-blue-3,
+  .card-image-blue-2 {
     width: 95%;
   }
 }
 
 @media(max-width: 833px) {
+
   .cardLigas,
   .cardGallery {
     gap: 25px;
@@ -217,7 +223,8 @@
   .cardGallery-individual {
     min-width: 0 !important;
   }
-  .circule{
+
+  .circule {
     display: none;
   }
 }
@@ -235,37 +242,61 @@
   height: 129px;
   width: 129px;
   border-radius: 50%;
-  border: #84bed6 5px solid;
+  border: $primary-light 5px solid;
+}
+
+.staff-member--picture__box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-235px, -72px) scale(0);
+  height: 129px;
+  width: 129px;
+  border-radius: 50%;
+  border: $primary-light 5px solid;
+  background-color: $primary-light;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+}
+
+.staff-member--picture:hover + .staff-member--picture__box {
+  transform: translate(-235px, -78px) scale(1);
+  opacity: 0.4;
 }
 
 @media(min-width: 768px) {
-  .cardGallery-end{
+  .cardGallery-end {
     width: 45px;
   }
 }
 
 @media (max-width: 767px) {
-  .cardDebate{
+  .cardDebate {
     padding-left: 0px;
     padding-bottom: 0px;
   }
-  .cardGallery-individual{
+
+  .cardGallery-individual {
     min-width: 400px;
     padding-top: 50px !important;
   }
-  .cardGallery-end{
+
+  .cardGallery-end {
     width: 0;
   }
+
   .circule {
     margin-left: 225px;
     margin-top: -139px;
     transform: translate(-97px, 4px) !important;
   }
-  .container-card-normativa{
+
+  .container-card-normativa {
     flex-direction: column;
     align-items: center;
   }
-  .card-normativa{
+
+  .card-normativa {
     width: 75% !important;
   }
 }
@@ -373,14 +404,17 @@
   border-radius: 10px;
   min-width: min-content;
 }
-.container-card-normativa{
+
+.container-card-normativa {
   display: flex;
   column-gap: 40px;
 }
-.card-normativa{
+
+.card-normativa {
   width: 37%;
   max-width: 525px;
 }
+
 @media(max-width: 320px) {
   .debate img {
     height: 199px;
@@ -441,6 +475,17 @@
 @include wrapped_img($pastel-green, $pastel-green, pastel-green);
 
 /*formulario liga*/
+.wpcf7-form {
+  textarea{
+    height: calc(2.25rem + 40px) !important;
+  }
+
+  .termsAndConditions{
+    display: flex;
+    align-items: baseline;
+  }
+} 
+
 .form-liga {
   padding-left: 7px;
   padding-right: 7px;
@@ -457,8 +502,8 @@
   justify-content: center;
 }
 
-.team-form-container > :last-child {
-  align-self: center; 
+.team-form-container> :last-child {
+  align-self: center;
   margin-left: 10%;
 }
 
@@ -466,11 +511,11 @@
   .team-form-container {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
   }
 
-  .team-form-container > :last-child {
+  .team-form-container> :last-child {
     margin-left: 50px;
   }
 }
@@ -531,18 +576,17 @@
 }
 
 @media (max-width: 414px) {
-  .bg-light-bluee, .buttom-container{
+
+  .bg-light-bluee,
+  .buttom-container {
     max-width: 265px !important;
   }
 }
 
 .buttom-liga {
-  background-color: #0082CA;
+  background-color: $theme-primary;
   margin-block: 17px;
-  border-color: #0082CA;
-  border-bottom-color: #0082CA;
-  border-left-color: #0082CA;
-  border-right-color: #0082CA;
+  border-color: $theme-primary;
   border-radius: 3px;
   color: white;
   border: none;
@@ -567,19 +611,19 @@
 
 @media (min-width:540px) {
   .buttom-container {
-    width:554px;
+    width: 554px;
   }
 }
 
 @media (min-width:526px) {
   .buttom-container {
-    width:554px;
+    width: 554px;
   }
 }
 
 @media (max-width:552px) {
   .buttom-container {
-    width:415px;
+    width: 415px;
   }
 }
 
@@ -591,7 +635,7 @@
 
 @media (max-width:410px) {
   .buttom-container {
-    width:329px;
+    width: 329px;
   }
 }
 
@@ -606,11 +650,18 @@
 
 .buttom-align {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 50px;
 }
 
 .input-capitan-checkbox {
   padding-left: 6px;
+}
+
+.wpcf7-list-item {
+  // display: inline-block;
+  margin: 0 0 0 0;
+  display: flex;
+  align-items: center;
 }
 
 .captain-container {
@@ -619,8 +670,9 @@
   gap: 10px;
 }
 
+
 .container-all-forms {
-  display: grid ;
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
@@ -642,7 +694,7 @@
 
 
 .participant-add {
-  color: #0082ca;
+  color: $theme-primary;
   font-weight: bold;
   margin-top: 10px;
   display: flex !important;
@@ -707,7 +759,7 @@
 }
 
 @include wrapped_img-2($yellow, $yellow, yellow);
-@include wrapped_img-2($pastel-cyan, $pastel-cyan, pastel-cyan);
+@include wrapped_img-2($primary-light, $primary-light, pastel-cyan);
 @include wrapped_img-2($pastel-green, $pastel-green, pastel-green);
 
 
@@ -758,7 +810,7 @@
 }
 
 @include wrapped-img-3($yellow, $yellow, yellow);
-@include wrapped-img-3($pastel-cyan, $pastel-cyan, pastel-cyan);
+@include wrapped-img-3($primary-light, $primary-light, pastel-cyan);
 @include wrapped-img-3($pastel-green, $pastel-green, pastel-green);
 
 
@@ -924,7 +976,7 @@
 
   .form-search {
     box-sizing: content-box;
-    background: white url('www.residencia.uneatlantico.es/wp-content/themes/residencia-blog/img/icon-search-blue.svg') no-repeat right 6px center;
+    background: white url('/wp-content/uploads/2024/06/icon-search_b.png') no-repeat right 6px center;
     background-size: 12px;
     background-color: mix($theme-primary, white, 30%);
     border: solid 1px transparent;
@@ -1158,9 +1210,13 @@
   }
 }
 
+.divisor-titles {
+  padding-top: 5px;
+}
+
 .heading-style-1 {
   position: relative;
-  padding-bottom: 7px;
+  padding-bottom: 12px;
 
   &:before {
     content: '';
@@ -1190,7 +1246,7 @@
 
   &--pastel-cyan {
     &:before {
-      border-bottom: 3px solid $pastel-cyan;
+      border-bottom: 3px solid $primary-light;
     }
   }
 }
@@ -1878,8 +1934,8 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
 
 
 .wp-block-table table thead {
-  border: 5px #337ab7;
-  background-color: #337ab7;
+  border: 5px $theme-primary;
+  background-color: $theme-primary;
 }
 
 .wp-block-table table tbody tr:nth-child(odd) {
@@ -1896,6 +1952,7 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
 .wp-block-table th {
   border: 0.5px #e0ebf4 solid;
   padding: 12px;
+  font-size: 14px;
 }
 
 #nav_menu-3 h3 {
@@ -1905,11 +1962,19 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
 #menu-footer-menu {
   list-style: none;
   display: flex;
-  gap: 20px;
 
   li a {
     color: #fff;
   }
+}
+
+#menu-footer-menu li.menu-item:after {
+  content: '|';
+  margin: 0 5px;
+}
+
+#menu-footer-menu li.menu-item:last-child:after {
+  content: '';
 }
 
 th {
@@ -1940,16 +2005,6 @@ th {
   padding-top: 10px;
 }
 
-.wp-block-group .wp-block-columns .wp-block-column .wp-block-group h3::before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  width: 55px;
-  // left: calc(50% - 28px);
-  margin-top: 45px;
-  border-bottom: 3px solid #84bed6;
-}
-
 .wp-block-group .wp-block-columns .wp-block-column figure img {
   border-radius: 10px;
   width: 80%;
@@ -1964,7 +2019,7 @@ th {
 }
 
 .participant {
-  color: #0082CA;
+  color: $theme-primary;
   font-weight: bold;
   margin-top: 10px;
 }
@@ -2018,7 +2073,7 @@ th {
 }
 
 .new-participant {
-  background-color: #0082ca;
+  background-color: $theme-primary;
   color: #fff;
   border: transparent;
   border-radius: 5px;
@@ -2051,25 +2106,37 @@ th {
   margin-right: -50vw;
   background-color: $light-blue !important;
   padding: 14px 0px;
-  .swiper-slide{
+
+  .swiper-slide {
     margin-right: 5px !important;
   }
 }
+
 .wp-block-buttons {
   justify-content: center;
 }
-.wp-element-button{
-  background: #0082ca;
+#premios-section p, .widget_block p {
+  font-size: 15px !important;
+}
+
+.wp-element-button {
+  background: $primary-light;
   color: white !important;
   border-radius: 5px;
-  padding: 10px 65px;
-  margin: 30px 10px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 
-@media screeen and (max-width: 414px){
-  .team-form-container.container-all-forms.form-flex.bg-light-bluee{
+@media screeen and (max-width: 414px) {
+  .team-form-container.container-all-forms.form-flex.bg-light-bluee {
     max-width: 265px !important;
-  } 
+  }
+}
+
+
+.divisor-cards {
+  border-bottom: 3px solid $primary-light;
+  width: 55px;
+  border-radius: 5px;
 }

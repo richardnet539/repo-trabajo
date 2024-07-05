@@ -36,9 +36,9 @@ $query = new WP_Query($args);
 					?>
 
 					<div class="cardDebate">
-						<div class=" card card-wrapped card-wrapped bg-silver-light ">
+					<div class="card card-wrapped card-wrapped bg-silver-light" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
 
-							<div class="cardGallery-individual p-3 d-flex gap-20">
+							<div class="cardGallery-individual p-3 d-flex gap-20"> 
 
 								<div class='cardGallery-content  cardGallery-end debate'>
 									<div class="staff-member--picture img-responsive circule">
@@ -46,15 +46,16 @@ $query = new WP_Query($args);
 										the_post_thumbnail();
 										?>
 									</div>
+									<div class="staff-member--picture__box">
+
+									</div>
 								</div>
 
 								<div class="d-flex justify-content-center flex-column align-self-start">
 									<h3 class="cardGallery-center p-2 cardTitle d-flex justify-content-center ">
 										<?php the_title('<div class="color-dimgray color-dimgray-a d-flex fz-25 fw-700 text-center"><a href="' . esc_url(get_permalink()) . '" >', '</a></div>'); ?>
 									</h3>
-									<div
-										class="h3 heading-style-1 heading-style-1--center heading-border--pastel-cyan color-dimgray text-uppercase ">
-									</div>
+									<hr class="divisor-cards">
 									<div class="cardLigas-body">
 										<div class="fz-14 color-text mt-2 font-family-light textDescript-card text-left">
 												<?php

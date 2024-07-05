@@ -61,7 +61,7 @@
 
 			<a class="btn-bar navbar-toggler menu-toggle" data-toggle="collapse" data-target=".js-main-navigation" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></a>
 
-			<div class="collapse navbar-collapse js-main-navigation">
+			<div class="collapse navbar-collapse js-main-navigation" style="gap: 10px;">
 				<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
@@ -70,7 +70,7 @@
 						'container'     => 'div',
 						// 'container_class' => '',
 						'container_id'    => 'main-navigation',
-						'menu_class'    => 'navbar-nav ml-auto text-uppercase fz-11',
+						'menu_class'    => 'navbar-nav ml-auto text-uppercase fz-14',
 					'fallback_cb'   => 'WP_Bootstrap_Navwalker::fallback',
 					'walker'      => new WP_Bootstrap_Navwalker()
 

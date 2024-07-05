@@ -1,0 +1,26 @@
+.registerInLeague{
+    width: 16%;
+    margin: 30px 0 !important;
+    a {
+        width: 100%;
+        background-color: $primary-light !important;
+        border-radius: 4px;
+    }
+}
+
+.search-field{
+    border: gray 1px solid;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+.search-submit{
+    background-color: #f8643b;
+    border-color: #f8643b;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 4px;
+}

@@ -1,3 +1,7 @@
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: $font-family;
   font-size: 13px;
@@ -26,8 +30,8 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  font-size: 16px;
-  color: $cyan;
+  font-size: 18px;
+  color: $primary-light;
 }
 
 h4, .h4 {
@@ -53,6 +57,7 @@ a:hover{
 
 p {
   margin-bottom: .5rem;
+  font-size: 16px;
 }
 
 ul {
