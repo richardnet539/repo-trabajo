@@ -260,7 +260,7 @@
 }
 
 .staff-member--picture:hover + .staff-member--picture__box {
-  transform: translate(-235px, -72px) scale(1);
+  transform: translate(-235px, -78px) scale(1);
   opacity: 0.4;
 }
 
@@ -807,7 +807,7 @@
 }
 
 @include wrapped-img-3($yellow, $yellow, yellow);
-@include wrapped-img-3($pastel-cyan, $pastel-cyan, pastel-cyan);
+@include wrapped-img-3($primary-light, $primary-light, pastel-cyan);
 @include wrapped-img-3($pastel-green, $pastel-green, pastel-green);
 
 
