@@ -1,0 +1,47 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-f', '/workspace/etc/docker/Dockerfile',
+      '--build-arg', 'GITLAB_TOKEN=${_GITLAB_TOKEN}',
+      '--build-arg', 'THEME_NAME=${_SERVICE_NAME}',
+      '--build-arg', 'PROJECT_ID=${_PROJECT_ID}',
+      '-t', 'gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}',
+      '.'
+    ]
+    id: 'build'
+    waitFor: ['-']
+    env:
+      - 'DOCKER_BUILDKIT=1'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}']
+    id: 'push-image'
+    waitFor: ['build']
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - '${_SERVICE_NAME}'
+      - '--image=gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}'
+      - '--region=${_REGION}'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+      - '--port=80'
+      - '--memory=2Gi'
+      - '--vpc-connector=${_VPC_CONNECTOR}'
+      - '--cpu=1'
+      - '--min-instances=0'
+      - '--set-env-vars=WORDPRESS_DB_HOST=${_WORDPRESS_DB_HOST},WORDPRESS_DB_USER=${_WORDPRESS_DB_USER},WORDPRESS_DB_PASSWORD=${_WORDPRESS_DB_PASSWORD},WORDPRESS_DB_NAME=${_WORDPRESS_DB_NAME}'
+    id: 'deploy'
+    waitFor: ['push-image']
+
+timeout: '1600s'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+tags:
+ - master
