@@ -13,8 +13,6 @@ get_header(); ?>
 // dynamic_sidebar( 'home-content' );
 ?>
 
-<h1 style="color:red;">Hola desde gitlab</h1>
-
 <div class="container pb-5">
   <?php 
      dynamic_sidebar( 'home-pre-content' ); 
