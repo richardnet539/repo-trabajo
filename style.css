@@ -119,12 +119,31 @@ blockquote {
   border-color: #4b4c4d;
 }
 
-.registerInLeague div {
-  width: 20%;
+.registerInLeague {
+  width: 16%;
+  margin: 30px 0 !important;
 }
-.registerInLeague div a {
+.registerInLeague a {
   width: 100%;
-  color: #289fd2;
+  background-color: #289fd2 !important;
+  border-radius: 4px;
+}
+
+.search-field {
+  border: gray 1px solid;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+.search-submit {
+  background-color: #f8643b;
+  border-color: #f8643b;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  padding: 7px 15px;
   border-radius: 4px;
 }
 
@@ -382,7 +401,7 @@ blockquote {
 }
 
 .staff-member--picture:hover + .staff-member--picture__box {
-  transform: translate(-235px, -72px) scale(1);
+  transform: translate(-235px, -78px) scale(1);
   opacity: 0.4;
 }
 
@@ -577,26 +596,34 @@ blockquote {
 }
 
 .wrapped-img--pastel-cyan .wrapped-img__image {
-  border-color: #84bed6;
+  border-color: #289fd2;
 }
 .wrapped-img--pastel-cyan .wrapped-img__box {
-  background: rgba(132, 190, 214, 0.7);
+  background: rgba(40, 159, 210, 0.7);
 }
 .wrapped-img--pastel-cyan .wrapped-img__box p {
-  color: #daecf3;
+  color: #bfe2f2;
 }
 
 .wrapped-img--pastel-green .wrapped-img__image {
-  border-color: #98cecd;
+  border-color: #289fd2;
 }
 .wrapped-img--pastel-green .wrapped-img__box {
-  background: rgba(152, 206, 205, 0.7);
+  background: rgba(40, 159, 210, 0.7);
 }
 .wrapped-img--pastel-green .wrapped-img__box p {
-  color: #e0f0f0;
+  color: #bfe2f2;
 }
 
 /*formulario liga*/
+.wpcf7-form textarea {
+  height: calc(2.25rem + 40px) !important;
+}
+.wpcf7-form .termsAndConditions {
+  display: flex;
+  align-items: baseline;
+}
+
 .form-liga {
   padding-left: 7px;
   padding-right: 7px;
@@ -855,23 +882,23 @@ blockquote {
 }
 
 .wrapped-img-2--pastel-cyan .wrapped-img-2__image {
-  border-color: #84bed6;
+  border-color: #289fd2;
 }
 .wrapped-img-2--pastel-cyan .wrapped-img-2__box {
-  background: rgba(132, 190, 214, 0.7);
+  background: rgba(40, 159, 210, 0.7);
 }
 .wrapped-img-2--pastel-cyan .wrapped-img-2__box p {
-  color: #daecf3;
+  color: #bfe2f2;
 }
 
 .wrapped-img-2--pastel-green .wrapped-img-2__image {
-  border-color: #98cecd;
+  border-color: #289fd2;
 }
 .wrapped-img-2--pastel-green .wrapped-img-2__box {
-  background: rgba(152, 206, 205, 0.7);
+  background: rgba(40, 159, 210, 0.7);
 }
 .wrapped-img-2--pastel-green .wrapped-img-2__box p {
-  color: #e0f0f0;
+  color: #bfe2f2;
 }
 
 .wrapped-img-3 {
@@ -927,23 +954,23 @@ blockquote {
 }
 
 .wrapped-img-3--pastel-cyan .wrapped-img-3__image {
-  border-color: #84bed6;
+  border-color: #289fd2;
 }
 .wrapped-img-3--pastel-cyan .wrapped-img-3__box {
-  background: rgba(132, 190, 214, 0.6);
+  background: rgba(40, 159, 210, 0.6);
 }
 .wrapped-img-3--pastel-cyan .wrapped-img-3__box p {
-  color: #daecf3;
+  color: #bfe2f2;
 }
 
 .wrapped-img-3--pastel-green .wrapped-img-3__image {
-  border-color: #98cecd;
+  border-color: #289fd2;
 }
 .wrapped-img-3--pastel-green .wrapped-img-3__box {
-  background: rgba(152, 206, 205, 0.6);
+  background: rgba(40, 159, 210, 0.6);
 }
 .wrapped-img-3--pastel-green .wrapped-img-3__box p {
-  color: #e0f0f0;
+  color: #bfe2f2;
 }
 
 .card-img__border--green img {
@@ -1034,7 +1061,7 @@ blockquote {
 }
 .list-services__img path {
   display: block;
-  fill: #9BCADE;
+  fill: #289fd2;
 }
 
 .list-design__img {
@@ -1269,10 +1296,10 @@ blockquote {
 }
 
 .heading-border--pastel-green:before {
-  border-bottom: 3px solid #98cecd;
+  border-bottom: 3px solid #289fd2;
 }
 .heading-border--pastel-cyan:before {
-  border-bottom: 3px solid #84bed6;
+  border-bottom: 3px solid #289fd2;
 }
 
 .heading-style-2 {
@@ -1890,15 +1917,6 @@ th {
   padding-top: 10px;
 }
 
-.wp-block-group .wp-block-columns .wp-block-column .wp-block-group h3::before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  width: 55px;
-  margin-top: 45px;
-  border-bottom: 3px solid #84bed6;
-}
-
 .wp-block-group .wp-block-columns .wp-block-column figure img {
   border-radius: 10px;
   width: 80%;
@@ -1996,10 +2014,11 @@ th {
 }
 
 .wp-element-button {
-  background: #337ab7;
+  background: #289fd2;
   color: white !important;
   border-radius: 5px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 @media screeen and (max-width: 414px) {
@@ -2008,7 +2027,7 @@ th {
   }
 }
 .divisor-cards {
-  border-bottom: 3px solid #84bed6;
+  border-bottom: 3px solid #289fd2;
   width: 55px;
   border-radius: 5px;
 }
@@ -2090,7 +2109,7 @@ th {
 }
 
 .color-pastel-green {
-  color: #98cecd !important;
+  color: #289fd2 !important;
 }
 
 .color-pastel-red {
@@ -2194,7 +2213,7 @@ th {
 }
 
 .bg-pastel-green {
-  background-color: #98cecd !important;
+  background-color: #289fd2 !important;
 }
 
 .bg-pastel-red {
@@ -2228,10 +2247,10 @@ th {
   border-color: #fcbd01;
 }
 .border-color--pastel-green {
-  border-color: #98cecd;
+  border-color: #289fd2;
 }
 .border-color--pastel-cyan {
-  border-color: #84bed6;
+  border-color: #289fd2;
 }
 
 .border-dashed {
@@ -3008,6 +3027,15 @@ figure.img-content img {
 
 .container {
   max-width: 1361px !important;
+}
+
+hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wp-container-core-group-layout-2.wp-container-core-group-layout-2 {
+  gap: 20px;
 }
 
 .nav-sidebar {
