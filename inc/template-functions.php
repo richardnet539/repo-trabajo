@@ -180,16 +180,16 @@ add_action('init', 'latam_league_custom_post_types');
 
 function latam_league_taxonomy() {
 	$labels = array(
-		'name'              => _x( 'latamleagues', 'Albums' ),
-		'singular_name'     => _x( 'latamleague', 'Album' ),
-		'search_items'      => __( 'Search Album' ),
+		'name'              => _x( 'latamleagues', 'SpanishLeagues' ),
+		'singular_name'     => _x( 'latamleague', 'SpanishLeague' ),
+		'search_items'      => __( 'Search SpanishLeague' ),
 		'all_items'         => __( 'All latam leagues' ),
 		'parent_item'       => __( 'Parent latam league' ),
 		'parent_item_colon' => __( 'Parent latam league:' ),
 		'edit_item'         => __( 'Edit latam league' ),
 		'update_item'       => __( 'Update latam league' ),
 		'add_new_item'      => __( 'Add New latam league' ),
-		'new_item_name'     => __( 'New Album latam league' ),
+		'new_item_name'     => __( 'New SpanishLeague latam league' ),
 		'menu_name'         => __( 'latam league' ),
 	);
 	$args   = array(
@@ -214,20 +214,20 @@ function spanish_league_custom_post_types() {
 	register_post_type('spanishleague',
 		array(
 			'labels'      => array(
-				'name'          	=> __('Albums', 'ligaDebate'),
-				'singular_name' 	=> __('Album', 'ligaDebate'),
+				'name'          	=> __('SpanishLeagues', 'ligaDebate'),
+				'singular_name' 	=> __('SpanishLeague', 'ligaDebate'),
 				'menu_name'     	=> __( 'Liga pre-universitaria de España', 'ligaDebate' ),
-				'add_new'       	=> __( 'Add Album', 'ligaDebate' ),
-				'add_new_item'      => __( 'Add new Album', 'ligaDebate' ),
-				'new_item'          => __( 'New Album', 'ligaDebate' ),
-				'edit_item'         => __( 'Edit Album', 'ligaDebate' ),
-				'view_item'         => __( 'View Album', 'ligaDebate' ),
-				'update_item'       => __( 'View Album', 'ligaDebate' ),
-				'all_items'         => __( 'All Albums', 'ligaDebate' ),
-				'search_items'      => __( 'Search Albums', 'ligaDebate' ),
-				'parent_item_colon' => __( 'Parent Album', 'ligaDebate' ),
-				'not_found'         => __( 'No Albums found', 'ligaDebate' ),
-				'not_found_in_trash'=> __( 'No Albums found in Trash', 'ligaDebate' )
+				'add_new'       	=> __( 'Add SpanishLeague', 'ligaDebate' ),
+				'add_new_item'      => __( 'Add new SpanishLeague', 'ligaDebate' ),
+				'new_item'          => __( 'New SpanishLeague', 'ligaDebate' ),
+				'edit_item'         => __( 'Edit SpanishLeague', 'ligaDebate' ),
+				'view_item'         => __( 'View SpanishLeague', 'ligaDebate' ),
+				'update_item'       => __( 'View SpanishLeague', 'ligaDebate' ),
+				'all_items'         => __( 'All SpanishLeagues', 'ligaDebate' ),
+				'search_items'      => __( 'Search SpanishLeagues', 'ligaDebate' ),
+				'parent_item_colon' => __( 'Parent SpanishLeague', 'ligaDebate' ),
+				'not_found'         => __( 'No SpanishLeagues found', 'ligaDebate' ),
+				'not_found_in_trash'=> __( 'No SpanishLeagues found in Trash', 'ligaDebate' )
 			),
 				'public'      	=> true,
 				'has_archive' 	=> true,
@@ -250,17 +250,17 @@ add_action('init', 'spanish_league_custom_post_types');
 
 function spanish_league_taxonomy() {
 	$labels = array(
-		'name'              => _x( 'Albums', 'Albums' ),
-		'singular_name'     => _x( 'Album', 'Album' ),
-		'search_items'      => __( 'Search Album' ),
-		'all_items'         => __( 'All Albums' ),
-		'parent_item'       => __( 'Parent Album' ),
-		'parent_item_colon' => __( 'Parent Album:' ),
-		'edit_item'         => __( 'Edit Album' ),
-		'update_item'       => __( 'Update Album' ),
-		'add_new_item'      => __( 'Add New Album' ),
-		'new_item_name'     => __( 'New Album Name' ),
-		'menu_name'         => __( 'Album' ),
+		'name'              => _x( 'SpanishLeagues', 'SpanishLeagues' ),
+		'singular_name'     => _x( 'SpanishLeague', 'SpanishLeague' ),
+		'search_items'      => __( 'Search SpanishLeague' ),
+		'all_items'         => __( 'All SpanishLeagues' ),
+		'parent_item'       => __( 'Parent SpanishLeague' ),
+		'parent_item_colon' => __( 'Parent SpanishLeague:' ),
+		'edit_item'         => __( 'Edit SpanishLeague' ),
+		'update_item'       => __( 'Update SpanishLeague' ),
+		'add_new_item'      => __( 'Add New SpanishLeague' ),
+		'new_item_name'     => __( 'New SpanishLeague Name' ),
+		'menu_name'         => __( 'SpanishLeague' ),
 	);
 	$args   = array(
 		'hierarchical'      => true,

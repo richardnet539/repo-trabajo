@@ -23,7 +23,7 @@ $query = new WP_Query($args);
 ?>
 
 <header class="entry-header pt-5">
-		<?php the_title('<h1 class="heading-home heading-home--center fz-30 color-dimgray fw-300 pt">', '</h1>'); ?>
+		<?php the_title('<h1 class="heading-home heading-home--center fz-30 color-dimgray fw-300 text-uppercase">', '</h1>'); ?>
 </header>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
