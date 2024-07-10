@@ -1,34 +1,39 @@
 {
-    "name": "web-presence-support/digital_ta",
-    "require": {
-      "wpackagist-plugin/wp-stateless": "*",
-      "wpackagist-plugin/redis-cache": "*",
-      "wpackagist-plugin/wp-super-cache": "*",
-      "wpackagist-plugin/wp-mail-smtp": "*",
-      "wpackagist-plugin/contact-form-7": "*",
-      "wpackagist-plugin/wp-carousel-free": "*",
-      "wpackagist-plugin/smart-slider-3": "*",
-      "wpackagist-plugin/meta-box": "*"
+  "name": "web-presence-support/liga_de_debate",
+  "require": {
+    "wpackagist-plugin/wp-stateless": "*",
+    "wpackagist-plugin/redis-cache": "*",
+    "wpackagist-plugin/wp-super-cache": "*",
+    "wpackagist-plugin/wp-mail-smtp": "*",
+    "wpackagist-plugin/contact-form-7": "*",
+    "wpackagist-plugin/wp-carousel-free": "*",
+    "wpackagist-plugin/smart-slider-3": "*",
+    "wpackagist-plugin/meta-box": "*",
+    "cts-web/slider-inserter": "dev-main"
+  },
+  "repositories": [
+    { 
+      "type": "composer",
+      "url": "https://wpackagist.org"
     },
-    "repositories": [
-      { 
-        "type": "composer",
-        "url": "https://wpackagist.org"
-      }
-    ],
-    "extra": {
-      "installer-paths": {
-        "wp-content/plugins/{$name}/": [
-          "type:wordpress-plugin"
-        ],
-        "wp-content/themes/{$name}/": [
-          "type:wordpress-theme"
-        ]
-      }
-    },
-    "config": {
-      "allow-plugins": {
-        "composer/installers": true
-      }
+    {
+      "type": "vcs",
+      "url": "https://code.ctdesarrollo-sdr.org/cts-web/wordpress/custom-plugins/slider-post-inserter.git"
+    }
+  ],
+  "extra": {
+    "installer-paths": {
+      "wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
     }
   }
+}
