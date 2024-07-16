@@ -41,7 +41,6 @@ $query = new WP_Query($args);
 							?>
 						</div>
 						<div class="card-leagues__description">
-							<div class="card-leagues__description">
 							<?php the_title('<h2><a href="' . esc_url(get_permalink()) . '" >', '</a></h2>'); ?>
 								<hr>
 							<p>
@@ -55,7 +54,6 @@ $query = new WP_Query($args);
 								}
 							?></p>
 								<span><?php echo rwmb_meta( 'date_publication' ); ?></span>
-							</div>
 						</div>
 					</div>
 

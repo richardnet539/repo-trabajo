@@ -2,7 +2,6 @@
   display: grid;
   width: 530px;
   height: 200px;
-  background-color: lightblue;
   grid-template-columns: 30% 70%; // Primera columna 30%, segunda columna 70%
   grid-template-rows: 1fr; // Una fila
   position: relative;
@@ -76,7 +75,6 @@
     align-items: center;
     width: auto;
     height: auto;
-    background-color: lightblue;
 
     &__description {
       height: 268px; // Ajustar altura
