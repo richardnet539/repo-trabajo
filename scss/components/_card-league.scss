@@ -46,7 +46,7 @@
         z-index: 2; // Asegura que esté por encima de la imagen
         margin-left: -26%; // Superposición sobre la primera columna
         padding: 10px;
-        padding-left: 80px; // Añadir espacio entre la imagen y el texto
+        padding-left: 90px; // Añadir espacio entre la imagen y el texto
         color: white;
         box-sizing: border-box;
 
@@ -107,8 +107,8 @@
         height: auto;
 
         &__description {
-        height: 268px; // Ajustar altura
-        padding-top: 55px; // Ajustar padding superior
+        min-height: 268px; // Ajustar altura
+        padding-top: 85px; // Ajustar padding superior
         padding-right: 10px; // Ajustar padding derecho
         margin-top: -64px; // Ajustar margen superior
         box-sizing: border-box;
