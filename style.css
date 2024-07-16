@@ -147,6 +147,102 @@ blockquote {
   border-radius: 4px;
 }
 
+.card-leagues {
+  display: grid;
+  width: 530px;
+  height: 200px;
+  background-color: lightblue;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 1fr;
+  position: relative;
+}
+.card-leagues__description {
+  background-color: #f8f8f8;
+  border: 1px solid white;
+  border-radius: 8px;
+  grid-column: 2/3;
+  grid-row: 1;
+  height: 100%;
+  z-index: 2;
+  margin-left: -26%;
+  padding: 10px;
+  padding-left: 80px;
+  color: white;
+  box-sizing: border-box;
+}
+.card-leagues__description hr {
+  width: 42px;
+  height: 3px;
+  background-color: #289fd2;
+  border: none;
+  margin: 10px 0;
+}
+.card-leagues__description h2 a {
+  font-size: 16px;
+  color: #58595b;
+  text-decoration: none;
+}
+.card-leagues__description p {
+  font-size: 14px;
+  color: #58595b;
+}
+.card-leagues__description span {
+  font-size: 14px;
+  color: #289fd2;
+  font-weight: 600;
+}
+.card-leagues__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-200%, -50%);
+  width: 125px;
+  height: 125px;
+  z-index: 3;
+  border: 4px solid #289fd2;
+  border-radius: 50%;
+}
+.card-leagues__img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+@media (max-width: 575.98px) {
+  .card-leagues {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: auto;
+    background-color: lightblue;
+  }
+  .card-leagues__description {
+    height: 268px;
+    padding-top: 55px;
+    padding-right: 10px;
+    margin-top: -64px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+  }
+  .card-leagues__description hr {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card-leagues__img {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: translate(0, 0%);
+    margin: auto;
+    border-width: 4px;
+    height: 125px;
+    width: 125px;
+  }
+}
 .btn-primary {
   background-color: #f8643b;
   border-color: #f8643b;
