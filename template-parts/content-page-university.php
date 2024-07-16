@@ -42,8 +42,9 @@ $query = new WP_Query($args);
 						</div>
 						<div class="card-leagues__description">
 							<div class="card-leagues__description">
-							<?php the_title('<h2"><a href="' . esc_url(get_permalink()) . '" >', '</a></h2>'); ?>
+							<?php the_title('<h2><a href="' . esc_url(get_permalink()) . '" >', '</a></h2>'); ?>
 								<hr>
+							<p>
 							<?php
 								if (!has_excerpt()) {
 									echo '';
@@ -52,7 +53,7 @@ $query = new WP_Query($args);
 									<?php
 									echo get_the_excerpt();
 								}
-							?>
+							?></p>
 								<span><?php echo rwmb_meta( 'date_publication' ); ?></span>
 							</div>
 						</div>
