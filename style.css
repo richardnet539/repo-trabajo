@@ -151,7 +151,6 @@ blockquote {
   display: grid;
   width: 530px;
   height: 200px;
-  background-color: lightblue;
   grid-template-columns: 30% 70%;
   grid-template-rows: 1fr;
   position: relative;
@@ -215,7 +214,6 @@ blockquote {
     align-items: center;
     width: auto;
     height: auto;
-    background-color: lightblue;
   }
   .card-leagues__description {
     height: 268px;
