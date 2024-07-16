@@ -2,16 +2,30 @@
     display: grid;
     grid-template-columns: 1fr; // Una columna por defecto
     grid-gap: 20px; // Espacio entre las tarjetas
-  
-    .card-leagues {
-      margin: 0 auto;
+    
+    .first-card {
+      justify-self: center;
+      border: 1px solid green;
     }
   
+    @include breakpoint_sm() {
+      grid-template-columns: 1fr; // Una columna en responsive
+      
+      .first-card {
+        justify-self: center;
+      }
+    }
+    
     // Para las siguientes tarjetas, usar CSS Grid
     &:not(:first-child) {
       display: grid;
+      border: 1px solid red;
       grid-template-columns: repeat(2, 1fr); // Dos columnas para el resto
       grid-gap: 20px; // Espacio entre tarjetas
+      
+      .card-leagues {
+        margin: 0;
+      }
     }
 
     .card-leagues {
