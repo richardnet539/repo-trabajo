@@ -191,7 +191,7 @@ blockquote {
   z-index: 2;
   margin-left: -26%;
   padding: 10px;
-  padding-left: 80px;
+  padding-left: 90px;
   color: white;
   box-sizing: border-box;
 }
@@ -241,8 +241,8 @@ blockquote {
     height: auto;
   }
   .card-leagues-container .card-leagues__description {
-    height: 268px;
-    padding-top: 55px;
+    min-height: 268px;
+    padding-top: 85px;
     padding-right: 10px;
     margin-top: -64px;
     box-sizing: border-box;
