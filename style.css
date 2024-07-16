@@ -152,13 +152,26 @@ blockquote {
   grid-template-columns: 1fr;
   grid-gap: 20px;
 }
-.card-leagues-container .card-leagues {
-  margin: 0 auto;
+.card-leagues-container .first-card {
+  justify-self: center;
+  border: 1px solid green;
+}
+@media (max-width: 575.98px) {
+  .card-leagues-container {
+    grid-template-columns: 1fr;
+  }
+  .card-leagues-container .first-card {
+    justify-self: center;
+  }
 }
 .card-leagues-container:not(:first-child) {
   display: grid;
+  border: 1px solid red;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+}
+.card-leagues-container:not(:first-child) .card-leagues {
+  margin: 0;
 }
 .card-leagues-container .card-leagues {
   display: grid;
