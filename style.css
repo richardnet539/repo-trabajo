@@ -164,6 +164,11 @@ blockquote {
     row-gap: 170px;
   }
 }
+@media (max-width: 575.98px) {
+  .card-leagues-container .card-leagues-group {
+    row-gap: 35px;
+  }
+}
 @media (max-width: 767.98px) {
   .card-leagues-container .card-leagues-group .card-leagues__description {
     max-width: auto;
@@ -281,6 +286,9 @@ blockquote {
 }
 .card-leagues .card-leagues__first .card-leagues__img {
   transform: translate(-315%, -50%);
+}
+.card-leagues .card-leagues__first .card-leagues__description {
+  max-width: 540px;
 }
 
 .btn-primary {
