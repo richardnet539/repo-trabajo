@@ -21,7 +21,7 @@
         column-gap: 20px;
         row-gap: 64px;
         .card-leagues__description{
-            max-width: 440px !important;
+            max-width: 370px !important;
         }
     }
     // En responsive, todas las tarjetas en una columna
@@ -69,7 +69,7 @@
 
 .card-leagues {
     display: grid;
-    min-width: 530px;
+    min-width: 440px;
     height: 200px;
     grid-template-columns: 30% 70%; // Primera columna 30%, segunda columna 70%
     position: relative;
