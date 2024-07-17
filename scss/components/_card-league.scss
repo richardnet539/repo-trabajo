@@ -10,7 +10,6 @@
         row-gap: 50px;
         @include breakpoint_md{
             grid-template-columns: repeat(1, 1fr);
-            row-gap: 170px;
         }
         @include breakpoint_sm{
             row-gap: 35px;
@@ -57,7 +56,7 @@
                 transform: translate(0, 0); // Posicionamiento en tamaño pequeño
                 margin: auto; // Mantener la imagen centrada
                 border-width: 4px;
-                height: 125px;
+                height: 160px;
                 width: 125px;
             }
         }
@@ -67,6 +66,7 @@
 .card-leagues__first{
     .card-leagues__description{
         max-width: 615px !important;
+        padding-left: 95px;
     }
 }
 
@@ -124,7 +124,6 @@
 
         span {
             font-size: 14px;
-            color: $primary-light;
             font-weight: 600;
         }
     }

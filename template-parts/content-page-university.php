@@ -91,3 +91,33 @@ $query = new WP_Query($args);
         </div>
     </div>
 </article><!-- #post-<?php the_ID(); ?> -->
+
+<?php
+if ($query->max_num_pages > 1) {
+	echo '<ul class="page-numbers font-family-light page-numbers-space">';
+	if ($curpage > 1) {
+		echo '<li>
+					<a class="previous page-numbers page button btn ml-xl-2 fz-14" href="' . get_pagenum_link(($curpage - 1 > 0 ? $curpage - 1 : 1)) . '">« Anterior</a>
+					</li>';
+	}
+
+	for ($i = 1; $i <= $query->max_num_pages; $i++) {
+		echo "<li>";
+		if ($i == $curpage) {
+			echo '<span class="current active page button btn ml-xl-2 fz-14" href="' . get_pagenum_link($i) . '">' . $i . '</span>';
+		} else {
+			echo '<a class="page button btn ml-xl-2 fz-14" href="' . get_pagenum_link($i) . '">' . $i . '</a>';
+		}
+		echo "</li>";
+	}
+	if ($curpage != $query->max_num_pages) {
+		echo '<li>
+				<a class="next page button btn ml-xl-2 fz-14" href="' . get_pagenum_link(($curpage + 1 <= $query->max_num_pages ? $curpage + 1 : $query->max_num_pages)) . '">Siguiente »</a>
+				</li>';
+	}
+	echo '
+		</ul>
+		';
+	wp_reset_postdata();
+}
+?>
