@@ -161,7 +161,7 @@ blockquote {
 @media (max-width: 767.98px) {
   .card-leagues-container .card-leagues-group {
     grid-template-columns: repeat(1, 1fr);
-    row-gap: 34px;
+    row-gap: 170px;
   }
 }
 @media (max-width: 767.98px) {
@@ -247,6 +247,16 @@ blockquote {
 .card-leagues__description p {
   font-size: 14px;
   color: #58595b;
+}
+@media (max-width: 767.98px) {
+  .card-leagues__description p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
 }
 .card-leagues__description span {
   font-size: 14px;
