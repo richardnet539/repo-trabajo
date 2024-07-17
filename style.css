@@ -151,17 +151,13 @@ blockquote {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
-  border: 1px solid green;
 }
-.card-leagues-container .card-leagues.single-column {
+.card-leagues-container .card-leagues:first-child {
   justify-self: center;
-  border: 1px solid pink;
 }
 .card-leagues-container:not(:first-child) {
-  border: 1px solid blue;
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  grid-auto-rows: auto;
 }
 @media (max-width: 575.98px) {
   .card-leagues-container {
