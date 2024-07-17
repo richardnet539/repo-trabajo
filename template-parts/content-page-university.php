@@ -24,7 +24,7 @@ $query = new WP_Query($args);
 </header>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <div class="entry-content pb-2 container">
+    <div class="entry-content pb-5 container">
         <div class="card-leagues-container">
             <?php
             if ($query->have_posts()):

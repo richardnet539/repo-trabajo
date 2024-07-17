@@ -10,7 +10,7 @@
         row-gap: 64px;
         @include breakpoint_md{
             grid-template-columns: repeat(1, 1fr);
-            row-gap: 34px;
+            row-gap: 170px;
 
         }
         .card-leagues__description{
@@ -105,6 +105,14 @@
         p {
             font-size: 14px;
             color: $theme-secondary;
+            @include breakpoint_md {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
         }
 
         span {
