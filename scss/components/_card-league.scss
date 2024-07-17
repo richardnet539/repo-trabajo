@@ -18,6 +18,11 @@
     .card-leagues-group{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+        row-gap: 64px;
+        .card-leagues__description{
+            max-width: 440px !important;
+        }
     }
     // En responsive, todas las tarjetas en una columna
     @include breakpoint_sm() {
@@ -31,6 +36,7 @@
             height: auto;
 
             &__description {
+                max-width: 540px;
                 min-height: 268px; // Ajustar altura
                 padding-top: 85px; // Ajustar padding superior
                 padding-right: 10px; // Ajustar padding derecho
@@ -63,10 +69,9 @@
 
 .card-leagues {
     display: grid;
-    width: 530px;
+    min-width: 530px;
     height: 200px;
     grid-template-columns: 30% 70%; // Primera columna 30%, segunda columna 70%
-    grid-template-rows: 1fr; // Una fila
     position: relative;
 
     &__description {
@@ -115,7 +120,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-200%, -50%); // Posicionamiento en tamaño grande
+        transform: translate(-240%, -50%); // Posicionamiento en tamaño grande
         width: 125px;
         height: 125px;
         z-index: 3;

@@ -114,10 +114,6 @@
   gap: 20px !important;
 }
 
-.cardDebate {
-  padding-left: 75px;
-}
-
 .cardLigas {
   display: grid;
   gap: 6px;
@@ -239,13 +235,6 @@
   }
 }
 
-@media screen and (min-width: 468px) and (max-width: 767px) {
-  .cardDebate {
-    padding-top: 94px;
-    padding-bottom: 60px;
-  }
-}
-
 /*circule around the image*/
 .staff-member--picture {
   transform: translate(-75px, 40px);
@@ -281,11 +270,6 @@
 }
 
 @media (max-width: 767px) {
-  .cardDebate {
-    padding-left: 0px;
-    padding-bottom: 0px;
-  }
-
   .cardGallery-individual {
     min-width: 400px;
     padding-top: 50px !important;
