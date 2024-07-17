@@ -154,11 +154,14 @@ blockquote {
 }
 .card-leagues-container .card-leagues:first-of-type {
   justify-self: center;
+  grid-column: 1/1;
 }
-.card-leagues-container > .card-leagues:nth-child(n+2) {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+@media (min-width: 768px) {
+  .card-leagues-container .card-leagues:not(:first-of-type) {
+    display: block;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
 }
 @media (max-width: 575.98px) {
   .card-leagues-container {
@@ -430,7 +433,7 @@ blockquote {
 
 .cardGallery-individual {
   max-width: 400px;
-  min-height: 250px;
+  min-height: 140px;
   min-width: 290px;
 }
 

@@ -39,9 +39,7 @@
 							<div class="cardGallery-individual p-3 d-flex gap-20">
 
 								<div class="d-flex justify-content-center flex-column align-self-start">
-									<h3 class="cardGallery-center p-2 cardTitle d-flex justify-content-center ">
-										<?php the_title('<div class="color-dimgray color-dimgray-a d-flex fz-25 fw-700 text-center"><a href="' . esc_url(get_permalink()) . '" >', '</a></div>'); ?>
-									</h3>
+										<?php the_title('<h3 class="color-dimgray color-dimgray-a d-flex fz-25 fw-700 text-center"><a href="' . esc_url(get_permalink()) . '" >', '</a></h3>'); ?>
 									<hr class="divisor-cards">
 									<div class="cardLigas-body">
 										<div class="date-publication__course">										
