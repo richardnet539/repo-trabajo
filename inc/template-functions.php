@@ -55,7 +55,7 @@ function metabox_fields( $meta_boxes ) {
 				'id' => $prefix . 'date_publication',
 				'type' => 'text',
 				'name' => esc_html__( 'Fecha de la liga', 'ligaDebate' ),
-			),
+			)
 		),
 	);
 
