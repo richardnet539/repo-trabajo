@@ -1,35 +1,29 @@
 .card-leagues-container {
-    display: grid;
-    grid-template-columns: 1fr; // Una columna por defecto
-    grid-gap: 20px; // Espacio entre las tarjetas
-    border: 1px solid purple;
-    
-    .first-card {
-      justify-self: center;
-      border: 1px solid green;
-    }
+  display: grid;
+  grid-template-columns: 1fr; // Una columna por defecto
+  grid-gap: 20px; // Espacio entre las tarjetas
+  border: 1px solid purple;
   
-    @include breakpoint_sm() {
-      grid-template-columns: 1fr; // Una columna en responsive
-      
-      .first-card {
-        justify-self: center;
-      }
-    }
-    
-    // Para las siguientes tarjetas, usar CSS Grid
-    &:not(:first-child) {
-      display: grid;
-      border: 1px solid red;
-      grid-template-columns: repeat(2, 1fr); // Dos columnas para el resto
-      grid-gap: 20px; // Espacio entre tarjetas
-      
-      .card-leagues {
-        margin: 0;
-      }
-    }
+  // Centrar la primera tarjeta
+  .card-leagues:nth-child(1) {
+    justify-self: center;
+    border: 1px solid gray;
+  }
 
-    .card-leagues {
+  // Aplicar el grid para el resto de tarjetas
+  .card-leagues:not(:nth-child(1)) {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid orange;
+    grid-gap: 20px; // Espacio entre tarjetas
+  }
+
+  // Establecer dos columnas para tarjetas que no son la primera
+  > :not(:first-child) + .card-leagues {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-leagues {
     display: grid;
     width: 530px;
     height: 200px;
@@ -38,76 +32,81 @@
     position: relative;
 
     &__description {
-        background-color: $silver-light;
-        border: 1px solid lighten($silver-light, 20%);
-        border-radius: 8px;
-        grid-column: 2 / 3; // Coloca la descripción en la segunda columna
-        grid-row: 1; // Ocupa la única fila
-        height: 100%; // Ocupa toda la altura del contenedor
-        z-index: 2; // Asegura que esté por encima de la imagen
-        margin-left: -26%; // Superposición sobre la primera columna
-        padding: 10px;
-        padding-left: 90px; // Añadir espacio entre la imagen y el texto
-        color: white;
-        box-sizing: border-box;
+      background-color: $silver-light;
+      border: 1px solid lighten($silver-light, 20%);
+      border-radius: 8px;
+      grid-column: 2 / 3; // Coloca la descripción en la segunda columna
+      grid-row: 1; // Ocupa la única fila
+      height: 100%; // Ocupa toda la altura del contenedor
+      z-index: 2; // Asegura que esté por encima de la imagen
+      margin-left: -26%; // Superposición sobre la primera columna
+      padding: 10px;
+      padding-left: 90px; // Añadir espacio entre la imagen y el texto
+      color: white;
+      box-sizing: border-box;
 
-        hr {
+      hr {
         width: 42px;
         height: 3px;
         background-color: $primary-light;
         border: none;
         margin: 10px 0; // Espaciado vertical entre elementos
-        }
+      }
 
-        h2 {
+      h2 {
         a {
-            font-size: 16px;
-            color: $theme-secondary;
-            text-decoration: none;
+          font-size: 16px;
+          color: $theme-secondary;
+          text-decoration: none;
         }
-        }
+      }
 
-        p {
+      p {
         font-size: 14px;
         color: $theme-secondary;
-        }
+      }
 
-        span {
+      span {
         font-size: 14px;
         color: $primary-light;
-        font-weight: 600; // Semi-bold
-        }
+        font-weight: bold;
+      }
     }
 
     &__img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-200%, -50%); // Posicionamiento en tamaño grande
-        width: 125px;
-        height: 125px;
-        z-index: 3;
-        border: 4px solid $primary-light;
-        border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-200%, -50%); // Posicionamiento en tamaño grande
+      width: 125px;
+      height: 125px;
+      z-index: 3;
+      border: 4px solid $primary-light;
+      border-radius: 50%;
 
-        img {
+      img {
         width: 100%;
         height: 100%;
         border-radius: 50%; // Mantener la forma redonda
-        }
+      }
     }
-    }
+  }
+}
 
-    // Estilos responsivos usando mixin
-    @include breakpoint_sm() {
+// Estilos responsivos usando mixin
+@include breakpoint_sm() {
+  .card-leagues-container {
+    grid-template-columns: 1fr; // Una columna en responsive
+    gap: 20px;
+
     .card-leagues {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: auto;
-        height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: auto;
+      height: auto;
 
-        &__description {
+      &__description {
         min-height: 268px; // Ajustar altura
         padding-top: 85px; // Ajustar padding superior
         padding-right: 10px; // Ajustar padding derecho
@@ -119,12 +118,12 @@
         text-align: center; // Centrar texto
 
         hr {
-            margin-left: auto;
-            margin-right: auto; // Centrar horizontalmente
+          margin-left: auto;
+          margin-right: auto; // Centrar horizontalmente
         }
-        }
+      }
 
-        &__img {
+      &__img {
         position: relative;
         top: auto;
         left: auto;
@@ -133,7 +132,14 @@
         border-width: 4px;
         height: 125px;
         width: 125px;
-        }
+      }
     }
-    }
+  }
+}
+
+// Establecer dos columnas para tarjetas que no son la primera
+.card-leagues-container > :not(:first-child) + .card-leagues {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
 }

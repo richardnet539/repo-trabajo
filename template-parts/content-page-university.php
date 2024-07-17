@@ -13,7 +13,7 @@ global $paged;
 $curpage = $paged ? $paged : 1;
 $args = array(
 	'orderby' => 'post_date',
-	'posts_per_page' => 4,
+	'posts_per_page' => 5,
 	'paged' => $paged,
 	'post_type' => 'university',
 	'cat' => $cat,

@@ -153,26 +153,18 @@ blockquote {
   grid-gap: 20px;
   border: 1px solid purple;
 }
-.card-leagues-container .first-card {
+.card-leagues-container .card-leagues:nth-child(1) {
   justify-self: center;
-  border: 1px solid green;
+  border: 1px solid gray;
 }
-@media (max-width: 575.98px) {
-  .card-leagues-container {
-    grid-template-columns: 1fr;
-  }
-  .card-leagues-container .first-card {
-    justify-self: center;
-  }
-}
-.card-leagues-container:not(:first-child) {
+.card-leagues-container .card-leagues:not(:nth-child(1)) {
   display: grid;
-  border: 1px solid red;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  border: 1px solid orange;
   grid-gap: 20px;
 }
-.card-leagues-container:not(:first-child) .card-leagues {
-  margin: 0;
+.card-leagues-container > :not(:first-child) + .card-leagues {
+  grid-template-columns: repeat(2, 1fr);
 }
 .card-leagues-container .card-leagues {
   display: grid;
@@ -215,7 +207,7 @@ blockquote {
 .card-leagues-container .card-leagues__description span {
   font-size: 14px;
   color: #289fd2;
-  font-weight: 600;
+  font-weight: bold;
 }
 .card-leagues-container .card-leagues__img {
   position: absolute;
@@ -233,7 +225,12 @@ blockquote {
   height: 100%;
   border-radius: 50%;
 }
+
 @media (max-width: 575.98px) {
+  .card-leagues-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
   .card-leagues-container .card-leagues {
     display: flex;
     flex-direction: column;
@@ -266,6 +263,11 @@ blockquote {
     height: 125px;
     width: 125px;
   }
+}
+.card-leagues-container > :not(:first-child) + .card-leagues {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
 }
 
 .btn-primary {
