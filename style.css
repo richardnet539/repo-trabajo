@@ -192,7 +192,6 @@ blockquote {
     height: auto;
   }
   .card-leagues-container .card-leagues__description {
-    max-width: 540px;
     min-height: 268px;
     padding-top: 85px;
     padding-right: 10px;
@@ -221,7 +220,6 @@ blockquote {
 
 .card-leagues {
   display: grid;
-  min-width: 440px;
   height: 200px;
   grid-template-columns: 30% 70%;
   position: relative;
