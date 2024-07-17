@@ -229,7 +229,7 @@ blockquote {
 }
 .card-leagues__description {
   background-color: #f8f8f8;
-  border: 1px solid white;
+  border: 1px solid #E1E1E1;
   border-radius: 8px;
   grid-column: 2/3;
   grid-row: 1;
@@ -269,6 +269,7 @@ blockquote {
 }
 .card-leagues__description span {
   font-size: 14px;
+  color: #58595b;
   font-weight: 600;
 }
 .card-leagues__img {
