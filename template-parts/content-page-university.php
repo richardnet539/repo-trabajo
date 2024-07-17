@@ -34,7 +34,7 @@ $query = new WP_Query($args);
                     $counter++;
                     if ($counter == 1) {
                         ?>
-                        <div class="card-leagues" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
+                        <div class="card-leagues card-leagues__first" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
                             <div class="card-leagues__img">
                                 <?php the_post_thumbnail(); ?>
                             </div>
