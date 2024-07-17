@@ -140,14 +140,11 @@
 
 
 .date-publication {
-  &__league{
-    font-weight: 700;
-    color: $theme-primary;
-    font-size: 14px;
-  }
-
-  &__course{
-    color: $gray-text;
+  color: #58595b;
+  font-size: 14px;
+  font-weight: 700;
+  &__course {
+    color: #58595b;
     font-size: 14px;
     font-weight: 700;
     text-align: center;
@@ -165,7 +162,7 @@
 
 .cardGallery-individual {
   max-width: 400px;
-  min-height: 140px;
+  min-height: 135px;
   min-width: 290px;
 }
 
@@ -175,18 +172,7 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 1366px) {
-  .cardGallery-individual {
-    min-width: 300px;
-  }
-}
-
 @media screen and (max-width: 1200px) {
-  .cardGallery-individual {
-    min-width: 380px;
-    min-height: 222px;
-  }
-
   .cardLigas,
   .cardGallery {
     gap: 25px;
@@ -195,11 +181,6 @@
 }
 
 @media screen and (max-width: 991px) {
-  .cardGallery-individual {
-    min-width: 610px;
-    min-height: 180px;
-  }
-
   .staff-member--picture {
     transform: translate(-75px, 6px) !important;
   }
@@ -222,16 +203,6 @@
   .cardGallery {
     gap: 25px;
     grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-@media screen and (max-width: 470px) {
-  .cardGallery-individual {
-    min-width: 0 !important;
-  }
-
-  .circule {
-    display: none;
   }
 }
 
@@ -270,11 +241,6 @@
 }
 
 @media (max-width: 767px) {
-  .cardGallery-individual {
-    min-width: 400px;
-    padding-top: 50px !important;
-  }
-
   .cardGallery-end {
     width: 0;
   }
