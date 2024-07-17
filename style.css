@@ -212,6 +212,13 @@ blockquote {
   }
 }
 
+.card-leagues__first .card-leagues__img {
+  transform: translate(-315%, -50%);
+}
+.card-leagues__first .card-leagues__description {
+  max-width: 615px !important;
+}
+
 .card-leagues {
   display: grid;
   height: 200px;
@@ -222,12 +229,6 @@ blockquote {
   .card-leagues {
     min-width: 100%;
   }
-}
-.card-leagues .card-leagues__first .card-leagues__img {
-  transform: translate(-315%, -50%);
-}
-.card-leagues .card-leagues__first .card-leagues__description {
-  max-width: 615px !important;
 }
 .card-leagues__description {
   background-color: #f8f8f8;
