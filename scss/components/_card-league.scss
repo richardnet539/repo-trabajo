@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr; // Una columna por defecto
     grid-gap: 20px; // Espacio entre las tarjetas
+    border: 1px solid purple;
     
     .first-card {
       justify-self: center;
