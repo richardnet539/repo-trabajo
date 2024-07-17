@@ -13,7 +13,7 @@
 	$curpage = $paged ? $paged : 1;
 	$args = array(
 		'orderby' => 'post_date',
-		'posts_per_page' => 6,
+		'posts_per_page' => 9,
 		'paged' => $paged,
 		'post_type' => 'course',
 		'cat' =>  $cat,

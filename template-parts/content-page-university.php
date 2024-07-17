@@ -28,13 +28,16 @@ $query = new WP_Query($args);
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-content pb-2 container">
-		<div class="card-leagues-container">
+		<div class="card-leagues-container" id="cardsContainer">
 			<?php
 			if ($query->have_posts()):
+				$counter = 0;
 				while ($query->have_posts()):
 					$query->the_post();
+					$counter++;
+					$class = $counter === 1 ? 'single-column' : '';
 					?>
-					<div class="card-leagues" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
+					<div class="card-leagues <?php echo $class; ?>" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
 						<div class="card-leagues__img">
 							<?php
 								the_post_thumbnail();
@@ -56,13 +59,7 @@ $query = new WP_Query($args);
 								<span><?php echo rwmb_meta( 'date_publication' ); ?></span>
 						</div>
 					</div>
-
-
-
-
 					<?php
-
-
 				endwhile;
 				wp_reset_query();
 			else:
@@ -72,7 +69,6 @@ $query = new WP_Query($args);
 			?>
 		</div>
 	</div>
-
 </article><!-- #post-<?php the_ID(); ?> -->
 
 <?php
@@ -99,8 +95,7 @@ if ($query->max_num_pages > 1) {
 				</li>';
 	}
 	echo '
-		</ul>
-		';
+		</ul>';
 	wp_reset_postdata();
 }
 ?>
