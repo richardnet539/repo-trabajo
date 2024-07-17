@@ -11,7 +11,9 @@
         @include breakpoint_md{
             grid-template-columns: repeat(1, 1fr);
             row-gap: 170px;
-
+        }
+        @include breakpoint_sm{
+            row-gap: 35px;
         }
         .card-leagues__description{
             // max-width: 370px !important;
@@ -143,6 +145,9 @@
     .card-leagues__first{
         .card-leagues__img{
             transform: translate(-315%, -50%);
+        }
+        .card-leagues__description{
+            max-width: 540px;
         }
     }
 }

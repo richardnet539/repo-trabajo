@@ -34,25 +34,27 @@ $query = new WP_Query($args);
                     $counter++;
                     if ($counter == 1) {
                         ?>
-                        <div class="card-leagues card-leagues__first" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
-                            <div class="card-leagues__img">
-                                <?php the_post_thumbnail(); ?>
-                            </div>
-                            <div class="card-leagues__description">
-                                <?php the_title('<h2><a href="' . esc_url(get_permalink()) . '">', '</a></h2>'); ?>
-                                <hr>
-                                <p>
-                                    <?php
-                                    if (!has_excerpt()) {
-                                        echo '';
-                                    } else {
-                                        echo get_the_excerpt();
-                                    }
-                                    ?>
-                                </p>
-                                <span><?php echo rwmb_meta('date_publication'); ?></span>
-                            </div>
-                        </div>
+						<div class="d-flex justify-content-center">
+							<div class="card-leagues card-leagues__first" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
+								<div class="card-leagues__img">
+									<?php the_post_thumbnail(); ?>
+								</div>
+								<div class="card-leagues__description">
+									<?php the_title('<h2><a href="' . esc_url(get_permalink()) . '">', '</a></h2>'); ?>
+									<hr>
+									<p>
+										<?php
+										if (!has_excerpt()) {
+											echo '';
+										} else {
+											echo get_the_excerpt();
+										}
+										?>
+									</p>
+									<span><?php echo rwmb_meta('date_publication'); ?></span>
+								</div>
+							</div>
+						</div>
                         <?php
                     } else {
                         if ($counter == 2) echo '<div class="card-leagues-group">';
