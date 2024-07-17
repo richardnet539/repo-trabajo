@@ -20,8 +20,16 @@
         grid-template-columns: repeat(2, 1fr);
         column-gap: 20px;
         row-gap: 64px;
+        @include breakpoint_md{
+            grid-template-columns: repeat(1, 1fr);
+            row-gap: 34px;
+
+        }
         .card-leagues__description{
             max-width: 370px !important;
+            @include breakpoint_md{
+                max-width: auto;
+            }
         }
     }
     // En responsive, todas las tarjetas en una columna
@@ -73,6 +81,9 @@
     height: 200px;
     grid-template-columns: 30% 70%; // Primera columna 30%, segunda columna 70%
     position: relative;
+    @include breakpoint_sm{
+        min-width: 100%;
+    }
 
     &__description {
         background-color: $silver-light;

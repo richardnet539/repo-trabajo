@@ -166,8 +166,19 @@ blockquote {
   column-gap: 20px;
   row-gap: 64px;
 }
+@media (max-width: 767.98px) {
+  .card-leagues-container .card-leagues-group {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 34px;
+  }
+}
 .card-leagues-container .card-leagues-group .card-leagues__description {
   max-width: 370px !important;
+}
+@media (max-width: 767.98px) {
+  .card-leagues-container .card-leagues-group .card-leagues__description {
+    max-width: auto;
+  }
 }
 @media (max-width: 575.98px) {
   .card-leagues-container {
@@ -214,6 +225,11 @@ blockquote {
   height: 200px;
   grid-template-columns: 30% 70%;
   position: relative;
+}
+@media (max-width: 575.98px) {
+  .card-leagues {
+    min-width: 100%;
+  }
 }
 .card-leagues__description {
   background-color: #f8f8f8;
@@ -434,8 +450,8 @@ blockquote {
 
 .cardGallery-individual {
   max-width: 400px;
-  min-height: 135px;
-  min-width: 290px;
+  min-height: 143px;
+  min-width: auto;
 }
 
 .cardLigas-body {
