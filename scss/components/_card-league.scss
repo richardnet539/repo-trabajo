@@ -116,9 +116,9 @@
 
     &__img {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-240%, -50%); // Posicionamiento en tamaño grande
+        top: 40px;
+        left: auto;
+        transform: translate(0, 0); // Posicionamiento en tamaño grande
         width: 125px;
         height: 125px;
         z-index: 3;
