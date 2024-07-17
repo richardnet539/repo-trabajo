@@ -150,13 +150,13 @@ blockquote {
 .card-leagues-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 20px;
+  grid-gap: 50px;
 }
 .card-leagues-container .card-leagues-group {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
-  row-gap: 64px;
+  row-gap: 50px;
 }
 @media (max-width: 767.98px) {
   .card-leagues-container .card-leagues-group {
