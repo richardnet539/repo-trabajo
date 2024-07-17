@@ -63,7 +63,7 @@
 												}
 												?>
 											</div>
-											<div class="date-publication">										
+											<div class="date-publication__league">										
 												<?php echo rwmb_meta( 'date_publication' ); ?>
 											</div>
 									</div>

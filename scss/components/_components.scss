@@ -144,9 +144,18 @@
 
 
 .date-publication {
-  font-weight: 700;
-  color: $theme-primary;
-  font-size: 12px;
+  &__league{
+    font-weight: 700;
+    color: $theme-primary;
+    font-size: 14px;
+  }
+
+  &__course{
+    color: $gray-text;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+  }
 }
 
 /*Debate image*/

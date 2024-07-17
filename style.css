@@ -151,17 +151,14 @@ blockquote {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
-  border: 1px solid green;
 }
-.card-leagues-container .card-leagues.single-column {
+.card-leagues-container .card-leagues:first-of-type {
   justify-self: center;
-  border: 1px solid pink;
 }
-.card-leagues-container:not(:first-child) {
-  border: 1px solid blue;
+.card-leagues-container > .card-leagues:nth-child(n+2) {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  gap: 20px;
 }
 @media (max-width: 575.98px) {
   .card-leagues-container {
@@ -193,7 +190,7 @@ blockquote {
     position: relative;
     top: auto;
     left: auto;
-    transform: translate(0, 0%);
+    transform: translate(0, 0);
     margin: auto;
     border-width: 4px;
     height: 125px;
@@ -410,10 +407,16 @@ blockquote {
   width: 47%;
 }
 
-.date-publication {
+.date-publication__league {
   font-weight: 700;
   color: #337ab7;
-  font-size: 12px;
+  font-size: 14px;
+}
+.date-publication__course {
+  color: #58595b;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
 }
 
 /*Debate image*/
