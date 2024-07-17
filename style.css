@@ -3236,6 +3236,14 @@ ul.sub-menu-level-2 {
   }
 }
 
+.container-full-width-section {
+  width: 100vw;
+  margin-left: 0 !important;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+
 .blog .entry-content {
   margin-bottom: 15px;
 }

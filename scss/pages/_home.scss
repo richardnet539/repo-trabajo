@@ -14,3 +14,10 @@
 	}
 }
 
+.container-full-width-section{
+	width: 100vw;
+    margin-left: 0 !important;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+}
