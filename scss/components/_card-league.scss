@@ -1,23 +1,24 @@
 .card-leagues-container {
     display: grid;
-    grid-template-columns: 1fr; // Una columna para la primera tarjeta
+    grid-template-columns: 1fr; // Una columna por defecto
     grid-gap: 20px; // Espacio entre las tarjetas
 
     // Centrar la primera tarjeta
-    .card-leagues:first-child {
+    .card-leagues:first-of-type {
         justify-self: center;
     }
 
     // Establecer dos columnas para tarjetas que no son la primera
-    &:not(:first-child) {
+    & > .card-leagues:nth-child(n + 2) {
+        display: grid;
         grid-template-columns: repeat(2, 1fr); // Dos columnas para el resto
-        grid-auto-rows: auto; // Ajustar altura automáticamente
+        gap: 20px; // Espacio entre tarjetas
     }
 
+    // En responsive, todas las tarjetas en una columna
     @include breakpoint_sm() {
-        grid-template-columns: 1fr; // Una columna en responsive
+        grid-template-columns: 1fr;
 
-        // Estilos responsivos para las tarjetas
         .card-leagues {
             display: flex;
             flex-direction: column;
@@ -46,7 +47,7 @@
                 position: relative;
                 top: auto;
                 left: auto;
-                transform: translate(0, 0%); // Posicionamiento en tamaño pequeño
+                transform: translate(0, 0); // Posicionamiento en tamaño pequeño
                 margin: auto; // Mantener la imagen centrada
                 border-width: 4px;
                 height: 125px;
