@@ -151,6 +151,7 @@ blockquote {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
+  border: 1px solid purple;
 }
 .card-leagues-container .first-card {
   justify-self: center;
