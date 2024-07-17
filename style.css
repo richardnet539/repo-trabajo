@@ -223,6 +223,12 @@ blockquote {
     min-width: 100%;
   }
 }
+.card-leagues .card-leagues__first .card-leagues__img {
+  transform: translate(-315%, -50%);
+}
+.card-leagues .card-leagues__first .card-leagues__description {
+  max-width: 615px !important;
+}
 .card-leagues__description {
   background-color: #f8f8f8;
   border: 1px solid white;
@@ -283,12 +289,6 @@ blockquote {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-}
-.card-leagues .card-leagues__first .card-leagues__img {
-  transform: translate(-315%, -50%);
-}
-.card-leagues .card-leagues__first .card-leagues__description {
-  max-width: 540px;
 }
 
 .btn-primary {
