@@ -81,7 +81,7 @@
 
     &__description {
         background-color: $silver-light;
-        border: 1px solid lighten($silver-light, 20%);
+        border: 1px solid #E1E1E1;
         border-radius: 8px;
         grid-column: 2 / 3;
         grid-row: 1;
@@ -124,6 +124,7 @@
 
         span {
             font-size: 14px;
+            color: $gray-text;
             font-weight: 600;
         }
     }
