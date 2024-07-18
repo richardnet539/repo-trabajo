@@ -13,7 +13,7 @@
 	$curpage = $paged ? $paged : 1;
 	$args = array(
 		'orderby' => 'post_date',
-		'posts_per_page' => 9,
+		'posts_per_page' => 6,
 		'paged' => $paged,
 		'post_type' => 'course',
 		'cat' =>  $cat,
@@ -22,7 +22,7 @@
 	$query = new WP_Query($args);
 ?>
 <header class="entry-header pt-5">
-		<?php the_title('<h1 class="text-uppercase heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
+		<?php the_title('<h1 class="heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
 </header>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-content pb-2">
@@ -34,17 +34,38 @@
 					?>
 
 					<div class="cardDebate">
-						<div class="card card-wrapped card-wrapped bg-silver-light ">
+						<div class=" card card-wrapped card-wrapped bg-silver-light ">
 
-							<div class="cardGallery-individual p-4 d-flex gap-20">
+							<div class="cardGallery-individual p-3 d-flex gap-20">
+
+								<div class='cardGallery-content  cardGallery-end debate'>
+									<div class="staff-member--picture img-responsive circule">
+										<?php
+										the_post_thumbnail();
+										?>
+									</div>
+								</div>
 
 								<div class="d-flex justify-content-center flex-column align-self-start">
-										<?php the_title('<a href="' . esc_url(get_permalink()) . '" ><h3 class="text-uppercase color-dimgray color-dimgray-a d-flex fz-25 fw-700 text-center" style="margin: 0px;">', '</h3></a>'); ?>
+									<h3 class="cardGallery-center p-2 cardTitle d-flex justify-content-center ">
+										<?php the_title('<div class="color-dimgray color-dimgray-a d-flex fz-25 fw-700 text-center"><a href="' . esc_url(get_permalink()) . '" >', '</a></div>'); ?>
+									</h3>
 									<hr class="divisor-cards">
 									<div class="cardLigas-body">
-										<div class="date-publication__course pt-2">										
-											<?php echo rwmb_meta( 'date_publication' ); ?>
-										</div>
+										<div class="fz-14 color-text mt-2 font-family-light textDescript-card text-left">
+												<?php
+												if (!has_excerpt()) {
+													echo '';
+												} else {
+													?>
+													<?php
+													echo get_the_excerpt();
+												}
+												?>
+											</div>
+											<div class="date-publication">										
+												<?php echo rwmb_meta( 'date_publication' ); ?>
+											</div>
 									</div>
 								</div>
 							</div>

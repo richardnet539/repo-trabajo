@@ -18,6 +18,31 @@
 	<div class="entry-content pb-5">
 		<?php
 		the_content();
+		//Slider
+		if (is_active_sidebar('slider-liga-debate')) { ?>
+			<!-- Bloque del Formulario de contacto -->
+			<div id="slider-fullwidth" class="bg-light-blue mt-5">
+				<?php dynamic_sidebar('slider-liga-debate'); ?>
+			</div>	
+		<?php 
+		} 
+
+		//Premios
+		if (rwmb_meta('league_awards') != '') {
+			?>
+			<div id="premios-section">
+			<h2 class="mt-5 h1 heading-home heading-home--center fz-30 color-dimgray fw-300 p-4.3" style="padding-top: 5px;">Premios</h2>
+			<div class="text-center">
+				<p>UNEATLANTICO establece premios al Equipo Ganador, Equipo Finalista y Mejor Orador de Liga de Debate
+					Preuniversitaria</p>
+			</div>
+
+			<?php
+			echo rwmb_meta('league_awards');
+			?>
+			</div>
+			<?php
+		}
 
 		if (is_active_sidebar('normativa-curso')) { ?>
 			<!-- Bloque de Curso - Normativa -->
