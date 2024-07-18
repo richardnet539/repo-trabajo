@@ -84,7 +84,8 @@
 
     &__description {
         // flex-flow: wrap;
-        // display: flow-root;    
+        // display: flow-root;
+        min-height: 204px;
         background-color: $silver-light;
         border: 1px solid #E1E1E1;
         border-radius: 8px;
@@ -136,14 +137,18 @@
 
     &__img {
         position: absolute;
-        top: 25px;
-        left: 15px;
+        top: 35px;
+        left: 0px;
         transform: translate(0, 0);
         width: 125px;
         height: 125px;
         z-index: 3;
         border: 4px solid $primary-light;
         border-radius: 50%;
+
+        @include breakpoint_min_lg{
+            left: 15px;
+        }
 
         img {
             width: 100%;
