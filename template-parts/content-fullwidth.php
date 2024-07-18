@@ -19,13 +19,6 @@
 			'class' => 'feature-heading__img img-fluid',
 		) );
 		?>
-		<div class="feature-heading__text">
-			<?php
-			if (rwmb_meta('league_awards') != '') {
-				echo rwmb_meta( 'league_awards' );
-			}
-			?>
-		</div>
 	</div>
 
 	<header class="entry-header">

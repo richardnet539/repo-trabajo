@@ -1,6 +1,7 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 @import './button';
+@import './card-league';
 
 // BUTTONS
 // ---------------------------------------------------------------
@@ -113,10 +114,6 @@
   gap: 20px !important;
 }
 
-.cardDebate {
-  padding-left: 75px;
-}
-
 .cardLigas {
   display: grid;
   gap: 6px;
@@ -143,9 +140,15 @@
 
 
 .date-publication {
+  color: #58595b;
+  font-size: 14px;
   font-weight: 700;
-  color: $theme-primary;
-  font-size: 12px;
+  &__course {
+    color: #58595b;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+  }
 }
 
 /*Debate image*/
@@ -159,8 +162,8 @@
 
 .cardGallery-individual {
   max-width: 400px;
-  min-height: 250px;
-  min-width: 290px;
+  min-height: 143px;
+  min-width: auto;
 }
 
 .cardLigas-body {
@@ -169,18 +172,7 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 1366px) {
-  .cardGallery-individual {
-    min-width: 300px;
-  }
-}
-
 @media screen and (max-width: 1200px) {
-  .cardGallery-individual {
-    min-width: 380px;
-    min-height: 222px;
-  }
-
   .cardLigas,
   .cardGallery {
     gap: 25px;
@@ -189,11 +181,6 @@
 }
 
 @media screen and (max-width: 991px) {
-  .cardGallery-individual {
-    min-width: 610px;
-    min-height: 180px;
-  }
-
   .staff-member--picture {
     transform: translate(-75px, 6px) !important;
   }
@@ -216,23 +203,6 @@
   .cardGallery {
     gap: 25px;
     grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-@media screen and (max-width: 470px) {
-  .cardGallery-individual {
-    min-width: 0 !important;
-  }
-
-  .circule {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 468px) and (max-width: 767px) {
-  .cardDebate {
-    padding-top: 94px;
-    padding-bottom: 60px;
   }
 }
 
@@ -271,16 +241,6 @@
 }
 
 @media (max-width: 767px) {
-  .cardDebate {
-    padding-left: 0px;
-    padding-bottom: 0px;
-  }
-
-  .cardGallery-individual {
-    min-width: 400px;
-    padding-top: 50px !important;
-  }
-
   .cardGallery-end {
     width: 0;
   }

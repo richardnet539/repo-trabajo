@@ -7,88 +7,89 @@
  * @package liga-de-debate
  */
 
-?>
-<?php
 global $paged;
 $curpage = $paged ? $paged : 1;
 $args = array(
-	'orderby' => 'post_date',
-	'posts_per_page' => 4,
-	'paged' => $paged,
-	'post_type' => 'university',
-	'cat' => $cat,
-	'category__not_in' => 42
+    'orderby' => 'post_date',
+    'posts_per_page' => 5,
+    'paged' => $paged,
+    'post_type' => 'university',
+    'cat' => $cat,
+    'category__not_in' => 42
 );
 $query = new WP_Query($args);
 ?>
-
 <header class="entry-header pt-5">
-		<?php the_title('<h1 class="heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
+    <?php the_title('<h1 class="heading-home heading-home--center fz-30 color-dimgray fw-300">', '</h1>'); ?>
 </header>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="entry-content pb-2">
-		<div class="cardLigas cardGallery c-grid c-grid-3 container">
-			<?php
-			if ($query->have_posts()):
-				while ($query->have_posts()):
-					$query->the_post();
-					?>
-
-					<div class="cardDebate">
-					<div class="card card-wrapped card-wrapped bg-silver-light" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
-
-							<div class="cardGallery-individual p-3 d-flex gap-20"> 
-
-								<div class='cardGallery-content  cardGallery-end debate'>
-									<div class="staff-member--picture img-responsive circule">
-										<?php
-										the_post_thumbnail();
-										?>
-									</div>
-									<div class="staff-member--picture__box">
-
-									</div>
+    <div class="entry-content pb-5 container">
+        <div class="card-leagues-container">
+            <?php
+            if ($query->have_posts()):
+                $counter = 0;
+                while ($query->have_posts()):
+                    $query->the_post();
+                    $counter++;
+                    if ($counter == 1) {
+                        ?>
+						<div class="d-flex justify-content-center">
+							<div class="card-leagues card-leagues__first" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
+								<div class="card-leagues__img">
+									<?php the_post_thumbnail(); ?>
 								</div>
-
-								<div class="d-flex justify-content-center flex-column align-self-start">
-									<h3 class="cardGallery-center p-2 cardTitle d-flex justify-content-center ">
-										<?php the_title('<div class="color-dimgray color-dimgray-a d-flex fz-25 fw-700 text-center"><a href="' . esc_url(get_permalink()) . '" >', '</a></div>'); ?>
-									</h3>
-									<hr class="divisor-cards">
-									<div class="cardLigas-body">
-										<div class="fz-14 color-text mt-2 font-family-light textDescript-card text-left">
-												<?php
-												if (!has_excerpt()) {
-													echo '';
-												} else {
-													?>
-													<?php
-													echo get_the_excerpt();
-												}
-												?>
-											</div>
-											<div class="date-publication">										
-												<?php echo rwmb_meta( 'date_publication' ); ?>
-											</div>
-									</div>
+								<div class="card-leagues__description">
+									<?php the_title('<h2 class="color-dimgray-a"><a href="' . esc_url(get_permalink()) . '">', '</a></h2>'); ?>
+									<hr>
+									<p>
+										<?php
+										if (!has_excerpt()) {
+											echo '';
+										} else {
+											echo get_the_excerpt();
+										}
+										?>
+									</p>
+									<span><?php echo rwmb_meta('date_publication'); ?></span>
 								</div>
 							</div>
 						</div>
-					</div>
-					<?php
-
-
-				endwhile;
-				wp_reset_query();
-			else:
-				get_template_part('template-parts/content', 'none');
-			endif;
-			wp_reset_postdata();
-			?>
-		</div>
-	</div>
-
+                        <?php
+                    } else {
+                        if ($counter == 2) echo '<div class="card-leagues-group">';
+                        ?>
+                        <div class="card-leagues" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
+                            <div class="card-leagues__img">
+                                <?php the_post_thumbnail(); ?>
+                            </div>
+                            <div class="card-leagues__description">
+                                <?php the_title('<h2><a href="' . esc_url(get_permalink()) . '">', '</a></h2>'); ?>
+                                <hr>
+                                <p>
+                                    <?php
+                                    if (!has_excerpt()) {
+                                        echo '';
+                                    } else {
+                                        echo get_the_excerpt();
+                                    }
+                                    ?>
+                                </p>
+                                <span><?php echo rwmb_meta('date_publication'); ?></span>
+                            </div>
+                        </div>
+                        <?php
+                        if ($counter == $query->post_count) echo '</div>';
+                    }
+                endwhile;
+                wp_reset_query();
+            else:
+                get_template_part('template-parts/content', 'none');
+            endif;
+            wp_reset_postdata();
+            ?>
+        </div>
+    </div>
 </article><!-- #post-<?php the_ID(); ?> -->
 
 <?php
