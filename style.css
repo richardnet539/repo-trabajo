@@ -190,7 +190,7 @@ blockquote {
     padding-right: 10px;
     margin-top: -64px;
     box-sizing: border-box;
-    padding-left: 10px;
+    padding-left: 10px !important;
     width: 100%;
     margin-left: 0;
     text-align: center;
@@ -206,8 +206,6 @@ blockquote {
     transform: translate(0, 0);
     margin: auto;
     border-width: 4px;
-    height: 160px;
-    width: 125px;
   }
 }
 
@@ -215,10 +213,14 @@ blockquote {
   max-width: 615px !important;
   padding-left: 95px;
 }
+@media (max-width: 767.98px) {
+  .card-leagues__first .card-leagues__description {
+    max-width: none;
+  }
+}
 
 .card-leagues {
   display: grid;
-  height: 200px;
   grid-template-columns: 30% 70%;
   position: relative;
 }
@@ -233,7 +235,6 @@ blockquote {
   border-radius: 8px;
   grid-column: 2/3;
   grid-row: 1;
-  height: 100%;
   z-index: 2;
   margin-left: -26%;
   padding: 1.5rem;
@@ -274,8 +275,8 @@ blockquote {
 }
 .card-leagues__img {
   position: absolute;
-  top: 40px;
-  left: auto;
+  top: 25px;
+  left: 15px;
   transform: translate(0, 0);
   width: 125px;
   height: 125px;
