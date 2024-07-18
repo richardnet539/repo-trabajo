@@ -40,7 +40,7 @@ $query = new WP_Query($args);
 									<?php the_post_thumbnail(); ?>
 								</div>
 								<div class="card-leagues__description">
-									<?php the_title('<h2><a href="' . esc_url(get_permalink()) . '">', '</a></h2>'); ?>
+									<?php the_title('<h2 class="color-dimgray-a"><a href="' . esc_url(get_permalink()) . '">', '</a></h2>'); ?>
 									<hr>
 									<p>
 										<?php
