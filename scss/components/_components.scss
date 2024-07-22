@@ -486,7 +486,7 @@
   }
 } 
 
-.form-liga {
+.form-liga, #role {
   padding-left: 7px;
   padding-right: 7px;
   border: 1px solid #ced4da;
@@ -2104,12 +2104,14 @@ th {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  background-color: $light-blue !important;
   padding: 14px 0px;
-
   .swiper-slide {
     margin-right: 5px !important;
   }
+}
+
+.form-course{
+  background-color: $light-blue;
 }
 
 .wp-block-buttons {
