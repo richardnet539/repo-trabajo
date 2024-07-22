@@ -212,11 +212,15 @@ blockquote {
 .card-leagues__first .card-leagues__description {
   max-width: 615px !important;
   padding-left: 95px;
-  min-width: 540px;
 }
 @media (max-width: 767.98px) {
   .card-leagues__first .card-leagues__description {
     max-width: none;
+  }
+}
+@media (min-width: 992px) {
+  .card-leagues__first .card-leagues__description {
+    min-width: 540px;
   }
 }
 
