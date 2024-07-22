@@ -67,6 +67,7 @@
     .card-leagues__description{
         max-width: 615px !important;
         padding-left: 95px;
+        min-width: 540px;
         @include breakpoint_md {
             max-width: none;
         }
