@@ -70,7 +70,7 @@
         @include breakpoint_md {
             max-width: none;
         }
-        @include breakpoint_min_lg{
+        @include breakpoint_min_md{
             min-width: 540px;
         }
     }
