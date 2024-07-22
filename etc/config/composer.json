@@ -9,7 +9,9 @@
     "wpackagist-plugin/wp-carousel-free": "*",
     "wpackagist-plugin/smart-slider-3": "*",
     "wpackagist-plugin/meta-box": "*",
-    "cts-web/slider-inserter": "dev-main"
+    "cts-web/slider-inserter": "dev-main",
+    "wpackagist-plugin/widget-context": "*",
+    "wpackagist-plugin/classic-widgets": "*"
   },
   "repositories": [
     { 
