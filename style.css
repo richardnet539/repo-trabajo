@@ -299,6 +299,7 @@ blockquote {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .btn-primary {
@@ -454,6 +455,11 @@ blockquote {
   color: #337ab7;
   font-size: 12px;
 }
+.date-publication__course {
+  font-size: 14px;
+  color: #58595b;
+  font-weight: 700;
+}
 
 /*Debate image*/
 .debate img {
@@ -466,7 +472,7 @@ blockquote {
 
 .cardGallery-individual {
   max-width: 400px;
-  min-height: 250px;
+  min-height: 130px;
   min-width: 290px;
 }
 

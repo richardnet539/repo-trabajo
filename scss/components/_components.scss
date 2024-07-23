@@ -147,6 +147,11 @@
   font-weight: 700;
   color: $theme-primary;
   font-size: 12px;
+  &__course{
+    font-size: 14px;
+    color: $gray-text;
+    font-weight: 700;
+  }
 }
 
 /*Debate image*/
@@ -160,7 +165,7 @@
 
 .cardGallery-individual {
   max-width: 400px;
-  min-height: 250px;
+  min-height: 130px;
   min-width: 290px;
 }
 
