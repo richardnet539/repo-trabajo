@@ -32,24 +32,13 @@
 				while ($query->have_posts()):
 					$query->the_post();
 					?>
-
-					<div class="cardDebate">
-						<div class="card card-wrapped card-wrapped bg-silver-light ">
-
-							<div class="cardGallery-individual p-4 d-flex gap-20">
-
-								<div class="d-flex justify-content-center flex-column align-self-start">
-										<?php the_title('<a href="' . esc_url(get_permalink()) . '" ><h3 class="text-uppercase color-dimgray color-dimgray-a d-flex fz-25 fw-700 text-center" style="margin: 0px;">', '</h3></a>'); ?>
-									<hr class="divisor-cards">
-									<div class="cardLigas-body">
-										<div class="date-publication pt-2">										
-											<?php echo rwmb_meta( 'date_publication' ); ?>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<div class="card-leagues" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
+                            <div class="card-leagues__description">
+                                <?php the_title('<h2><a href="' . esc_url(get_permalink()) . '">', '</a></h2>'); ?>
+                                <hr class="divisor-cards">
+                                <span><?php echo rwmb_meta('date_publication'); ?></span>
+                            </div>
+                        </div>
 					<?php
 
 
