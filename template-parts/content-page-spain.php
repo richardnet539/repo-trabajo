@@ -122,3 +122,4 @@ if ($query->max_num_pages > 1) {
 	wp_reset_postdata();
 }
 ?>
+
