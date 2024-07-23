@@ -147,6 +147,11 @@
   font-weight: 700;
   color: $theme-primary;
   font-size: 12px;
+  &__course{
+    font-size: 14px;
+    color: $gray-text;
+    font-weight: 700;
+  }
 }
 
 /*Debate image*/
