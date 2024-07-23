@@ -41,7 +41,7 @@
 										<?php the_title('<a href="' . esc_url(get_permalink()) . '" ><h3 class="text-uppercase color-dimgray color-dimgray-a d-flex fz-25 fw-700 text-center" style="margin: 0px;">', '</h3></a>'); ?>
 									<hr class="divisor-cards">
 									<div class="cardLigas-body">
-										<div class="date-publication__course pt-2">										
+										<div class="date-publication__course text-center pt-2">										
 											<?php echo rwmb_meta( 'date_publication' ); ?>
 										</div>
 									</div>
