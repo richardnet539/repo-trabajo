@@ -455,6 +455,11 @@ blockquote {
   color: #337ab7;
   font-size: 12px;
 }
+.date-publication__course {
+  font-size: 14px;
+  color: #58595b;
+  font-weight: 700;
+}
 
 /*Debate image*/
 .debate img {
