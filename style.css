@@ -3197,6 +3197,10 @@ hr {
   gap: 20px;
 }
 
+.wp-block-list li {
+  font-size: 14px;
+}
+
 .nav-sidebar {
   list-style-type: decimal;
   margin-left: 15px;
