@@ -15,7 +15,7 @@
 	</header>
 	<!-- .entry-header -->
 
-	<div class="entry-content pb-5">
+	<div class="entry-content">
 		<?php
 		the_content();
 		//Slider
