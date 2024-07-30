@@ -1928,6 +1928,10 @@ a[data-toggle="collapse"]:not([aria-expanded="false"]) .heading-collapse__icon {
 
 /*table of wordpress*/
 
+.wp-block-table table {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 .wp-block-table table thead {
   border: 5px $theme-primary;
