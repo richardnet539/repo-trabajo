@@ -18,14 +18,6 @@
 	<div class="entry-content">
 		<?php
 		the_content();
-		//Slider
-		if (is_active_sidebar('slider-liga-debate')) { ?>
-			<!-- Bloque del Formulario de contacto -->
-			<div id="slider-fullwidth" class="bg-light-blue mt-5">
-				<?php dynamic_sidebar('slider-liga-debate'); ?>
-			</div>	
-		<?php 
-		} 
 
 		//Premios
 		if (rwmb_meta('league_awards') != '') {

@@ -28,24 +28,6 @@
 		</div><!-- .entry-content -->
 		<div>
 			<?php
-			// zona azul
-			if (is_active_sidebar('colaboradores-curso')) { ?>
-				<!-- Bloque de Colaboradores -->
-				<div class="pt-3" id="slider-fullwidth">
-					<?php dynamic_sidebar('colaboradores-curso'); ?>
-				</div>	
-			<?php }
-			?>
-		</div>
-		<div>
-			<?php
-				if (is_active_sidebar('programa-curso')) { ?>
-					<!-- Bloque del Programa -->
-					<div class="pt-3">
-						<?php dynamic_sidebar('programa-curso'); ?>
-					</div>	
-				<?php }
-
 				if (is_active_sidebar('formulario-contacto-curso')) { ?>
 				<!-- Bloque de Formulario de contacto -->
 				<div class="pt-3">
