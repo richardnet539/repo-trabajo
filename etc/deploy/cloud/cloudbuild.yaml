@@ -6,7 +6,7 @@ steps:
       '--build-arg', 'GITLAB_TOKEN=${_GITLAB_TOKEN}',
       '--build-arg', 'THEME_NAME=${_SERVICE_NAME}',
       '--build-arg', 'PROJECT_ID=${_PROJECT_ID}',
-      '-t', 'gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}',
+      '-t', '${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/${_SERVICE_NAME}',
       '.'
     ]
     id: 'build'
@@ -15,7 +15,7 @@ steps:
       - 'DOCKER_BUILDKIT=1'
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}']
+    args: ['push', '${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/${_SERVICE_NAME}']
     id: 'push-image'
     waitFor: ['build']
 
@@ -25,7 +25,7 @@ steps:
       - 'run'
       - 'deploy'
       - '${_SERVICE_NAME}'
-      - '--image=gcr.io/${_PROJECT_ID}/${_SERVICE_NAME}'
+      - '--image=${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/${_SERVICE_NAME}'
       - '--region=${_REGION}'
       - '--platform=managed'
       - '--allow-unauthenticated'
