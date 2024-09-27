@@ -41,7 +41,7 @@ WORKDIR /usr/src/wordpress
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Stage 2: Final
-FROM gcr.io/${PROJECT_ID}/nginx-php-fpm-alpine:latest
+FROM europe-west1-docker.pkg.dev/${PROJECT_ID}/wordpress/nginx-php-fpm-alpine:latest
 
 WORKDIR /var/www/html
 
