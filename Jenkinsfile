@@ -38,7 +38,7 @@ pipeline{
                 script {
 
                     def secrets = [[
-                        path: 'kv-presencia-web-sysadmin/databases/development/${THEME_NAME}',
+                        path: 'kv-presencia-web-sysadmin/development/databases/${THEME_NAME}',
                         engineVersion: 2,
                         secretValues: [
                             [envVar: 'WORDPRESS_DB_HOST', vaultKey: 'WORDPRESS_DB_HOST'],
