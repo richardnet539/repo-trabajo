@@ -16,7 +16,7 @@ pipeline{
         WORKING_DIRECTORY  = "${SERVICES_DIRECTORY}/${THEME_NAME}"
         
         /** CONTAINER REGISTRY **/
-        SERVER_REG         = "registry.ctdesarrollo-sdr.org"
+        SERVER_REG         = "registry.ctdesarrollo-sdr.org/presencia-web"
         DOCKER_USER        = "jenkins"
         DOCKER_PASS        = credentials('registry-pass-docker')
         LATEST_THEME_IMAGE = "${SERVER_REG}/${THEME_NAME}:latest"
