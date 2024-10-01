@@ -8,7 +8,7 @@ pipeline{
 
         /** WEB SERVER **/
         SSH_HOST = "172.22.4.24"
-        SSH_USER = "cts-deus"
+        SSH_USER = "jenkins"
         SSH_PASS = credentials('ssh-pass-web')
         
         /** WORKING DIRECTOY **/
@@ -17,7 +17,7 @@ pipeline{
         
         /** CONTAINER REGISTRY **/
         SERVER_REG         = "registry.ctdesarrollo-sdr.org"
-        DOCKER_USER        = "docker"
+        DOCKER_USER        = "jenkins"
         DOCKER_PASS        = credentials('registry-pass-docker')
         LATEST_THEME_IMAGE = "${SERVER_REG}/${THEME_NAME}:latest"
     }
@@ -27,9 +27,7 @@ pipeline{
             steps { 
                 echo '==== BUILD & PUSH DOCKER IMAGE ===='
                 sh 'docker login ${SERVER_REG} -u ${DOCKER_USER} -p ${DOCKER_PASS}'
-                sh 'docker build --no-cache -t ${LATEST_THEME_IMAGE} .'
-                sh 'docker push ${LATEST_THEME_IMAGE}'
-                sh 'docker image tag ${LATEST_THEME_IMAGE} ${SERVER_REG}/${THEME_NAME}:${BRANCH_NAME}-${BUILD_ID}'
+                sh 'docker build . --no-cache -t ${SERVER_REG}/${THEME_NAME}:${BRANCH_NAME}-${BUILD_ID}'
                 sh 'docker push ${SERVER_REG}/${THEME_NAME}:${BRANCH_NAME}-${BUILD_ID}'
                 echo '==== FINISHED DOCKER IMAGE ===='
             }
@@ -40,7 +38,7 @@ pipeline{
                 script {
 
                     def secrets = [[
-                        path: 'kv-presencia-web-sysadmin/databases/${THEME_NAME}',
+                        path: 'kv-presencia-web-sysadmin/databases/development/${THEME_NAME}',
                         engineVersion: 2,
                         secretValues: [
                             [envVar: 'WORDPRESS_DB_HOST', vaultKey: 'WORDPRESS_DB_HOST'],
