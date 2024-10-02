@@ -71,7 +71,7 @@ pipeline{
                         // Run the new container
                         sh '''
                         sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "
-                                docker run -d --name $THEME_NAME -dit --restart always \\
+                                docker run --name $THEME_NAME -dit --restart always \\
                                 -v $SERVICES_DIRECTORY/$THEME_NAME/uploads:/var/www/html/wp-content/uploads \\
                                 -v $SERVICES_DIRECTORY/$THEME_NAME/plugins:/var/www/html/wp-content/plugins \\
                                 -p 8132:80 \\
