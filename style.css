@@ -770,7 +770,8 @@ blockquote {
   align-items: baseline;
 }
 
-.form-liga, #role {
+.form-liga,
+#role {
   padding-left: 7px;
   padding-right: 7px;
   border: 1px solid #ced4da;
@@ -1385,6 +1386,10 @@ blockquote {
 
 .input-group-mixed .form-control {
   border-left-color: white;
+}
+
+.rest-form-group {
+  padding: 5px !important;
 }
 
 .heading-home {
@@ -2169,7 +2174,8 @@ th {
   justify-content: center;
 }
 
-#premios-section p, .widget_block p {
+#premios-section p,
+.widget_block p {
   font-size: 15px !important;
 }
 
