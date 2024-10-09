@@ -54,11 +54,10 @@ pipeline{
                     ]
 
                     withVault(configuration: configuration, vaultSecrets: secrets) {
-
                         // Log in to the Docker registry
                         sh 'sshpass -p "${SSH_PASS}" ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "docker login ${SERVER_REG} -u ${DOCKER_USER} -p ${DOCKER_PASS}"'
                         
-                        // Check if the container exists, and kill it if it does
+                        // Check if the container exists, and kill it if iAre you sure you have the correct username and password?t does
                         sh '''
                         sshpass -p "${SSH_PASS}" ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
                         if docker inspect ${THEME_NAME} >/dev/null 2>&1; then
