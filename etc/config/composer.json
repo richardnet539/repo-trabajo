@@ -12,8 +12,7 @@
     "cts-web/slider-inserter": "dev-main",
     "wpackagist-plugin/widget-context": "*",
     "wpackagist-plugin/classic-widgets": "*",
-    "hexcss/wp-cloud-upload": "*",
-    "google/cloud-storage": "^1.25"
+    "hexcss/wp-cloud-upload": "dev-master"
   },
   "repositories": [
     {
@@ -32,11 +31,6 @@
       ],
       "wp-content/themes/{$name}/": [
         "type:wordpress-theme"
-      ]
-    },
-    "merge-plugin": {
-      "include": [
-        "wp-content/plugins/*/composer.json"
       ]
     }
   }
