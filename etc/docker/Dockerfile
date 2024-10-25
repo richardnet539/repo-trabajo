@@ -47,9 +47,9 @@ FROM europe-west1-docker.pkg.dev/${PROJECT_ID}/wordpress/nginx-php-fpm-alpine:la
 COPY /etc/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Ensure the necessary directories exist for Nginx temporary files
-RUN mkdir -p /var/lib/nginx/tmp/client_body /var/lib/nginx/tmp/proxy /var/lib/nginx/tmp/fastcgi && \
-    chown -R www-data:www-data /var/lib/nginx/tmp && \
-    chmod -R 700 /var/lib/nginx/tmp
+RUN mkdir -p /tmp/nginx/client_body /tmp/nginx/proxy /tmp/nginx/fastcgi && \
+    chown -R www-data:www-data /tmp/nginx && \
+    chmod -R 755 /tmp/nginx
 
 WORKDIR /var/www/html
 
