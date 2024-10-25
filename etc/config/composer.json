@@ -13,7 +13,7 @@
     "wpackagist-plugin/widget-context": "*",
     "wpackagist-plugin/classic-widgets": "*",
     "hexcss/wp-cloud-upload": "*",
-    "wikimedia/composer-merge-plugin": "^2.0"
+    "google/cloud-storage": "^1.25"
   },
   "repositories": [
     {
@@ -38,11 +38,6 @@
       "include": [
         "wp-content/plugins/*/composer.json"
       ]
-    }
-  },
-  "config": {
-    "allow-plugins": {
-      "composer/installers": true
     }
   }
 }
