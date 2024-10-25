@@ -43,7 +43,13 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 # Stage 2: Final
 FROM europe-west1-docker.pkg.dev/${PROJECT_ID}/wordpress/nginx-php-fpm-alpine:latest
 
+# Copy Nginx configuration
 COPY /etc/nginx/default.conf /etc/nginx/conf.d/default.conf
+
+# Ensure the necessary directories exist for Nginx temporary files
+RUN mkdir -p /var/lib/nginx/tmp/client_body && \
+    chown -R www-data:www-data /var/lib/nginx/tmp/client_body && \
+    chmod -R 700 /var/lib/nginx/tmp/client_body
 
 WORKDIR /var/www/html
 
@@ -54,6 +60,8 @@ COPY --from=build /usr/src/wordpress/wp-content/themes/${THEME_NAME} /var/www/ht
 COPY --from=build /usr/src/wordpress/wp-content/themes/twentytwentyfour /var/www/html/wp-content/themes/twentytwentyfour
 COPY --from=build /usr/src/wordpress/wp-content/plugins /var/www/html/wp-content/plugins
 COPY --from=build /usr/src/wordpress/composer.json /var/www/html/composer.json
+COPY /etc/config/wp-cache-config.php /var/www/html/wp-content/wp-cache-config.php
+
 
 # Ensure wp-content/upgrade directory exists
 RUN mkdir -p wp-content/upgrade
@@ -61,5 +69,13 @@ RUN mkdir -p wp-content/upgrade
 # Set ownership and permissions for the entire /var/www/html directory
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 755 /var/www/html
+
+RUN chown www-data:www-data /var/www/html/wp-content/wp-cache-config.php && \
+    chmod 644 /var/www/html/wp-content/wp-cache-config.php
+
+# Ensure Nginx and PHP-FPM directories have correct permissions
+RUN mkdir -p /var/run/php && \
+    chown -R www-data:www-data /var/run/php && \
+    chmod -R 700 /var/run/php
 
 EXPOSE 80
