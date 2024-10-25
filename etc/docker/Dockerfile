@@ -43,6 +43,8 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 # Stage 2: Final
 FROM europe-west1-docker.pkg.dev/${PROJECT_ID}/wordpress/nginx-php-fpm-alpine:latest
 
+COPY /etc/nginx/default.conf /etc/nginx/conf.d/default.conf
+
 WORKDIR /var/www/html
 
 # Copy necessary files from build stage
