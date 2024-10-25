@@ -2,7 +2,7 @@
 ARG PROJECT_ID
 
 # Stage 1: Build
-FROM wordpress:6.6.2-php8.3-apache AS build
+FROM wordpress:6.6.2-php8.2-apache AS build
 
 WORKDIR /var/www/html
 
@@ -47,9 +47,9 @@ FROM europe-west1-docker.pkg.dev/${PROJECT_ID}/wordpress/nginx-php-fpm-alpine:la
 COPY /etc/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Ensure the necessary directories exist for Nginx temporary files
-RUN mkdir -p /var/lib/nginx/tmp/client_body && \
-    chown -R www-data:www-data /var/lib/nginx/tmp/client_body && \
-    chmod -R 700 /var/lib/nginx/tmp/client_body
+RUN mkdir -p /var/lib/nginx/tmp/client_body /var/lib/nginx/tmp/proxy /var/lib/nginx/tmp/fastcgi && \
+    chown -R www-data:www-data /var/lib/nginx/tmp && \
+    chmod -R 700 /var/lib/nginx/tmp
 
 WORKDIR /var/www/html
 
@@ -61,7 +61,6 @@ COPY --from=build /usr/src/wordpress/wp-content/themes/twentytwentyfour /var/www
 COPY --from=build /usr/src/wordpress/wp-content/plugins /var/www/html/wp-content/plugins
 COPY --from=build /usr/src/wordpress/composer.json /var/www/html/composer.json
 COPY /etc/config/wp-cache-config.php /var/www/html/wp-content/wp-cache-config.php
-
 
 # Ensure wp-content/upgrade directory exists
 RUN mkdir -p wp-content/upgrade
