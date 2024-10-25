@@ -1,6 +1,7 @@
 {
   "name": "web-presence-support/liga_de_debate",
   "require": {
+    "wpackagist-plugin/wp-stateless": "*",
     "wpackagist-plugin/redis-cache": "*",
     "wpackagist-plugin/wp-super-cache": "*",
     "wpackagist-plugin/wp-mail-smtp": "*",
