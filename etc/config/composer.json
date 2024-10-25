@@ -1,7 +1,6 @@
 {
   "name": "web-presence-support/liga_de_debate",
   "require": {
-    "wpackagist-plugin/wp-stateless": "*",
     "wpackagist-plugin/redis-cache": "*",
     "wpackagist-plugin/wp-super-cache": "*",
     "wpackagist-plugin/wp-mail-smtp": "*",
@@ -11,7 +10,8 @@
     "wpackagist-plugin/meta-box": "*",
     "cts-web/slider-inserter": "dev-main",
     "wpackagist-plugin/widget-context": "*",
-    "wpackagist-plugin/classic-widgets": "*"
+    "wpackagist-plugin/classic-widgets": "*",
+    "hexcss/wp-cloud-upload": "*"
   },
   "repositories": [
     { 
