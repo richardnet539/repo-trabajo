@@ -12,10 +12,11 @@
     "cts-web/slider-inserter": "dev-main",
     "wpackagist-plugin/widget-context": "*",
     "wpackagist-plugin/classic-widgets": "*",
-    "hexcss/wp-cloud-upload": "*"
+    "hexcss/wp-cloud-upload": "*",
+    "wikimedia/composer-merge-plugin": "^2.0"
   },
   "repositories": [
-    { 
+    {
       "type": "composer",
       "url": "https://wpackagist.org"
     },
@@ -31,6 +32,11 @@
       ],
       "wp-content/themes/{$name}/": [
         "type:wordpress-theme"
+      ]
+    },
+    "merge-plugin": {
+      "include": [
+        "wp-content/plugins/*/composer.json"
       ]
     }
   },
