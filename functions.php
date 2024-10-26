@@ -329,13 +329,6 @@ function ligaDebate_scripts()
 
     wp_enqueue_script('ligaDebate-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 
-    // Add slider CSS only if is front page ans slider is enabled
-    if ((is_front_page()) || (is_page_template('page-fullwidth.php'))) {
-        wp_enqueue_style('ligaDebate-slickslidercss', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css');
-        wp_enqueue_style('ligaDebate-slicksliderthemecss', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css');
-        wp_enqueue_script('ligaDebate-slicksliderjs', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array('jquery'));
-    }
-
     // Isotope Library
     wp_enqueue_script('ligaDebate-isotopejs', 'https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js', array('jquery'), null, true);
 
