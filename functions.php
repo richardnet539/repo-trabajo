@@ -314,81 +314,24 @@ function ligaDebate_scripts()
     // Font Awesome 5
     wp_enqueue_style('ligaDebate-fontawesome', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
 
-    // Keep Old Font Awesome
-    wp_enqueue_style('ligaDebate-fontawesome-keep-old', 'https://use.fontawesome.com/releases/v5.9.0/css/v4-shims.css');
-
     // Bootstrap 4 default CSS
     wp_enqueue_style('ligaDebate-bootstrapcss', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css');
 
-
     // Theme Styles
-    wp_enqueue_style('ligaDebate-style', get_stylesheet_uri());
+    wp_enqueue_style('ligaDebate-style', get_template_directory_uri() . '/style.min.css');
 
     // Bootstrap default JS
     wp_enqueue_script('ligaDebate-bootstrapjs', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js', array('jquery'), '1', true);
 
     wp_enqueue_script('ligaDebate-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 
-    // Add slider CSS only if is front page ans slider is enabled
-    if ((is_front_page()) || (is_page_template('page-fullwidth.php'))) {
-        wp_enqueue_style('ligaDebate-slickslidercss', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css');
-        wp_enqueue_style('ligaDebate-slicksliderthemecss', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css');
-        wp_enqueue_script('ligaDebate-slicksliderjs', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array('jquery'));
-    }
-
-    // Isotope Library
-    wp_enqueue_script('ligaDebate-isotopejs', 'https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js', array('jquery'), null, true);
-
     // Main theme js
-    wp_enqueue_script('ligaDebate-scripts', get_template_directory_uri() . '/js/scripts.min.js', array('jquery', 'slick', 'isotope'), null, true);
-
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
-    
-    wp_enqueue_script('custom-script', get_template_directory_uri() . '/js/custom.js', array('jquery'), null, true);
-    wp_enqueue_script('apply-field-id', get_template_directory_uri() . '/js/apply-field-id.js', array('jquery'), null, true);
-    wp_enqueue_script('process-participants-comments', get_template_directory_uri() . '/js/process-participants-comments.js', array('jquery'), null, true);
 }
 
 add_action('wp_enqueue_scripts', 'ligaDebate_scripts');
-
-add_action('wpcf7_before_send_mail', 'handle_dynamic_participant_fields' );
-add_action('wpcf7_before_send_mail', 'handle_dynamic_participant_fields');
-function handle_dynamic_participant_fields($contact_form) {
-    $submission = WPCF7_Submission::get_instance();
-    if ($submission) {
-        $posted_data = $submission->get_posted_data();
-        $mail = $contact_form->prop('mail'); 
-        $email_body = $mail['body'];
-        $email_body .= "\n";
-        
-        $participant_count = isset($posted_data['participant-count']) ? (int) $posted_data['participant-count'] : 1;
-        
-        for ($i = 1; $i <= $participant_count; $i++) {
-            $participant_info = "Participante $i:\n";
-            $participant_info .= "Nombre: " . (isset($posted_data["participant-$i-first-name"]) ? $posted_data["participant-$i-first-name"] : '') . "\n";
-            $participant_info .= "Apellidos: " . (isset($posted_data["participant-$i-last-name"]) ? $posted_data["participant-$i-last-name"] : '') . "\n";
-            $participant_info .= "E-mail: " . (isset($posted_data["participant-$i-email"]) ? $posted_data["participant-$i-email"] : '') . "\n";
-            $participant_info .= "Colegio/IES: " . (isset($posted_data["participant-$i-school"]) ? $posted_data["participant-$i-school"] : '') . "\n";
-            $participant_info .= "Municipio: " . (isset($posted_data["participant-$i-municipality"]) ? $posted_data["participant-$i-municipality"] : '') . "\n";
-            $participant_info .= "Comunidad Autónoma: " . (isset($posted_data["participant-$i-autonomous-community"]) ? $posted_data["participant-$i-autonomous-community"] : '') . "\n";
-            $participant_info .= "Etapa (ESO o Bachillerato): " . (isset($posted_data["participant-$i-stage"]) ? $posted_data["participant-$i-stage"] : '') . "\n";
-            $participant_info .= "Curso: " . (isset($posted_data["participant-$i-course"]) ? $posted_data["participant-$i-course"] : '') . "\n";
-            $participant_info .= "Profesor(a)/Tutor(a) de la Liga: " . (isset($posted_data["participant-$i-tutor"]) ? $posted_data["participant-$i-tutor"] : '') . "\n";
-            $participant_info .= "Capitán: " . (isset($posted_data["participant-$i-captain"]) && $posted_data["participant-$i-captain"] ? 'Sí' : 'No') . "\n";
-            $participant_info .= "Comentarios: " . (isset($posted_data["participant-$i-comments"]) ? $posted_data["participant-$i-comments"] : '') . "\n\n";
-
-            $email_body .= $participant_info;
-        }
-
-        $mail['body'] = $email_body;
-        $contact_form->set_properties(array('mail' => $mail));
-
-        // Return the form object if you've modified it
-        return $contact_form;
-    }
-}
 
 
 /**

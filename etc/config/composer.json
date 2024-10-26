@@ -5,13 +5,11 @@
     "wpackagist-plugin/wp-super-cache": "*",
     "wpackagist-plugin/wp-mail-smtp": "*",
     "wpackagist-plugin/contact-form-7": "*",
-    "wpackagist-plugin/wp-carousel-free": "*",
     "wpackagist-plugin/smart-slider-3": "*",
     "wpackagist-plugin/meta-box": "*",
     "cts-web/slider-inserter": "dev-main",
     "wpackagist-plugin/widget-context": "*",
     "wpackagist-plugin/classic-widgets": "*",
-    "wpackagist-plugin/autoptimize": "*",
     "hexcss/wp-cloud-upload": "dev-master"
   },
   "repositories": [
