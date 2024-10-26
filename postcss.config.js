@@ -23,14 +23,6 @@ module.exports = {
           }
         }],
       }),
-      require('@fullhuman/postcss-purgecss')({
-        content: [
-            './**/*.php',         // Scan all PHP files in the theme
-            './**/*.html',        // Include any HTML files
-            './**/*.js'           // Include any JavaScript files
-          ],
-          defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-      })
     ],
   };
   
