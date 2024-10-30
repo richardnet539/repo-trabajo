@@ -27,7 +27,7 @@ pipeline{
             steps { 
                 echo '==== BUILD & PUSH DOCKER IMAGE ===='
                 sh 'docker login ${SERVER_REG} -u ${DOCKER_USER} -p ${DOCKER_PASS}'
-                sh 'docker build -f ../../docker/Dockerfile.beta --no-cache -t ${SERVER_REG}/${THEME_NAME}:${BRANCH_NAME}-${BUILD_ID} --build-arg THEME_NAME=${THEME_NAME} .'
+                sh 'docker build -f etc/docker/Dockerfile.beta --no-cache -t ${SERVER_REG}/${THEME_NAME}:${BRANCH_NAME}-${BUILD_ID} --build-arg THEME_NAME=${THEME_NAME} ${WORKSPACE}'
                 sh 'docker push ${SERVER_REG}/${THEME_NAME}:${BRANCH_NAME}-${BUILD_ID}'
                 echo '==== FINISHED DOCKER IMAGE ===='
             }
