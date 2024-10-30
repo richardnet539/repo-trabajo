@@ -5,18 +5,18 @@ ARG THEME_NAME
 
 WORKDIR /usr/src/wordpress
 
-COPY ../../ ./wp-content/themes/${THEME_NAME}/
-COPY ../config/wp-config.php ./wp-config.php
+# Adjust paths for the correct context
+COPY / ./wp-content/themes/${THEME_NAME}/
+COPY etc/config/wp-config.php ./wp-config.php
 
 # Stage 2: Final
 FROM registry.ctdesarrollo-sdr.org/presencia-web/nginx-fpm-8:latest
 
-COPY ../nginx/default.beta.conf /etc/nginx/conf.d/default.conf
+COPY etc/nginx/default.beta.conf /etc/nginx/conf.d/default.conf
 
 RUN mkdir -p /tmp/nginx/client_body /tmp/nginx/proxy /tmp/nginx/fastcgi && \
     chown -R www-data:www-data /tmp/nginx && \
     chmod -R 755 /tmp/nginx
-
 
 WORKDIR /var/www/html
 
@@ -37,4 +37,3 @@ VOLUME /var/www/html/wp-content/uploads
 VOLUME /var/www/html/wp-content/plugins
 
 EXPOSE 80
-
