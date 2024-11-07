@@ -125,6 +125,10 @@ pipeline {
                                 '''
                             }
 
+                            sh '''
+                                sshpass -p "${SSH_PASS}" rsync -avz --rsync-path="mkdir -p ${SERVICES_DIRECTORY}/${THEME_NAME}/themes/${THEME_NAME} && rsync" -e "ssh -o StrictHostKeyChecking=no" ${THEME_SOURCE_DIRECTORY}/ ${SSH_USER}@${SSH_HOST}:${SERVICES_DIRECTORY}/${THEME_NAME}/themes/${THEME_NAME}/
+                            '''
+
                             // Run the new container
                             sh '''
                                 sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
