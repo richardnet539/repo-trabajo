@@ -1,4 +1,4 @@
-def slackResponse = slackSend(channel: "#ctsweb-builds", color: '#65A4F1', message: "Se esta desplegando ${JOB_NAME} build #${BUILD_NUMBER}")
+def slackResponse = slackSend(channel: "#ctsweb-builds", color: '#65A4F1', message: "Se está desplegando ${JOB_NAME} build #${BUILD_NUMBER}")
 
 pipeline {
     agent any
@@ -22,7 +22,7 @@ pipeline {
         LATEST_THEME_IMAGE = "${SERVER_REG}/${THEME_NAME}:latest"
 
         /** THEME SOURCE DIRECTORY **/
-        THEME_SOURCE_DIRECTORY = "${WORKSPACE}"
+        THEME_SOURCE_DIRECTORY = "${WORKSPACE}/wp-content/themes/${THEME_NAME}"
     }
 
     stages {
@@ -33,16 +33,19 @@ pipeline {
                     // Check if container is running on the remote server
                     def containerRunning = sh(
                         script: '''
-                            sshpass -p "${SSH_PASS}" ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
+                            sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
                             docker ps -q -f name=${THEME_NAME}
                             "
                         ''',
                         returnStdout: true
                     ).trim()
 
+                    echo "containerRunning: '${containerRunning}'"
+
                     if (containerRunning) {
                         echo "Container ${THEME_NAME} is already running. Skipping image build."
                     } else {
+                        echo "Container ${THEME_NAME} is not running. Proceeding to build image."
                         // Proceed to build and push the image
                         sh 'docker login ${SERVER_REG} -u ${DOCKER_USER} -p ${DOCKER_PASS}'
                         sh 'docker build -f etc/docker/Dockerfile.beta --no-cache -t ${SERVER_REG}/${THEME_NAME}:${BRANCH_NAME}-${BUILD_ID} --build-arg THEME_NAME=${THEME_NAME} ${WORKSPACE}'
@@ -76,26 +79,48 @@ pipeline {
                         // Check if container is running
                         def containerRunning = sh(
                             script: '''
-                                sshpass -p "${SSH_PASS}" ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
+                                sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
                                 docker ps -q -f name=${THEME_NAME}
                                 "
                             ''',
                             returnStdout: true
                         ).trim()
 
+                        echo "containerRunning: '${containerRunning}'"
+
                         if (containerRunning) {
                             echo "Container ${THEME_NAME} is already running. Skipping redeploy."
-                            // Copy theme files from Jenkins workspace to remote directory
+                            // Use rsync to copy theme files from Jenkins workspace to remote directory
                             sh '''
-                                sshpass -p "${SSH_PASS}" scp -o StrictHostKeyChecking=no -r ${THEME_SOURCE_DIRECTORY}/* ${SSH_USER}@${SSH_HOST}:${SERVICES_DIRECTORY}/${THEME_NAME}/themes/${THEME_NAME}/
+                                sshpass -p "${SSH_PASS}" rsync -avz -e "ssh -o StrictHostKeyChecking=no" ${THEME_SOURCE_DIRECTORY}/ ${SSH_USER}@${SSH_HOST}:${SERVICES_DIRECTORY}/${THEME_NAME}/themes/${THEME_NAME}/
                             '''
                         } else {
+                            echo "Container ${THEME_NAME} is not running. Proceeding to deploy."
                             // Log in to the Docker registry on the remote server
-                            sh 'sshpass -p "${SSH_PASS}" ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "docker login ${SERVER_REG} -u ${DOCKER_USER} -p ${DOCKER_PASS}"'
+                            sh 'sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "docker login ${SERVER_REG} -u ${DOCKER_USER} -p ${DOCKER_PASS}"'
+
+                            // Remove existing container if it exists but is stopped
+                            def containerExists = sh(
+                                script: '''
+                                    sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
+                                    docker ps -a -q -f name=${THEME_NAME}
+                                    "
+                                ''',
+                                returnStdout: true
+                            ).trim()
+
+                            if (containerExists) {
+                                echo "Container ${THEME_NAME} exists but is not running. Removing it."
+                                sh '''
+                                    sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
+                                    docker rm ${THEME_NAME}
+                                    "
+                                '''
+                            }
 
                             // Run the new container
                             sh '''
-                                sshpass -p "${SSH_PASS}" ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
+                                sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
                                     docker run --name ${THEME_NAME} -dit --restart always \\
                                     -v ${SERVICES_DIRECTORY}/${THEME_NAME}/uploads:/var/www/html/wp-content/uploads \\
                                     -v ${SERVICES_DIRECTORY}/${THEME_NAME}/plugins:/var/www/html/wp-content/plugins \\
