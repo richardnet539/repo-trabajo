@@ -35,5 +35,6 @@ RUN mkdir -p /var/www/html/wp-content/upgrade && \
 
 VOLUME /var/www/html/wp-content/uploads
 VOLUME /var/www/html/wp-content/plugins
+VOLUME /var/www/html/wp-content/themes
 
 EXPOSE 80
