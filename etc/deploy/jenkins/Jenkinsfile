@@ -33,7 +33,7 @@ pipeline {
                     // Check if container is running on the remote server
                     def containerRunningOutput = sh(
                         script: '''
-                            sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
+                            sshpass -p "${SSH_PASS}" ssh -q -T -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
                             docker ps -q -f name=${THEME_NAME}
                             "
                         ''',
@@ -80,7 +80,7 @@ pipeline {
                         // Check if container is running
                         def containerRunningOutput = sh(
                             script: '''
-                                sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
+                                sshpass -p "${SSH_PASS}" ssh -q -T -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
                                 docker ps -q -f name=${THEME_NAME}
                                 "
                             ''',
@@ -90,21 +90,23 @@ pipeline {
                         // Extract the container ID from the output
                         def containerRunning = containerRunningOutput.find(/[0-9a-f]{12,64}/) ?: ''
 
+                        // Copy theme files to host directory
+                        sh '''
+                            sshpass -p "${SSH_PASS}" scp -q -o StrictHostKeyChecking=no -r ${THEME_SOURCE_DIRECTORY}/* ${SSH_USER}@${SSH_HOST}:${SERVICES_DIRECTORY}/${THEME_NAME}/themes/${THEME_NAME}/
+                        '''
+
                         if (containerRunning) {
                             echo "Container ${THEME_NAME} is already running. Skipping redeploy."
-                            // Use rsync to copy theme files from Jenkins workspace to remote directory
-                            sh '''
-                                sshpass -p "${SSH_PASS}" rsync -avz -e "ssh -o StrictHostKeyChecking=no" ${THEME_SOURCE_DIRECTORY}/ ${SSH_USER}@${SSH_HOST}:${SERVICES_DIRECTORY}/${THEME_NAME}/themes/${THEME_NAME}/
-                            '''
                         } else {
                             echo "Container ${THEME_NAME} is not running. Proceeding to deploy."
+
                             // Log in to the Docker registry on the remote server
-                            sh 'sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "docker login ${SERVER_REG} -u ${DOCKER_USER} -p ${DOCKER_PASS}"'
+                            sh 'sshpass -p "${SSH_PASS}" ssh -q -T -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "docker login ${SERVER_REG} -u ${DOCKER_USER} -p ${DOCKER_PASS}"'
 
                             // Remove existing container if it exists but is stopped
                             def containerExistsOutput = sh(
                                 script: '''
-                                    sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
+                                    sshpass -p "${SSH_PASS}" ssh -q -T -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
                                     docker ps -a -q -f name=${THEME_NAME}
                                     "
                                 ''',
@@ -119,20 +121,15 @@ pipeline {
                             if (containerExists) {
                                 echo "Container ${THEME_NAME} exists but is not running. Removing it."
                                 sh '''
-                                    sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
+                                    sshpass -p "${SSH_PASS}" ssh -q -T -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
                                     docker rm ${THEME_NAME}
                                     "
                                 '''
                             }
 
-                            // Copy theme files to host directory
-                            sh '''
-                                sshpass -p "${SSH_PASS}" rsync -avz -e "ssh -T -o LogLevel=ERROR -o BatchMode=yes -o StrictHostKeyChecking=no" ${THEME_SOURCE_DIRECTORY}/ ${SSH_USER}@${SSH_HOST}:${SERVICES_DIRECTORY}/${THEME_NAME}/themes/${THEME_NAME}/
-                            '''
-
                             // Run the new container
                             sh '''
-                                sshpass -p "${SSH_PASS}" ssh -q -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
+                                sshpass -p "${SSH_PASS}" ssh -q -T -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
                                     docker run --name ${THEME_NAME} -dit --restart always \\
                                     -v ${SERVICES_DIRECTORY}/${THEME_NAME}/uploads:/var/www/html/wp-content/uploads \\
                                     -v ${SERVICES_DIRECTORY}/${THEME_NAME}/plugins:/var/www/html/wp-content/plugins \\
