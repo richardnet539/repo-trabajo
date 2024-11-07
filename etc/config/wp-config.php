@@ -110,8 +110,14 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strpos($_SERVER['HTTP_X_FORWARD
 	$_SERVER['HTTPS'] = 'on';
 }
 
+$db_host = getenv('WORDPRESS_DB_HOST');
+
+if (strpos($db_host, ':') !== false) {
+    $db_host = explode(':', $db_host)[0];
+}
+
 define('FS_METHOD', 'direct');
-define('WP_REDIS_HOST', getenv('WORDPRESS_DB_HOST'));
+define('WP_REDIS_HOST', $db_host);
 define('WP_REDIS_PORT', 6379);
 define('WP_CACHE', true);
 define('WP_REDIS_PREFIX', getenv('WORDPRESS_DB_NAME'));
