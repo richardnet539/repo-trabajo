@@ -40,8 +40,6 @@ pipeline {
                         returnStdout: true
                     ).trim()
 
-                    echo "containerRunningOutput: '${containerRunningOutput}'"
-
                     // Extract the container ID from the output
                     def containerRunning = containerRunningOutput.find(/[0-9a-f]{12,64}/) ?: ''
 
@@ -88,8 +86,6 @@ pipeline {
                             ''',
                             returnStdout: true
                         ).trim()
-
-                        echo "containerRunningOutput: '${containerRunningOutput}'"
 
                         // Extract the container ID from the output
                         def containerRunning = containerRunningOutput.find(/[0-9a-f]{12,64}/) ?: ''
