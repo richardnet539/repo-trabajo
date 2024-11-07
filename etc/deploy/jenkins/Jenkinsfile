@@ -22,7 +22,7 @@ pipeline {
         LATEST_THEME_IMAGE = "${SERVER_REG}/${THEME_NAME}:latest"
 
         /** THEME SOURCE DIRECTORY **/
-        THEME_SOURCE_DIRECTORY = "${WORKSPACE}/wp-content/themes/${THEME_NAME}"
+        THEME_SOURCE_DIRECTORY = "${WORKSPACE}"
     }
 
     stages {
