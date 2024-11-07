@@ -125,11 +125,6 @@ pipeline {
                                 '''
                             }
 
-                            // Ensure the theme directory exists
-                            sh '''
-                                sshpass -p "${SSH_PASS}" ssh -T -o LogLevel=ERROR -o BatchMode=yes -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "mkdir -p ${SERVICES_DIRECTORY}/${THEME_NAME}/themes/${THEME_NAME}"
-                            '''
-
                             // Copy theme files to host directory
                             sh '''
                                 sshpass -p "${SSH_PASS}" rsync -avz -e "ssh -T -o LogLevel=ERROR -o BatchMode=yes -o StrictHostKeyChecking=no" ${THEME_SOURCE_DIRECTORY}/ ${SSH_USER}@${SSH_HOST}:${SERVICES_DIRECTORY}/${THEME_NAME}/themes/${THEME_NAME}/
