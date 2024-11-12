@@ -90,6 +90,11 @@ pipeline {
                         // Extract the container ID from the output
                         def containerRunning = containerRunningOutput.find(/[0-9a-f]{12,64}/) ?: ''
 
+                        // Ensure the remote directory exists
+                        sh '''
+                            sshpass -p "${SSH_PASS}" ssh -q -T -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "mkdir -p ${SERVICES_DIRECTORY}/${THEME_NAME}/themes/${THEME_NAME}"
+                        '''
+
                         // Copy theme files to host directory
                         sh '''
                             sshpass -p "${SSH_PASS}" scp -q -o StrictHostKeyChecking=no -r ${THEME_SOURCE_DIRECTORY}/* ${SSH_USER}@${SSH_HOST}:${SERVICES_DIRECTORY}/${THEME_NAME}/themes/${THEME_NAME}/
