@@ -25,6 +25,8 @@ pipeline {
         THEME_SOURCE_DIRECTORY = "${WORKSPACE}"
     }
 
+
+  
     stages {
         stage('Build & Push Docker Image') {
             steps {
@@ -34,7 +36,7 @@ pipeline {
                     def containerRunningOutput = sh(
                         script: '''
                             sshpass -p "${SSH_PASS}" ssh -q -T -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
-                            docker ps -q -f name=${THEME_NAME}
+                            docker ps -q -f name=^/${THEME_NAME}$
                             "
                         ''',
                         returnStdout: true
@@ -81,7 +83,7 @@ pipeline {
                         def containerRunningOutput = sh(
                             script: '''
                                 sshpass -p "${SSH_PASS}" ssh -q -T -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
-                                docker ps -q -f name=${THEME_NAME}
+                                docker ps -q -f name=^/${THEME_NAME}$
                                 "
                             ''',
                             returnStdout: true
@@ -112,7 +114,7 @@ pipeline {
                             def containerExistsOutput = sh(
                                 script: '''
                                     sshpass -p "${SSH_PASS}" ssh -q -T -o LogLevel=ERROR -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "
-                                    docker ps -a -q -f name=${THEME_NAME}
+                                    docker ps -a -q -f name=^/${THEME_NAME}$
                                     "
                                 ''',
                                 returnStdout: true
