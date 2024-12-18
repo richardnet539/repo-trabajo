@@ -8,6 +8,7 @@
     "wpackagist-plugin/smart-slider-3": "*",
     "wpackagist-plugin/meta-box": "*",
     "cts-web/slider-inserter": "dev-main",
+    "cts-web/webform-builder": "dev-main",
     "wpackagist-plugin/widget-context": "*",
     "wpackagist-plugin/classic-widgets": "*",
     "hexcss/wp-cloud-upload": "dev-master"
@@ -20,6 +21,10 @@
     {
       "type": "vcs",
       "url": "https://code.ctdesarrollo-sdr.org/cts-web/wordpress/custom-plugins/slider-post-inserter.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://code.ctdesarrollo-sdr.org/cts-web/wordpress/custom-plugins/webform-builder.git"
     }
   ],
   "extra": {
