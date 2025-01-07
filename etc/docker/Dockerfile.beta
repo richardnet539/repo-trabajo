@@ -5,18 +5,13 @@ ARG THEME_NAME
 
 WORKDIR /usr/src/wordpress
 
-# Adjust paths for the correct context
-COPY / ./wp-content/themes/${THEME_NAME}/
-COPY etc/config/wp-config.php ./wp-config.php
+COPY ./ ./wp-content/themes/${THEME_NAME}/
+COPY ./etc/config/wp-config.php ./wp-config.php
 
 # Stage 2: Final
 FROM registry.ctdesarrollo-sdr.org/presencia-web/nginx-fpm-8:latest
 
-COPY etc/nginx/default.beta.conf /etc/nginx/conf.d/default.conf
-
-RUN mkdir -p /tmp/nginx/client_body /tmp/nginx/proxy /tmp/nginx/fastcgi && \
-    chown -R www-data:www-data /tmp/nginx && \
-    chmod -R 755 /tmp/nginx
+COPY /etc/nginx/default.beta.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /var/www/html
 
@@ -32,6 +27,11 @@ RUN mkdir -p /var/www/html/wp-content/upgrade && \
     find /var/www/html -type f -exec chmod 644 {} \; && \
     chown -R www-data:www-data /var/www/html/wp-content && \
     chmod -R 775 /var/www/html/wp-content
+
+# Ensure the necessary directories exist for Nginx temporary files
+RUN mkdir -p /tmp/nginx/client_body /tmp/nginx/proxy /tmp/nginx/fastcgi && \
+    chown -R www-data:www-data /tmp/nginx && \
+    chmod -R 755 /tmp/nginx
 
 VOLUME /var/www/html/wp-content/uploads
 VOLUME /var/www/html/wp-content/plugins
