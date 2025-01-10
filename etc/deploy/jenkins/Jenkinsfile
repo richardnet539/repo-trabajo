@@ -30,6 +30,7 @@ pipeline {
     stages {
         stage('Build & Push Docker Image') {
             steps {
+                echo "TEST JENKINS WEBHOOK"
                 echo '==== BUILD & PUSH DOCKER IMAGE ===='
                 script {
                     // Check if container is running on the remote server
