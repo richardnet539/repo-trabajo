@@ -18,10 +18,7 @@ steps:
     args: ['push', '${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/${_SERVICE_NAME}']
     id: 'push-image'
     waitFor: ['build']
-    args:
-      - '-c'
-      - echo "TEST WEBHOOK CLOUD RUN"
-        
+
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
