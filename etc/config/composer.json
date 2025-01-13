@@ -11,7 +11,8 @@
     "cts-web/webform-builder": "dev-master",
     "wpackagist-plugin/widget-context": "*",
     "wpackagist-plugin/classic-widgets": "*",
-    "hexcss/wp-cloud-upload": "dev-master"
+    "hexcss/wp-cloud-upload": "dev-master",
+    "wpackagist-plugin/wp-statistics":"*"
   },
   "repositories": [
     {
