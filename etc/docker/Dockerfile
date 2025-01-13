@@ -60,7 +60,6 @@ COPY --from=build /usr/src/wordpress/wp-content/themes/${THEME_NAME} /var/www/ht
 COPY --from=build /usr/src/wordpress/wp-content/themes/twentytwentyfour /var/www/html/wp-content/themes/twentytwentyfour
 COPY --from=build /usr/src/wordpress/wp-content/plugins /var/www/html/wp-content/plugins
 COPY --from=build /usr/src/wordpress/composer.json /var/www/html/composer.json
-COPY /etc/config/wp-cache-config.php /var/www/html/wp-content/wp-cache-config.php
 
 # Ensure wp-content/upgrade directory exists
 RUN mkdir -p wp-content/upgrade
@@ -68,9 +67,6 @@ RUN mkdir -p wp-content/upgrade
 # Set ownership and permissions for the entire /var/www/html directory
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 755 /var/www/html
-
-RUN chown www-data:www-data /var/www/html/wp-content/wp-cache-config.php && \
-    chmod 644 /var/www/html/wp-content/wp-cache-config.php
 
 # Ensure Nginx and PHP-FPM directories have correct permissions
 RUN mkdir -p /var/run/php && \
