@@ -88,6 +88,11 @@
     }
 }
 
+.icon-sm {
+    width: 64px;
+    height: auto;
+}
+
 .card-wrapped-3 {
     border: 0;
     background: blue;
@@ -904,7 +909,7 @@
     right: 0;
     z-index: 2;
     float: right;
-    margin-top: 4px;
+    margin-top: 2px;
     margin-left: 20px;
     .form-search {
         box-sizing: content-box;
@@ -1121,6 +1126,7 @@
 
 .divisor-titles {
     padding-top: 5px;
+    padding-inline: 10px;
 }
 
 .heading-style-1 {
@@ -1944,3 +1950,7 @@ th {
     width: 55px;
     border-radius: 5px;
 }
+
+.wrapped-img--pastel-cyan .wrapped-img__image {
+    border-color: #6398C6;
+  }
