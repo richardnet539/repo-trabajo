@@ -407,6 +407,11 @@ blockquote {
   height: auto;
 }
 
+.icon-sm {
+  width: 64px;
+  height: auto;
+}
+
 .card-wrapped-3 {
   border: 0;
   background: blue;
@@ -1238,7 +1243,7 @@ blockquote {
   right: 0;
   z-index: 2;
   float: right;
-  margin-top: 4px;
+  margin-top: 2px;
   margin-left: 20px;
 }
 .search-block-form .form-search {
@@ -1431,6 +1436,7 @@ blockquote {
 
 .divisor-titles {
   padding-top: 5px;
+  padding-inline: 10px;
 }
 
 .heading-style-1 {
@@ -2200,6 +2206,10 @@ th {
   border-bottom: 3px solid #289fd2;
   width: 55px;
   border-radius: 5px;
+}
+
+.wrapped-img--pastel-cyan .wrapped-img__image {
+  border-color: #6398C6;
 }
 
 .color-primary {
