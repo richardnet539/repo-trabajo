@@ -318,7 +318,7 @@ function ligaDebate_scripts()
     wp_enqueue_style('ligaDebate-bootstrapcss', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css');
 
     // Theme Styles
-    wp_enqueue_style('ligaDebate-style', get_template_directory_uri() . '/style.min.css');
+    wp_enqueue_style('ligaDebate-style', get_template_directory_uri() . '/style.css');
 
     // Bootstrap default JS
     wp_enqueue_script('ligaDebate-bootstrapjs', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js', array('jquery'), '1', true);

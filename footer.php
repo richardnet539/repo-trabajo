@@ -18,7 +18,7 @@
 <footer id="colophon" class="site-footer bg-dimgray color-white">
     <div class="container">
         <div class="site-info py-2 text-right" style="font-size: 13px;">
-            &copy; Copyright Universidad Europea del Atlántico
+            &copy; Copyright Universidad Europea del Atlántico <?php echo date('Y'); ?>
             <?php
             wp_nav_menu(
                 array(
