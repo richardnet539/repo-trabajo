@@ -23,8 +23,11 @@
     <link rel="preconnect" href="https://use.fontawesome.com">
 
     <!-- Preload fonts for faster rendering -->
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap" rel="stylesheet"></noscript>
+    <!-- Preload Inter font for faster rendering -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    </noscript>
 
     <!-- CookiePro Scripts Deferred -->
     <script>
