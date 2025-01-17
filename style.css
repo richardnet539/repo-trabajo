@@ -2068,7 +2068,7 @@ th {
 }
 
 .wp-block-group .wp-block-columns {
-  border: 1px solid #EDE2E2;
+  border: 1px solid #ede2e2;
   background-color: #f8f8f8;
   padding: 30px 30px 20px 30px;
   border-radius: 10px;
@@ -2077,7 +2077,7 @@ th {
 
 .wp-block-group .wp-block-columns .wp-block-column .wp-block-group h3 {
   font-size: 22px;
-  color: #58595B;
+  color: #58595b;
 }
 
 .wp-block-group .wp-block-columns .wp-block-column .wp-block-group p {
@@ -2103,11 +2103,11 @@ th {
 
 .participant-block {
   max-width: 500px;
-  background-color: #F2F5FA;
+  background-color: #f2f5fa;
   border-radius: 10px;
   row-gap: 60px;
   font-size: 14px;
-  color: #58595B;
+  color: #58595b;
   padding: 26px;
 }
 .participant-block .participant-grid {
@@ -2119,7 +2119,7 @@ th {
   flex-direction: column;
 }
 .participant-block input {
-  border: 2px solid #E1E1E1;
+  border: 2px solid #e1e1e1;
   border-radius: 10px;
   max-width: 245px;
 }
@@ -2202,13 +2202,40 @@ th {
   }
 }
 .divisor-cards {
-  border-bottom: 3px solid #289fd2;
+  border-bottom: 3px solid #6398c6;
   width: 55px;
   border-radius: 5px;
 }
 
 .wrapped-img--pastel-cyan .wrapped-img__image {
-  border-color: #6398C6;
+  border-color: #6398c6;
+}
+
+#menu-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#menu-footer li {
+  position: relative;
+  padding: 0 15px;
+}
+#menu-footer li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 1px;
+  background-color: white;
+}
+#menu-footer a {
+  color: white !important;
+  text-decoration: none;
 }
 
 .color-primary {
