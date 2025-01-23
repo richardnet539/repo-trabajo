@@ -1,4 +1,5 @@
 <?php
+
 /**
  * liga-de-debate functions and definitions
  *
@@ -447,22 +448,15 @@ add_filter("the_excerpt", "add_class_to_excerpt");
 //Strings Polylang
 
 /*GDPR*/
-add_action('gdpr_custom_button_styles','gdpr_custom_button_styles',10,1);
-function gdpr_custom_button_styles( $css ) {
+add_action('gdpr_custom_button_styles', 'gdpr_custom_button_styles', 10, 1);
+function gdpr_custom_button_styles($css)
+{
     $css = 'border-radius: 5px;';
     return $css;
 }
 
-add_action('template_redirect', function() {
+add_action('wp', function () {
     if (isset($_GET['_gl'])) {
-        // Remove the `_gl` query parameter
-        $current_url = home_url(add_query_arg());
-        $clean_url = remove_query_arg('_gl', $current_url);
-
-        // Redirect only if the query parameter exists
-        if ($current_url !== $clean_url) {
-            wp_redirect($clean_url, 301); // Permanent redirect
-            exit;
-        }
+        unset($_GET['_gl']);
     }
 });
