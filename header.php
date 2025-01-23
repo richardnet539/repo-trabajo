@@ -30,7 +30,7 @@
     </noscript>
 
     <!-- CookiePro Scripts Deferred -->
-    <!-- <script>
+    <script>
 		// Load OtAutoBlock.js deferred
 		var autoblockScript = document.createElement('script');
 		autoblockScript.src = "https://cookie-cdn.cookiepro.com/consent/018e9a60-e772-7722-82c3-98dae004d75e/OtAutoBlock.js";
@@ -50,7 +50,7 @@
 
 		// Define the required function
 		function OptanonWrapper() { }
-	</script> -->
+	</script>
 
     <?php wp_head(); ?>
 </head>
