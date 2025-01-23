@@ -453,9 +453,16 @@ function gdpr_custom_button_styles( $css ) {
     return $css;
 }
 
-add_filter('redirect_canonical', function($redirect_url) {
+add_action('template_redirect', function() {
     if (isset($_GET['_gl'])) {
-        return false; // Disable redirection for URLs with _gl parameter
+        // Remove the `_gl` query parameter
+        $current_url = home_url(add_query_arg());
+        $clean_url = remove_query_arg('_gl', $current_url);
+
+        // Redirect only if the query parameter exists
+        if ($current_url !== $clean_url) {
+            wp_redirect($clean_url, 301); // Permanent redirect
+            exit;
+        }
     }
-    return $redirect_url;
 });
