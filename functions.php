@@ -453,3 +453,9 @@ function gdpr_custom_button_styles( $css ) {
     return $css;
 }
 
+add_filter('redirect_canonical', function($redirect_url) {
+    if (isset($_GET['_gl'])) {
+        return false; // Disable redirection for URLs with _gl parameter
+    }
+    return $redirect_url;
+});
