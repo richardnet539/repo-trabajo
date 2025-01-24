@@ -29,28 +29,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     </noscript>
 
-    <!-- CookiePro Scripts Deferred -->
-    <script>
-		// Load OtAutoBlock.js deferred
-		var autoblockScript = document.createElement('script');
-		autoblockScript.src = "https://cookie-cdn.cookiepro.com/consent/018e9a60-e772-7722-82c3-98dae004d75e/OtAutoBlock.js";
-		autoblockScript.setAttribute('defer', 'defer');
-		document.head.appendChild(autoblockScript);
-
-		// Dynamically load the otSDKStub.js script after the page load
-		window.addEventListener('load', function() {
-			var script = document.createElement('script');
-			script.src = "https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js";
-			script.setAttribute('data-language', 'es');
-			script.setAttribute('type', 'text/javascript');
-			script.setAttribute('charset', 'UTF-8');
-			script.setAttribute('data-domain-script', '018e9a60-e772-7722-82c3-98dae004d75e');
-			document.body.appendChild(script);
-		});
-
-		// Define the required function
-		function OptanonWrapper() { }
-	</script>
+<!-- CookiePro Cookies Consent Notice start for uneatlantico.es -->
+<script type="text/javascript" src="https://cookie-cdn.cookiepro.com/consent/018e9a60-e772-7722-82c3-98dae004d75e/OtAutoBlock.js" ></script>
+<script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="018e9a60-e772-7722-82c3-98dae004d75e" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- CookiePro Cookies Consent Notice end for uneatlantico.es -->
 
     <?php wp_head(); ?>
 </head>
