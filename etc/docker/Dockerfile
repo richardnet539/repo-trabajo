@@ -20,7 +20,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # Use GITLAB_TOKEN build argument for authentication
 ARG GITLAB_TOKEN
-RUN composer config --global gitlab-token.code.ctdesarrollo-sdr.org ${GITLAB_TOKEN}
+RUN composer config --global gitlab-token.gitlab.fbr.group ${GITLAB_TOKEN}
 
 # Remove default plugins and themes except twentytwentyfour
 RUN rm -rf /usr/src/wordpress/wp-content/plugins/* && \
