@@ -21,11 +21,11 @@
     },
     {
       "type": "vcs",
-      "url": "https://code.ctdesarrollo-sdr.org/cts-web/wordpress/custom-plugins/slider-post-inserter.git"
+      "url": "https://gitlab.fbr.group/web-presence/thanos/wordpress/custom-plugins/posts-slider.git"
     },
     {
       "type": "vcs",
-      "url": "https://code.ctdesarrollo-sdr.org/cts-web/wordpress/custom-plugins/webform-builder.git"
+      "url": "https://gitlab.fbr.group/web-presence/thanos/wordpress/custom-plugins/webform-builder.git"
     }
   ],
   "extra": {
