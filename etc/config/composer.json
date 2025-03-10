@@ -9,6 +9,7 @@
     "wpackagist-plugin/meta-box": "*",
     "cts-web/slider-inserter": "dev-main",
     "cts-web/webform-builder": "dev-master",
+    "cts-web/restrict-content-by-ip": "dev-main",
     "wpackagist-plugin/widget-context": "*",
     "wpackagist-plugin/classic-widgets": "*",
     "wpackagist-plugin/wordfence": "*",
@@ -27,6 +28,10 @@
     {
       "type": "vcs",
       "url": "https://gitlab.fbr.group/web-presence/thanos/wordpress/custom-plugins/webform-builder.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.fbr.group/web-presence/thanos/wordpress/custom-plugins/restrict-content-by-ip.git"
     }
   ],
   "extra": {
