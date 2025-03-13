@@ -10,6 +10,7 @@
     "cts-web/slider-inserter": "dev-main",
     "cts-web/webform-builder": "dev-master",
     "cts-web/restrict-content-by-ip": "dev-main",
+    "cts-web/secure-proxy-enabler": "dev-main",
     "wpackagist-plugin/widget-context": "*",
     "wpackagist-plugin/classic-widgets": "*",
     "wpackagist-plugin/wordfence": "*",
@@ -32,6 +33,10 @@
     {
       "type": "vcs",
       "url": "https://gitlab.fbr.group/web-presence/thanos/wordpress/custom-plugins/restrict-content-by-ip.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.fbr.group/web-presence/thanos/wordpress/custom-plugins/secure-proxy-enabler.git"
     }
   ],
   "extra": {
