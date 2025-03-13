@@ -24,8 +24,6 @@ pipeline {
         /** THEME SOURCE DIRECTORY **/
         THEME_SOURCE_DIRECTORY = "${WORKSPACE}"
     }
-
-
   
     stages {
         stage('Build & Push Docker Image') {
