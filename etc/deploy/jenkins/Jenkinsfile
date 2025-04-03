@@ -7,7 +7,7 @@ pipeline {
         THEME_NAME = "liga-de-debate"
 
         /** WEB SERVER **/
-        SSH_HOST = "172.22.4.24"
+        SSH_HOST = "172.22.11.3"
         SSH_USER = "jenkins"
         SSH_PASS = credentials('ssh-pass-web')
 
