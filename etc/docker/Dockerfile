@@ -2,7 +2,7 @@
 ARG PROJECT_ID
 
 # Stage 1: Build
-FROM wordpress:6.7.1-php8.2-apache AS build
+FROM wordpress:6.8.1-php8.4 AS build
 
 WORKDIR /var/www/html
 
