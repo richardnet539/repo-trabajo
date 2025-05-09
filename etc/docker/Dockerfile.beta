@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM wordpress:6.6-php8.2-apache AS build
+FROM wordpress:6.8.1-php8.4 AS build
 
 ARG THEME_NAME
 
