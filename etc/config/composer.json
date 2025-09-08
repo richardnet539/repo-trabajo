@@ -29,10 +29,6 @@
     },
     {
       "type": "vcs",
-      "url": "https://gitlab.fbr.group/web-presence/thanos/wordpress/custom-plugins/posts-slider.git"
-    },
-    {
-      "type": "vcs",
       "url": "https://gitlab.fbr.group/web-presence/thanos/wordpress/custom-plugins/webform-builder.git"
     },
     {
