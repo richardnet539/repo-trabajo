@@ -11,6 +11,7 @@
     "cts-web/webform-builder": "dev-master",
     "cts-web/restrict-content-by-ip": "dev-main",
     "cts-web/secure-proxy-enabler": "dev-main",
+    "cts-web/gologin-plugin": "dev-master",
     "wpackagist-plugin/widget-context": "*",
     "wpackagist-plugin/classic-widgets": "*",
     "wpackagist-plugin/wordfence": "*",
@@ -28,6 +29,10 @@
     },
     {
       "type": "vcs",
+      "url": "https://gitlab.fbr.group/web-presence/thanos/wordpress/custom-plugins/posts-slider.git"
+    },
+    {
+      "type": "vcs",
       "url": "https://gitlab.fbr.group/web-presence/thanos/wordpress/custom-plugins/webform-builder.git"
     },
     {
@@ -37,6 +42,10 @@
     {
       "type": "vcs",
       "url": "https://gitlab.fbr.group/web-presence/thanos/wordpress/custom-plugins/secure-proxy-enabler.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://gitlab.fbr.group/web-presence/thanos/gologin/gologin-plugin.git"
     }
   ],
   "extra": {
