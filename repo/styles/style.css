@@ -1,0 +1,30 @@
+*{
+    box-sizing:border-box ;
+    padding: 5px;
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.retangulo{
+    width: 450px;
+    height: 600px;
+    background-color: blue;
+}
+
+.retangulosss{
+    background-color: red;
+     position: absolute; top: 50%; left: 50%;  transform: translate(-50%, -50%);
+    width: 29%;
+    height: 30%;
+}
+.aretangulo{
+    background-color: green;
+     position: absolute; top: 32%; left: 50%;  transform: translate(-50%, -50%);
+    width: 29%;
+    height: 24%;
+}
