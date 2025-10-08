@@ -2,29 +2,27 @@
 <html>
 
 <head>
-	<title>Pagina login</title>
+	<title>Página de Login</title>
 	<link href="/repo/styles/login.css" rel="stylesheet" />
 </head>
 
 <body>
 	<form action="/index.html" method="post">
-		<h1>Faca el login de tu conta</h1>
+		<h1>Faça o login da sua conta</h1>
 		<div class="email">
 			<label for="user_email">Email:</label>
-			<input type="email" id="user_email" placeholder="exemaple@gmail.com" />
+			<input type="email" id="user_email" placeholder="exemplo@gmail.com" name="user_email" required />
 		</div>
 		<div class="password">
-			<label for="user_password">Password:</label>
+			<label for="user_password">Senha:</label>
 			<input type="password" id="user_password" placeholder="*********" minlength="8" required />
 		</div>
-		<div class="submit-button">
-			<button type="submit">Sign in</button>
-		</div>
-		<textarea id="comentario" placeholder="ingressa tu comentario" name="comentario"></textarea>
-		<p>Acesse la otra pagina</p>
+		<button class="submit-button" type="submit">Entrar</button>
+		<textarea id="comentario" placeholder="Digite seu comentário" name="comentario"></textarea>
+		<p>Acesse a outra página</p>
 		<div class="icons-buttons">
-			<button class="btn-google"></button>
-			<button class="btn-facebook"></button>
+			<button onclick="window.open('https://www.google.com', '_blank')" class="btn-google">Google</button>
+			<button class="btn-facebook">Facebook</button>
 		</div>
 	</form>
 </body>
