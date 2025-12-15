@@ -28,6 +28,11 @@
 	</div><!-- .entry-content -->
 
 	<div>
+		<div class="container-courses-webforms">
+			<?php
+			dynamic_sidebar('webforms-course'); // Webforms widget
+			?>
+		</div>
 		<?php
 		// Store the current post ID
 		$current_post_id = get_the_ID();
@@ -58,10 +63,6 @@
 			}
 		}
 		?>
-		<div class="container-courses-webforms">
-			<?php
-			dynamic_sidebar('webforms-course');
-			?>
-		</div>
+
 	</div>
 </article><!-- #post-<?php the_ID(); ?> -->
