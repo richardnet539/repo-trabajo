@@ -58,5 +58,10 @@
 			}
 		}
 		?>
+		<div class="container-courses-webforms">
+			<?php
+			dynamic_sidebar('webforms-course');
+			?>
+		</div>
 	</div>
 </article><!-- #post-<?php the_ID(); ?> -->
