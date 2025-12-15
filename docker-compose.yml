@@ -1,0 +1,35 @@
+services:
+  db:
+    container_name: db_ligadebate
+    image: mysql:8.0
+    volumes:
+      - db_ligadebate:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: liga_debate
+      MYSQL_USER: liga_admin
+      MYSQL_PASSWORD: password
+  wp:
+    container_name: wp_ligadebate
+    build:
+      context: .
+      dockerfile: ./etc/docker/Dockerfile
+      args:
+        PROJECT_ID: your-gcp-project-id
+        THEME_NAME: liga-debate
+    depends_on:
+      - db
+    ports:
+      - '8105:80'
+    volumes:
+      - ./etc/config/wp-config.php:/var/www/html/wp-config.php
+      - ./:/var/www/html/wp-content/themes/liga-de-debate
+
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: liga_debate
+      WORDPRESS_DB_USER: liga_admin
+      WORDPRESS_DB_PASSWORD: password
+
+volumes:
+  db_ligadebate:

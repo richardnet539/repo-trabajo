@@ -10,6 +10,7 @@ WORKDIR /var/www/html
 RUN apt-get update && apt-get install -y \
     curl \
     unzip \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Composer globally
@@ -18,9 +19,13 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Set the COMPOSER_ALLOW_SUPERUSER environment variable
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Use GITLAB_TOKEN build argument for authentication
+# Use GITLAB_TOKEN build argument for authentication (optional)
 ARG GITLAB_TOKEN
-RUN composer config --global gitlab-token.gitlab.fbr.group ${GITLAB_TOKEN}
+RUN if [ -n "${GITLAB_TOKEN}" ]; then \
+            composer config --global gitlab-token.gitlab.fbr.group "${GITLAB_TOKEN}"; \
+        else \
+            echo "No GITLAB_TOKEN provided, skipping gitlab token config"; \
+        fi
 
 # Remove default plugins and themes except twentytwentyfour
 RUN rm -rf /usr/src/wordpress/wp-content/plugins/* && \
@@ -38,18 +43,14 @@ COPY /etc/config/composer.json /usr/src/wordpress/composer.json
 WORKDIR /usr/src/wordpress
 
 # Install plugins using Composer
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+RUN if [ -n "${GITLAB_TOKEN}" ]; then \
+            composer install --no-interaction --prefer-dist --optimize-autoloader; \
+        else \
+            echo "No GITLAB_TOKEN provided, skipping composer install (private repos require auth)"; \
+        fi
 
-# Stage 2: Final
-FROM europe-west1-docker.pkg.dev/${PROJECT_ID}/wordpress/nginx-php-fpm-alpine:latest
-
-# Copy Nginx configuration
-COPY /etc/nginx/default.conf /etc/nginx/conf.d/default.conf
-
-# Ensure the necessary directories exist for Nginx temporary files
-RUN mkdir -p /tmp/nginx/client_body /tmp/nginx/proxy /tmp/nginx/fastcgi && \
-    chown -R www-data:www-data /tmp/nginx && \
-    chmod -R 755 /tmp/nginx
+# Stage 2: Final (public image for local development)
+FROM wordpress:6.8.1-php8.4-apache
 
 WORKDIR /var/www/html
 

@@ -34,7 +34,7 @@ $query = new WP_Query($args);
 				while ($query->have_posts()):
 					$query->the_post();
 					$counter++;
-					if ($counter == 1) {
+					if ($counter == 1 && !is_paged()) {
 			?>
 						<div class="d-flex justify-content-center">
 							<div class="card-leagues card-leagues__first" onclick="window.location.href='<?php echo esc_url(get_permalink()); ?>'" style="cursor: pointer;">
