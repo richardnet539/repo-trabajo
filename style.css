@@ -246,6 +246,7 @@ blockquote {
   padding-left: 90px;
   color: white;
   box-sizing: border-box;
+  max-width: 615px;
 }
 .card-leagues__description hr {
   width: 42px;

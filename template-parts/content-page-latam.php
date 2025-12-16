@@ -53,11 +53,12 @@ $query = new WP_Query($args);
 										}
 										?>
 									</p>
-
 									<span><?php echo rwmb_meta('date_publication'); ?></span>
+									<?php if (!is_paged()) { ?>
 									<div class="mt-3">
 										<a href="<?php echo esc_url(get_permalink()); ?>" class="btn btn-primary" style="font-weight:600;">¡Inscríbete a la liga!</a>
 									</div>
+									<?php } ?>
 								</div>
 							</div>
 						</div>
